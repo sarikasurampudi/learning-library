@@ -40,49 +40,141 @@ This lab assumes you have completed the following labs:
 
     ![](./images/adw-instance.png " ")
 
-    On the **Tools** tab of your ADW instance, and click on **Open Oracle ML User Administration**.
-
+2. Select **Tools** on the Autonomous Database Details page.
     ![](./images/tools.png " ")
 
+3. Select **Open Oracle ML User Administration**  under the tools. ADW instance, and click on **Open Oracle ML User Administration**.
     ![](./images/open-ml-admin.png " ")
 
-    Sign in as **Username - ADMIN** with the password you used when you created your Autonomous instance.
+4. 4. Sign in as ADMIN user. Provide the **Username - ADMIN** and **Password - WELcome__1234** assigned to you when the ADW instance was created.
 
     ![](./images/ml-login.png  " ")
 
+5. Click **Create** to create a new ML user.
+
+   ![](./images/create.png  " ")
+6. On the Create User form, enter **Username - ML\_USER**, an e-mail address (you can use admin@oracle.com), un-check **Generate password**, and enter a password you will remember. You can use the same password you used for the ADMIN account. Then click **Create**.
+
+    ![](./images/create-ml-user.png  " ")
+
+7.  Notice that the **ML\_USER** is created.
+
+    ![](./images/ml-user-created.png " ")
+
+## Task 2: Grant Privileges to ML_USER to access Database Actions
+
+1.  Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, select **Autonomous Data Warehouse** and navigate to your ADW instance.
+
+    	![](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/database-adw.png " ")
+
+        ![](./images/adw-instance.png " ")
+
+2.  Select **Tools** on the Autonomous Database Details page.
+
+        ![](./images/tools.png " ")
+
+3. Select **Open Database Actions** under the tools.
+
+        ![](./images/open-database-actions.png  " ")
+
+4. On the Database Actions login page, log in with your ADW credentials, provide the **Username - ADMIN** and click **Next**. Then provide the **Password - WELcome__1234** created for the Autonomous instance and click **Sign in**.
+
+        ![](./images/ml-admin.png " ")
+
+        ![](./images/ml-admin-password.png " ")
+
+5. From the Database Action menu, select **SQL**.
+
+        ![](./images/sql.png " ")
+
+6. Dismiss the Help by clicking on the **X** in the popup.
+
+        ![](./images/click-x.png  " ")
+
+7.  By default, only the ADMIN user can use the SQL Developer Web. To enable ML\_USER to use it, you need to enter the following and execute the procedure to grant SQL developer web access to ML\_USER.
+
+        ````
+        <copy>
+        BEGIN
+          ORDS_ADMIN.ENABLE_SCHEMA(
+            p_enabled => TRUE,
+            p_schema => 'ML_USER',
+            p_url_mapping_type => 'BASE_PATH',
+            p_url_mapping_pattern => 'ml_user',
+            p_auto_rest_auth => TRUE
+          );
+          COMMIT;
+        END;
+        /
+        </copy>
+        ````
+
+        ![](./images/grant-mluser-access.png " ")
+
+        ![](./images/mluser-access-granted.png " ")
+
+8.  Grant storage privileges to ML\_USER.
+
+        ````
+        <copy>
+        alter user ml_user quota 100m on data;
+        </copy>
+        ````
+
+        ![](./images/storage-privileges.png " ")
+
+## Task 3: Create ML Notebook
+
+1.  Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, and select **Autonomous Data Warehouse** and navigate to your instance.
+
+      ![](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/database-adw.png " ")
+
+      ![](./images/adw-instance.png " ")
+
+    On the **Tools** tab of your ADW instance, and click on **Open Oracle ML User Administration**.
+
+      ![](./images/tools.png " ")
+
+      ![](./images/open-ml-admin.png " ")
+
+      Sign in as **Username - ADMIN** with the **Password - WELcome__1234** created for your Autonomous instance.
+
+      ![](./images/ml-login.png  " ")
+
 2.  In the Machine Learning User Administration, click on the **home icon** on the upper right.
 
-    ![](./images/home-icon.png  " ")
+      ![](./images/home-icon.png  " ")
 
-3.  Log in as **ML\_USER** and provide the password you created in lab 1 for the ML\_USER. Before you log in, you may wish to bookmark this page.
+3. Log in as **ML\_USER** and provide the password you created  for the ML\_USER. Before you log in, you may wish to bookmark this page.
 
-    ![](./images/mluser-sign-in.png  " ")
+            ![](./images/mluser-sign-in.png  " ")
 
 4.  Navigate around to get familiar with the ML pages. Click on **Examples**.
 
-    ![](./images/examples.png  " ")
+            ![](./images/examples.png  " ")
 
 5.  Note the various ML notebook examples. Feel free to review some of these. We will be creating a new ML notebook in this lab. Click on the upper-left hamburger menu.
 
-    ![](./images/notebooks-menu.png  " ")
+            ![](./images/notebooks-menu.png  " ")
 
 6.  Click on the upper-left hamburger menu and select **Notebooks**.
 
-    ![](./images/choose-notebooks.png  " ")
+            ![](./images/choose-notebooks.png  " ")
 
 7.  We will create a notebook from the beginning, select **Create**.
 
-    ![](./images/018.png  " ")
+            ![](./images/018.png  " ")
 
 8.  Enter **adwc_notebook** as the name, then click **OK**.
 
-    ![](./images/019.png  " ")
+            ![](./images/019.png  " ")
 
 9. Now you can view the notebook created - **adwc_notebook**.
 
-    ![](./images/new-notebook.png " ")
+            ![](./images/new-notebook.png " ")
 
-## Task 2: Add Content to Your ADW Notebook
+
+## Task 3: Add Content to Your ADW Notebook
 
 It is simple to create content in Zeppelin Notebooks, and the following exercise will give you experience in doing so.
 
@@ -173,7 +265,7 @@ It is simple to create content in Zeppelin Notebooks, and the following exercise
 
     ![](./images/select-query-output.png  " ")
 
-10. Change the presentation style by selecting **bar chart** and then click on **Setting**.
+10. Change the presentation style by selecting **bar chart** and then click on **setting**.
 
     ![](./images/bar-chart.png  " ")
 
@@ -307,5 +399,3 @@ The rest of this lab will be done interactively in the notebook. This step discu
 - **Author** - Derrick Cameron
 - **Contributors** - Anoosha Pilli, Peter Jeffcock, Arabella Yao, Ayden Smith, Jeffrey Malcolm Jr, June 2020
 - **Last Updated By/Date** - Anoosha Pilli, Product Manager, DB Product Management, March 2021
-
-
