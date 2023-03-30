@@ -161,11 +161,9 @@ Access Oracle Database Actions in Oracle Cloud Infrastructure and perform some a
 
 1. From the navigation menu, select **Oracle Database** and then **Data Safe**.
 
-2. Click **Security Center**.
+2. Under **Security Center** on the left, click **Alerts**.
 
-3. Click **Alerts**.
-
-4. Notice that the alerts dashboard now has data.
+3. Notice that the alerts dashboard now has data.
 
     - The **Alerts summary** chart shows that there are four alerts. Two are critical risk and two are medium risk.
     - The **Open Alerts** chart shows that there are four alerts on the current day.
@@ -175,13 +173,13 @@ Access Oracle Database Actions in Oracle Cloud Infrastructure and perform some a
     ![Alerts dashboard with data](images/alerts-dashboard-with-data.png "Alerts dashboard with data")
     ![Targets Summary tab](images/targets-summary.png "Targets Summary tab")
 
-5. Under **Related Resources**, click **Reports**.
+4. Under **Related Resources**, click **Reports**.
 
-6. In the **Report Name** column on the right, click the **All Alerts** report to view it.
+5. In the **Report Name** column on the right, click the **All Alerts** report to view it.
 
     ![All Alerts report](images/alerts-reports.png "All Alerts report")
 
-7. Review the report.
+6. Review the report.
 
     - The report currently does not have any filters set. It shows you all alerts for all target databases in the selected compartment.
     - At the top of the report, you can view several totals, including the total number of target databases; total number of open and closed alerts, and the total number of critical, high, medium, and low alerts. You can click the **Targets** total to view the list of target databases. You can click the other totals to toggle a filter on the list of alerts.
@@ -190,17 +188,17 @@ Access Oracle Database Actions in Oracle Cloud Infrastructure and perform some a
 
     ![All Alerts report](images/all-alerts-report.png "All Alerts report")
 
-8. At the top of the report, click **+ Add Filter**. Create the filter **Target Database Name = your-target-database-name**, and click **Apply**.
+7. At the top of the report, click **+ Add Filter**. Create the filter **Target Database Name = your-target-database-name**, and click **Apply**.
 
     Only alerts that pertain to your target database are listed in the table.
 
-9. Click **+ Another Filter**. Create the filter **Alert Name = User Creation/Modification**, and click **Apply**.
+8. Click **+ Another Filter**. Create the filter **Alert Name = User Creation/Modification**, and click **Apply**.
 
     Only alerts that pertain to User Creation/Modification are listed in the table.
 
     ![Filtered alerts](images/filtered-alerts.png "Filtered alerts")
 
-10. Review the alerts generated for **User Creation/Modification**.
+9. Review the alerts generated for **User Creation/Modification**.
 
 
 ## Task 5: View details for an alert and close it
@@ -294,4 +292,4 @@ Access Oracle Database Actions in Oracle Cloud Infrastructure and perform some a
 ## Acknowledgements
 
 * **Author** - Jody Glover, Consulting User Assistance Developer, Database Development
-* **Last Updated By/Date** - Jody Glover, February 26, 2022
+* **Last Updated By/Date** - Jody Glover, April 14, 2022

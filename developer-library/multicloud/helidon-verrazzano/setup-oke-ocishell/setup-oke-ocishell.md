@@ -1,10 +1,12 @@
-# Create Oracle Container Engine for Kubernetes (OKE) on Oracle Cloud Infrastructure (OCI)
+# Set up an Oracle Kubernetes Engine instance on the Oracle Cloud Infrastructure
 
 ## Introduction
 
 In this lab you will create a 3-node Kubernetes cluster configured with all of the necessary network resources. The nodes will be deployed in different availability domains to ensure high availability.
 
 For more information about OKE and custom cluster deployment, see the [Oracle Container Engine](https://docs.cloud.oracle.com/iaas/Content/ContEng/Concepts/contengoverview.htm) documentation.
+
+Estimated Time: 10 minutes
 
 ### About Product/Technology
 
@@ -77,4 +79,4 @@ You must have an [Oracle Cloud Infrastructure](https://cloud.oracle.com/en_US/cl
 
 * **Author** -  Ankit Pandey
 * **Contributors** - Maciej Gruszka, Peter Nagy
-* **Last Updated By/Date** - Ankit Pandey, March 2022
+* **Last Updated By/Date** - Ankit Pandey, April 2022

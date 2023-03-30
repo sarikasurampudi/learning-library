@@ -1,4 +1,4 @@
-# Creating REST Data Sources
+# Create REST Data Sources
 
 ## Introduction
 This lab will walk you through how to set up REST Data Sources that will be used to get movie data from TMDB API. You will use these REST sources in later labs to build out the movie search functionality.  Make sure you have easy access to your API key that you signed up for in the Introduction steps, as you will need it to build out the REST sources.
@@ -10,7 +10,11 @@ In this lab, you will:
 - Create a REST data source for The Movie Database Popular Movies.  
 - Create a REST data source for The Movie Database Search Movies.
 
-## Task 1: Creating a Popular Movies REST Data Source
+### Prerequisites
+- Completion of workshop through Lab 1
+- A TMDB API key
+
+## Task 1: Create a Popular Movies REST Data Source
 
 The first REST source you will create is the Popular Movies source because it is the simplest to implement and a good way to introduce the process of creating REST data sources. From there, you will implement a couple more REST sources, with each being a little more complicated than the last. You are creating the Popular Movies data source because you will need to display these when a user has not yet searched for a movie.
 
@@ -62,7 +66,7 @@ The first REST source you will create is the Popular Movies source because it is
 
     ![](images/2-1-11-discover.png " ")
 
-## Task 2: Editing The REST Source Data Profile 
+## Task 2: Edit The REST Source Data Profile 
 You have now created your new data source, but you are going to update it to improve the data you get from Popular Movies. One of the columns you get back from the TMDB Popular Movies API is POSTER\_PATH. It includes the unique poster identifier needed to grab the poster image for a movie. However, it does not contain the full URL, which means that if you want to use POSTER\_PATH, you have to manually add the first part of the URL when using it on the front end. Instead of having to add that each time you want to use the poster path, you can edit the Data Profile for Popular Movies and add a column derived from POSTER\_PATH that contains the entire URL so that later you can access it directly.
 
 1. In the REST Source Name column of the REST Data Sources page, click on your **Popular Movies** source.
@@ -95,7 +99,7 @@ You have now created your new data source, but you are going to update it to imp
 
 5. Click **Apply Changes** at the top of the REST Data Source page.
 
-## Task 3: Creating a Search Movies REST Data Source
+## Task 3: Create a Search Movies REST Data Source
 The process to create the Search Movies data source is similar to Popular Movies, but you will use the Pagination setting in the Create REST Data Source wizard to get all the movies from one search. Typically, you can only get one page of movie results at a time with individual requests to TMDB search movies API. Setting up Pagination allows you to make one API request and get all results from all pages.
 
 1. On the REST Data Sources page, click **Create**. 
@@ -130,7 +134,9 @@ The process to create the Search Movies data source is similar to Popular Movies
 
     ![](images/2-3-6-create-source.png " ")
 
-10. Return to [Task 2](#Task2:EditingTheRESTSourceDataProfile) and follow the same steps for the Search Movies source to edit the data profile and create a POSTER_URL column.
+10. Return to [Task 2](#Task2:EditTheRESTSourceDataProfile) and follow the same steps for the Search Movies source to edit the data profile and create a POSTER_URL column.
+
+You now know how to create and edit REST data sources in Oracle APEX and will be able to get data from The Movie Database to use for your application. You may now **proceed to the next lab**.
 
 ## Resources
 
@@ -170,3 +176,9 @@ Stuck on a step or struggling with the lab? You can download a copy of the Movie
         ![](images/edit-parameter-edit.png " ")
 
 - Follow the same process for the Search Movies REST source.
+
+## Acknowledgments
+
+- **Author** - Paige Hanssen
+- **Additional Contributors** - Kay Jasanya, Shakeeb Rahman, Steve Muench, Monica Godoy, Eli Feuerstein, Carlos Maciel, Dalia Vazquez
+- **Last Updated By/Date** - Paige Hanssen, March 2022

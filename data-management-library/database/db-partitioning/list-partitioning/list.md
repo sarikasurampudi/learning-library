@@ -173,7 +173,9 @@ This lab assumes you have completed the following lab:
       </copy>
       ```
 
-      You successfully made it to the end of lab 'read only partitions and sub partitions'. You may now [proceed to the next lab](#next).   
+You successfully made it to the end of this 'read only partitions and sub partitions' lab. 
+      
+You may now *proceed to the next lab*.
  
 ## Learn More
 

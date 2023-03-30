@@ -22,23 +22,23 @@ Login as the Admin user in Database Actions of the newly created ADB instance.
 
 Click the **Navigation Menu** in the upper left, navigate to **Oracle Database**, and select **Autonomous Transaction Processing**.
 
-![](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/database-atp.png " ")
+![database-atp](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/database-atp.png)
 
 In Autonomous Database Details page, open **Tools** tab and click **Database Actions**. Make sure your brower allow pop-up windows.
 
-![](images/adb-console.jpg)
+![adb-console](images/adb-console.jpg)
 
 Enter **ADMIN** as Username and go next.
 
-![](images/login-1.jpg)
+![login-1](images/login-1.jpg)
 
 Input the password (you set up at Lab 2) and sign in.
 
-![](images/login-2.jpg)
+![login-2](images/login-2.jpg)
 
 Go to **SQL** menu once you logged in as the **ADMIN** user. 
 
-![](images/ADB_SQLDevWebHome.jpg)
+![database-actions](images/database-actions.jpg)
 
 ## Taks 2: Create database roles
 
@@ -105,23 +105,23 @@ Now create the **CUSTOMER_360** user and provide Database Actions access for thi
 
 Open the main menu and click "Database Users".
 
-![](images/user-1.jpg)
+![user-1](images/user-1.jpg)
 
 Click **Create User** button, input user name and password. Enable **Web Access** and set the quota to **UNLILMITED**.
 
-![](images/user-2.jpg)
+![user-2](images/user-2.png)
 
 Go to **Granted Roles** tab and grant **`GRAPH_DEVELOPER`** role and **`PGX_SESSION_ADD_PUBLISHED_GRAPH`** role to this user. (Two roles **CONNECT** and **RESOURCE** are selected by default. Please keep them checked so they will be also granted.)
 
-![](images/user-3.png)
+![user-3](images/user-3.png)
 
 Proceed with **Create User**, and open the login window.
 
-![](images/user-4.jpg)
+![user-4](images/user-4.jpg)
 
 Confirm that you can login with the new user.
 
-![](images/user-5.jpg)
+![user-5](images/user-5.jpg)
 
 For details, see the ["Provide Database Actions Access to Database Users"](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud/user/sql-developer-web.html#GUID-4B404CE3-C832-4089-B37A-ADE1036C7EEA) section in the documentation.
 
@@ -131,5 +131,4 @@ You may now proceed to the next lab.
 
 * **Author** - Jayant Sharma, Product Manager, Spatial and Graph
 * **Contributors** - Arabella Yao, Jenny Tsai
-* **Last Updated By/Date** - Ryota Yamanaka, January 2022
-
+* **Last Updated By/Date** - Ryota Yamanaka, April 2022

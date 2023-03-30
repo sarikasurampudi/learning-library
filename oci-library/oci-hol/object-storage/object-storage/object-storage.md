@@ -29,10 +29,6 @@ In this lab, you will:
 
 ### Prerequisites
   <if type="freetier">
-  - An Oracle Cloud Account - Please view this workshop's LiveLabs landing page to see which environments are supported
-  >**Note:** If you have a **Free Trial** account, when your Free Trial expires your account will be converted to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available. 
-  
-  **[Click here for the Free Tier FAQ page.](https://www.oracle.com/cloud/free/faq.html)**
   </if>
    
   <if type="livelabs">
@@ -68,7 +64,7 @@ In this lab, you will:
 
 ## Task 2: Upload Object and Create Pre-Authenticated Link
 
-1. Download this file to your local PC: [click here](https://objectstorage.us-ashburn-1.oraclecloud.com/p/-SZzvXShRUDiZj-P1Supo7Nbqis0R6JAyROuMoXe7tHIWERcZa4tjxVQ7g6R1cZ-/n/c4u04/b/oci-library/o/sample-file.txt). You may need to right click the link and select **Save Link As...**.
+1. Download this file to your local PC: [click here](https://objectstorage.us-ashburn-1.oraclecloud.com/p/FJ8cOXrQeIJeOHR0b6U_5wUrRgwNPEQjsd80tpMMpc_HV2ROskAhOZ-yVuptKjUj/n/c4u04/b/oci-library/o/sample-file.txt). You may need to right click the link and select **Save Link As...**.
 
 2. Switch to OCI window and click the Bucket Name.
 
@@ -112,8 +108,7 @@ In this lab, you will:
 
 ## Acknowledgements
 
-- **Author** - Flavio Pereira, Larry Beausoleil
-- **Adapted by** -  Tom McGinn, Database Product Management
+- **Author** - Flavio Pereira, Larry Beausoleil 
 - **Contributors** - Arabella Yao, Rajeshwari Rai, Prasenjit Sarkar
-- **Last Updated By/Date** - Arabella Yao, Product Manager, Database Product Management, December 2021
+- **Last Updated By/Date** - Kamryn Vinson, April 2022
 

@@ -4,6 +4,10 @@
 
 In this lab, we are going to connect to the Autonomous Database we provisioned in Lab 2, from the MongoDB shell tool that we installed into our Compute node in Lab 1.
 
+Watch this video for an overview of how to connect the MongoDB shell tool to the Autonomous Database.
+
+[This video shows an overview of the steps in this lab.](youtube:zsGEVvtA4us)
+
 Estimated Time: 15 minutes
 
 ### Objectives
@@ -32,11 +36,11 @@ Cloud Shell is a Linux command prompt provided for your user. You can upload fil
 
 1. Go to the main Oracle Cloud page (you may need to close any Service Console or Database Actions tabs that you have open). Click on the square icon with ">" in it at the top right.
 
-	![](./images/open-console.png)
+	![open console](./images/open-console.png)
 
 2. The console will open at the bottom of your screen. You should see a Linux command prompt. If you wish, you can expand the console window to fill your browser screen by clicking on the diagonal double-arrow. You can resize the font if needed using your browser's normal zoom operation (e.g. CMD-+ on a Mac)
 
-	![](./images/cloud-shell.png)
+	![cloud shell](./images/cloud-shell.png)
 
 ## Task 2: Connect to your Compute Node
 
@@ -88,7 +92,7 @@ Cloud Shell is a Linux command prompt provided for your user. You can upload fil
 
 1. In the ssh shell prompt, enter "mongosh" followed by a space followed the edited URL from the previous task in **single-quotes**.
 
-	![](./images/mongosh-login.png)
+	![mongo shell login](./images/mongosh-login.png)
 
 	If all goes well you will see an "admin>" prompt. If not, check your URL carefully:
 
@@ -96,7 +100,7 @@ Cloud Shell is a Linux command prompt provided for your user. You can upload fil
 	* Is your password correct, with any special characters quoted as above?
 	* Did you leave any [ square brackets ] in the URL where they should have been removed?
 	* Do you have the : sign between the user and password, and the @ sign after the password? 
-	* Is the whole commamd on a single line with no line breaks?
+	* Is the whole command on a single line with no line breaks?
 
 ## Task 5: Create, populate and search a collection
 
@@ -111,7 +115,7 @@ You should now be in Mongo Shell. This is a command-line utility to interact wit
 	db.createCollection('emp')
     </copy>
 	```
-    ![](./images/create-collection.png)
+    ![Create a collection](./images/create-collection.png)
 
 	That will have created a new document collection called "emp". If you wish, you can type "show collections" to confirm it has been created.
 
@@ -156,6 +160,9 @@ You should now be in Mongo Shell. This is a command-line utility to interact wit
 
 	will return all documents which have a name field of "Miller". Try it now.
 
+	Note: MongoDB Shell allows a "relaxed" JSON syntax where the key name strings don't need to be quoted. So you could use **{name:"Miller"}** 
+	instead of **{"name":"Miller"}**. We will use that syntax in some of the following examples.
+
 	A more advanced QBE will use special match operators. For example, **$gt** means "greater than". So:
 
 	```
@@ -168,7 +175,47 @@ You should now be in Mongo Shell. This is a command-line utility to interact wit
 
     ![QBE to find salary greater than 50000](./images/find-salary.png)
 
+4.	Projection
+
+	In the QBEs used so far, the database has returned the entire document involved. Not a problem here where the documents are short, but we may only want specific parts of the documents. Doing that is called "projection" and is similar to a SELECT clause in a SQL statement. Let's say we want just the name and salary info for our programmers. To get that we specify a second argument to the **find** command, which is a JSON document specifying the parts of the document to return:
+
+	```
+	<copy>
+	db.emp.find({ job:"Programmer" }, { name:1, salary:1 })
+	<copy>
+	```
+
+	![Projection example](./images/projection.png " ")
+
+5.	Updates
+
+	We can use the updateOne or updateMany commands to make changes to one, or a number, of documents. They both take a first argument which is a QBE specifying which documents to update, and a second argument which is the changes to be made to the document. For example the following will add an email address to our "Miller" employer.
+
+	```
+	<copy>
+	db.emp.updateOne({name:"Miller"}, {$set: {email:"miller@example.com"}})
+	<copy>
+	```
+	
+	When you've run that, you should see confirmation that one record has been found, and one modified. You can check the modification has worked with:
+
+	```
+	<copy>
+	db.emp.find({name:"Miller"})
+	<copy>
+	```
+	
+	![QBE update](./images/qbe-update.png " ")
+
+That's all we're going to cover in MongoDB Shell, but there are some important points to remember:
+
+* This will work just as well with GUI tools such as Atlas, or from your own programs using MongoDB libraries
+* All the data is held in Oracle Autonomous Database, and can be accessed from any SQL-based programs just as easily as from MongoDB programs.
+
+In the next lab we'll cover Autonomous Database tools, including JSON Workshop and SQL.
+
 ## Acknowledgements
 
 - **Author** - Roger Ford, Principal Product Manager
-- **Last Updated By/Date** - Anoosha Pilli, Brianna Ambler, June 2021
+- **Contributors** - Kamryn Vinson, Andres Quintana
+- **Last Updated By/Date** - Roger Ford, March 2022

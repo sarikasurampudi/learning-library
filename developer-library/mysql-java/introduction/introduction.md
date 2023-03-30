@@ -1,6 +1,6 @@
 # Introduction
 
-Estimated Lab Time: 90 minutes
+Estimated Workshop Time: 90 minutes
 
 ## About this Workshop
 

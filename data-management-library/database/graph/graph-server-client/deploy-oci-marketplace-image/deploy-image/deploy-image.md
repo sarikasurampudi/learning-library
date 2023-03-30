@@ -19,7 +19,7 @@ Estimated time: 7 minutes
 
 1. Go to Oracle Cloud console > Networking > Virtual Cloud Networks
 
-    ![](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/networking-vcn.png " ")
+    ![networking-vcn](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/networking-vcn.png)
 
 2. Start VCN Wizard > Create VCN with Internet Connectivity > Start VCN Wizard
 
@@ -35,7 +35,7 @@ Estimated time: 7 minutes
     - Destination Port Range: **7007**
     - Description: e.g. **For Graph Server**
 
-    ![Add Ingress Rule](images/ingress_rule_7007.jpg)
+    ![ingress-rule](images/ingress-rule.jpg)
 
 
 ## Task 2: Locate the Graph Server and Client in the Marketplace
@@ -46,28 +46,28 @@ Oracle Cloud Marketplace stacks are a set of Terraform templates that provide a 
 
 1. Go to your Cloud Console. Navigate to the **Marketplace** tab and enter "Graph Server and Client" in the serach bar. Click on the Oracle Graph Server and Client stack.
 
-    ![](images/marketplace.jpg)
+    ![marketplace](images/marketplace.jpg)
 
 2. Select the stack and then review the System Requirements and Usage Instructions. Then select the version **21.4.x** (18-month patch release) and choose a compartment and click on **Launch Stack**.
 
-    ![](images/launch_stack.png)
+    ![launch-stack](images/launch-stack.png)
 
 3. **Stack Information**: You do not need to change. Proceed with **Next**.
 
-    ![](images/create_stack.jpg)
+    ![create-stack](images/create-stack.jpg)
 
 4. **Configure Variables**: You will need to choose or provide the following:
 
     - Oracle Graph Server Shape: an always free eligible shape is **VM.Standard.E2.1.Micro**
     - SSH Public Key: This is used when you ssh into the provisioned instance later.
 
-    ![](images/configure_variables_1.jpg)
+    ![configure-variables-1](images/configure-variables-1.jpg)
 
     - Existing Virtual cloud network: The one created above, **vcn1**
     - Existing Subnet: The one created above, **Public Subnet-vcn1**
     - JDBC URL for authentication: **`jdbc:oracle:thin:@atpgraph_low?TNS_ADMIN=/etc/oracle/graph/wallets`**
 
-    ![](images/configure_variables_2.png)
+    ![configure-variables-2](images/configure-variables-2.png)
 
     About the JDBC URL above:
 
@@ -78,15 +78,15 @@ Oracle Cloud Marketplace stacks are a set of Terraform templates that provide a 
 
 5. Click **Next** to initiate the Resource Manager Job for the stack. The job will take 2-3 minutes to complete.
 
-    ![](images/rmj_1.jpg)
+    ![rmj-1](images/rmj-1.jpg)
 
     You'll see the progress in the log output.
 
-    ![](images/rmj_2.jpg)
+    ![rmj-2](images/rmj-2.jpg)
 
     Once the job has successfully completed the status will change from "In Progess" to "Succeeded". If you get **"shape VM.Standard.E2.1.Micro not found"** error, the availability domain cannot provide the selected shape. Please edit the job and change the availability domain and retry. (An always-free compute VM can only be created in your home region. If you have previously created an always-free compute VM then this new VM.Standard.E2.1.Micro instance can only be created in the same availability domain as the previous one.)
 
-    ![](images/RMJobCompleted_211.jpg)
+    ![rmj-3](images/rmj-3.jpg)
 
     ***NOTE:*** *On completion please make a note of **public_ip** and **graphviz_public_url**, so that you can SSH into the running instance and access the graph viz later in this lab.*
 
@@ -94,20 +94,20 @@ Oracle Cloud Marketplace stacks are a set of Terraform templates that provide a 
 
 1. Go to your Cloud console, under **Oracle Database**, select **Autonomous Transaction Processing**. If you don't see your instance, make sure the **Workload Type** is **Transaction Processing** or **All**.
 
-    ![](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/database-atp.png)
+    ![database-atp](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/database-atp.png)
 
 1. Click on your Autonomous Database instance. In your Autonomous Database Details page, click **DB Connection**.
 
-    ![](images/wallet_1.jpg)
+    ![wallet-1](images/wallet-1.jpg)
 
 1. In Database Connection window, select **Instance Wallet** as your Wallet Type, click **Download Wallet**.
 
-    ![](images/wallet_2.jpg)
+    ![wallet-2](images/wallet-2.jpg)
 
 1. In the Download Wallet dialog, enter a (new) wallet password in the Password fields. This password protects the downloaded client credentials wallet.
 
     Click **Download** to save the client security credentials zip file.
-    ![](images/wallet_3.jpg)
+    ![wallet-3](images/wallet-3.jpg)
 
     By default, the filename is: **Wallet_<database_name>.zip**
 

@@ -163,7 +163,7 @@ Prefixed indexes will become local partitioned indexes. Bitmap indexes will beco
     </copy>
     ```
 
-    You successfully made it to the end of lab Convert non-partitioned table into partitioned table.   
+You successfully made it to the end of this Convert non-partitioned table into partitioned table lab.
 
 ## Learn More
 

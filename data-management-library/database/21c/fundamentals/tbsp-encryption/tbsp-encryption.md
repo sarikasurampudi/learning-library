@@ -13,7 +13,7 @@ In this lab, you will:
 
 ### Prerequisites
 
-* An Oracle Free Tier, Paid or Cloud Account
+* An Oracle Account
 * SSH Keys
 * Create a DBCS VM Database
 * 21c Setup

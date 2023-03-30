@@ -282,7 +282,7 @@ Estimated Time:  10 minutes
    
        ![Car count of 1](images/carcount1.png " ")
                
-5.    In the Participant/sagadb2 SQLcl console, copy and paste the following `commit_saga` command, replacing `REPLACE_THIS_WITH_SAGAID` with the saga id from the query in step 3.
+5.    In the TravelAgency/sagadb1 SQLcl console, copy and paste the following `commit_saga` command, replacing `REPLACE_THIS_WITH_SAGAID` with the saga id from the query in step 3.
          ```
          <copy>exec dbms_saga.commit_saga('TravelAgencyPLSQL', 'REPLACE_THIS_WITH_SAGAID');</copy>
          ```

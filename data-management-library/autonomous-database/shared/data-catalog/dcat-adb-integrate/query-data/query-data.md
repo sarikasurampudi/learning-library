@@ -242,7 +242,7 @@ You can use this drop-down list to do the following:
 
     ![The Run this paragraph icon of the Top Sales by City %sql paragraph is highlighted.](./images/run-top-sales.png " ")  
 
-    The output is displayed in the result section of the paragraph using the **Area Chart** graph format. You can change the output display format to **Table**, **Bar Chart**, **Pie Chart**, **Line Chart**, **Scatter Chart** formats. You can also use the **Download Data** command icon to download the output using **CSV** and **TSV** formats. Finally, you can use the **settings** link to change the layout of the displayed output.   
+    The status of the paragraph goes from `READY` to `PENDING` to `RUNNING` to `FINISHED`. The output is displayed in the result section of the paragraph using the **Area Chart** graph format. You can change the output display format to **Table**, **Bar Chart**, **Pie Chart**, **Line Chart**, **Scatter Chart** formats. You can also use the **Download Data** command icon to download the output using **CSV** and **TSV** formats. Finally, you can use the **settings** link to change the layout of the displayed output.   
 
     ![The output is displayed in the result section of the paragraph using the **Area Chart** graph format. The output toolbar that enables you to select a different output format is highlighted.](./images/top-sales-output.png " ")
 
@@ -252,7 +252,9 @@ You can use this drop-down list to do the following:
 
     ![The Bar Chart icon is shown as clicked and the bar chart output is displayed.](./images/top-sales-bar-chart.png " ")
 
-6. Examine, run, and review the output of the remaining paragraphs, as desired.
+6. Examine, run, and review the output of the remaining paragraphs, as desired. To run the entire notebook, click the **Run all paragraphs** icon on the notebook toolbar.
+
+    ![The code and result sections of all paragraphs are displayed.](./images/run-notebook.png " ")
 
 <if type="freetier">
     You may now proceed to the next lab.
@@ -275,7 +277,7 @@ You can use this drop-down list to do the following:
 
 * **Author:** Lauran Serhal, Consulting User Assistance Developer, Oracle Autonomous Database and Big Data
 * **Contributor:** Marty Gubar, Product Manager, Server Technologies    
-* **Last Updated By/Date:** Lauran Serhal, February 2022
+* **Last Updated By/Date:** Lauran Serhal, April 2022
 
 Data about movies in this workshop were sourced from Wikipedia.
 

@@ -209,7 +209,7 @@ You may now **proceed to the next lab**.
 
 ## Acknowledgements
 * **Author** - Minqiao Wang, Oct 2020
-* **Last Updated By/Date** - Minqiao Wang, Oct 2021
+* **Last Updated By/Date** - Minqiao Wang, Apr 2022
 * **Workshop Expiry Date** - Nov 30, 2022
 
 

@@ -17,8 +17,8 @@ In this lab, you will:
 * Explore, visualize, and prepare data for analysis and machine learning.
 * Use R for exploratory data analysis, data visualization, data organization (e.g., splitting data in train and test sets),
 * Use Attribute Importance and Principal Component Analysis
-* Use an OML4R in-database regression algorithm for building a machine learning model for estimating customer life-time value (LTV)
-* Use an OML4R in-database classification algorithm for building a machine learning model for predicting LTV\_BIN
+* Use the OML4R in-database regression algorithm for building a machine learning model for estimating customer life-time value (LTV)
+* Use the OML4R in-database classification algorithm for building a machine learning model for predicting LTV\_BIN
 * Assess model quality using RMSE (Root Mean Squared Error), and assess classification model quality using a confusion matrix
 
 ### Note:
@@ -35,9 +35,9 @@ In this lab, you will:
 
 RStudio provides an IDE (Integrated Development Environment) for R with a GUI (Graphical User Interface) and BUI (Browser User Interface). Note that an Oracle database and RStudio Server is already installed and pre-configured on VM provided for the lab.
 
-You will be running all the lab steps in the RStudio R Script window as shown below.
+You will be running all the lab steps in the RStudio R Script window, as shown below.
 
-1. Point browser to RStudio Web, you should have the window open in the NoVNC terminal, if not open a new browser session and enter URL mention in the code block below.
+1. Point the browser to RStudio Web. You should have the window open in the NoVNC terminal. If not, open a new browser session and enter the URL mentioned in the code block below.
 
     ```
     <copy>http://localhost:8787</copy>
@@ -68,20 +68,22 @@ You will be running all the lab steps in the RStudio R Script window as shown be
     if (!require("ORE")) install.packages("ORE")
     if (!require("dplyr")) install.packages("dplyr")
     if (!require("OREdplyr")) install.packages("OREdplyr")
+    if (!require("caret")) install.packages("caret")
     </copy>
     ```
 
-    The above code checks the existence of the given package in the R-Studio installation. It only installs the package if the given package is not already installed, thus eliminating the redundant installation of packages.
+    The above code checks the existence of the given package in the R-Studio installation. It only installs the package if it is not already installed, thus eliminating the redundant installation of packages.
 
 4. Load Libraries
 
-    The library() function call installs and attaches the given library in memory and makes the included functions available. If a call to a function is made and the corresponding library is not already attached, you get an error.
+    The library() function call installs and attaches the given library in memory and makes the included functions available. You get an error if a call to a function is made and the corresponding library is not already attached.
 
     ```
     <copy>
     library(ORE)
     library(dplyr)
     library(OREdplyr)
+    library(caret)
     </copy>
     ```
 
@@ -253,7 +255,7 @@ Exploratory Data Analysis is the process of visualizing and analyzing data to de
     ```
     <copy>
     median(CUST_INSUR_LTV$AGE)
-    </copy>/
+    </copy>
     ```
 
     Range provides end-to-end range of numeric values.
@@ -291,7 +293,7 @@ Exploratory Data Analysis is the process of visualizing and analyzing data to de
 
 Exploratory Data Analysis includes the process of visualizing data for a better understanding of the data and for developing insight.
 
-Since a number of data visualization functions require a data.frame object, let us first pull the ore.frame object into a data.frame object first and also create an ordered frame.
+Since a number of standard data visualization functions require a data.frame object, let us first convert the ore.frame object into a data.frame object and also create an ordered frame.
 
 ```
 <copy>
@@ -308,7 +310,7 @@ row.names(CIL) <- CIL$CUST_ID
 
     ```
     <copy>
-    plot(CUST_INSUR_LTV$SALARY/1000, xlab = "Customer", ylab = "Salary in K$", col = "darkblue", main = "Customer Salary Plot")
+    plot(CIL$SALARY/1000, xlab = "Customer", ylab = "Salary in K$", col = "darkblue", main = "Customer Salary Plot")
     </copy>
     ```
 
@@ -320,7 +322,7 @@ row.names(CIL) <- CIL$CUST_ID
 
     ```
     <copy>
-    plot(CUST_INSUR_LTV$LTV/1000, xlab = "Customer", ylab = "LTV in K$", col = "darkblue", main = "Customer Salary Plot")
+    plot(CIL$LTV/1000, xlab = "Customer", ylab = "LTV in K$", col = "darkblue", main = "Customer LTV Plot")
     </copy>
     ```
 
@@ -332,10 +334,10 @@ row.names(CIL) <- CIL$CUST_ID
 
     ```
     <copy>
-    out <- boxplot.stats(CUST_INSUR_LTV$AGE)$out
-    boxplot(CUST_INSUR_LTV$AGE, xlab = "Boxplot (AGE)", col = "darkred", horizontal=TRUE)
-    text(x=fivenum(x), labels = fivenum(x), y=1.35)
-    mtext(paste("Outliers: ", paste(unique(out), collapse = ", ")))
+    y <- CIL$AGE
+    boxplot(y, xlab = "Boxplot (AGE)", col = "darkred", horizontal=TRUE)
+    text(x=fivenum(y), labels = fivenum(y), y=1.35)
+    mtext(paste("Outliers: ", paste(unique(y), collapse = ", ")))
     </copy>
     ```
 
@@ -357,7 +359,7 @@ row.names(CIL) <- CIL$CUST_ID
 
     ```
     <copy>
-    hist(CUST_INSUR_LTV$SALARY/1000,
+    hist(CIL$SALARY/1000,
           main="Customer Salary Data",
           xlab="Salary($K)",
           xlim=c(20,100),
@@ -376,7 +378,7 @@ row.names(CIL) <- CIL$CUST_ID
 
     ```
     <copy>
-    pie(table(CUST_INSUR_LTV$REGION), main = "Customer Distribution by Region", clockwise = TRUE)  
+    pie(table(CIL$REGION), main = "Customer Distribution by Region", clockwise = TRUE)  
     </copy>
     ```
 
@@ -388,7 +390,7 @@ row.names(CIL) <- CIL$CUST_ID
 
     ```
     <copy>
-    pie(table(CUST_INSUR_LTV$MARITAL_STATUS), main = "Customer Distribution by Region", clockwise = TRUE)  
+    pie(table(CIL$MARITAL_STATUS), main = "Customer Marital Status", clockwise = TRUE)  
     </copy>
     ```
 
@@ -396,7 +398,7 @@ row.names(CIL) <- CIL$CUST_ID
 
     Use the package ggplot2 to generate a plot for visualizing LTV for various regions.
 
-    When using third-party packages, the data needs to be loaded into R memory, from the database. For this we use the ore.pull() function. Note that CUST\_INSUR\_LTV is an ore.frame and once the data is pulled, it is an R data.frame. Users must take into account the size of a table before attempting to load it into memory.
+    When using third-party packages, the data needs to be loaded into R memory, from the database. For this we use the ore.pull() function. Note that CUST\_INSUR\_LTV is an ore.frame and once that frame is transformed using the ore.pull function, it is translated to an R data.frame. Users must take into account the size of a table before attempting to load it into memory.
 
     ```
     <copy>
@@ -455,7 +457,17 @@ row.names(CIL) <- CIL$CUST_ID
     ```
     <copy>
     print(CIL %>% ggplot(aes(x=SALARY/1000)) + geom_density(stat="count", , color = "darkred", fill = "#69b3a2"))
+    </copy>
+    ```
+
+    ```
+    <copy>
     print(CIL %>% ggplot(aes(x=N_OF_DEPENDENTS)) + geom_density(stat="count", , color = "darkred", fill = "#69b3a2"))
+    </copy>
+    ```
+
+    ```
+    <copy>
     print(CIL %>% ggplot(aes(x=TIME_AS_CUSTOMER)) + geom_density(stat="count", , color = "darkred", fill = "#69b3a2"))
     </copy>
     ```
@@ -469,19 +481,25 @@ Let us first create an alias for the CUST\_INSUR\_LTV ore.frame for easier usage
 CIL <- CUST\_INSUR\_LTV
 row.names(CIL) <- CIL$CUST\_ID
 
+
+```
+<copy>
+CIL <- CUST_INSUR_LTV row.names(CIL) <- CIL$CUST_ID
+</copy>
+```
 1. Filtering Data and Aggregate Data View
 
     Use the filter() function to filter data based on given criteria.
 
     ```
     <copy>
-    nrow(CUST_INSUR_LTV)
+    nrow(CIL)
 
-    nrow(filter(CUST_INSUR_LTV, REGION == "NorthEast"))
+    nrow(filter(CIL, REGION == "NorthEast"))
 
-    nrow(filter(CUST_INSUR_LTV, SALARY > 110000))
+    nrow(filter(CIL, SALARY > 110000))
 
-    nrow(CUST_INSUR_LTV %>% filter(SALARY > mean(SALARY, na.rm = TRUE)))
+    nrow(CIL %>% filter(SALARY > mean(SALARY, na.rm = TRUE)))
     </copy>
     ```
 
@@ -491,9 +509,11 @@ row.names(CIL) <- CIL$CUST\_ID
 
     ```
     <copy>
-    aggregate(CUST_INSUR_LTV$LTV_BIN, by = list(LTV_BIN = CUST_INSUR_LTV$LTV_BIN),FUN = length)
+    aggregate(CIL$LTV_BIN, by = list(LTV_BIN = CIL$LTV_BIN), FUN = length)
+    aggregate(CIL$REGION, by = list(REGION = CIL$REGION),FUN = length)
 
-    aggregate(CUST_INSUR_LTV$REGION, by = list(REGION = CUST_INSUR_LTV$REGION),FUN = length)
+    cust_male_northeast <- (CIL %>% filter(REGION == "NorthEast", na.rm = TRUE) %>% filter(SEX == "M"))
+    aggregate(cust_male_northeast$BUY_INSURANCE, by = list(BUY_INSURANCE = cust_male_northeast$BUY_INSURANCE),FUN = length)
     </copy>
     ```
 
@@ -507,21 +527,21 @@ row.names(CIL) <- CIL$CUST\_ID
 
     ```
     <copy>
-    aggregate(CUST_INSUR_LTV$REGION, by = list(REGION = CUST_INSUR_LTV$REGION),FUN = length)
+    aggregate(CIL$REGION, by = list(REGION = CUST_INSUR_LTV$REGION),FUN = length)
 
-    aggregate(CUST_INSUR_LTV$MARITAL_STATUS, by = list(MARITAL_STATUS = CUST_INSUR_LTV$MARITAL_STATUS),FUN = length)
+    aggregate(CIL$MARITAL_STATUS, by = list(MARITAL_STATUS = CUST_INSUR_LTV$MARITAL_STATUS),FUN = length)
 
-    aggregate(CUST_INSUR_LTV$SEX, by = list(SEX = CUST_INSUR_LTV$SEX),FUN = length)
+    aggregate(CIL$SEX, by = list(SEX = CUST_INSUR_LTV$SEX),FUN = length)
 
-    aggregate(CUST_INSUR_LTV$N_MORTGAGES, by = list(N_MORTGAGES = CUST_INSUR_LTV$N_MORTGAGES),FUN = length)
+    aggregate(CIL$N_MORTGAGES, by = list(N_MORTGAGES = CUST_INSUR_LTV$N_MORTGAGES),FUN = length)
 
-    aggregate(CUST_INSUR_LTV$N_MORTGAGES, by = list(N_MORTGAGES = CUST_INSUR_LTV$N_MORTGAGES),FUN = length)
+    aggregate(CIL$N_MORTGAGES, by = list(N_MORTGAGES = CUST_INSUR_LTV$N_MORTGAGES),FUN = length)
 
-    aggregate(CUST_INSUR_LTV$HAS_CHILDREN, by = list(HAS_CHILDREN = CUST_INSUR_LTV$HAS_CHILDREN),FUN = length)
+    aggregate(CIL$HAS_CHILDREN, by = list(HAS_CHILDREN = CUST_INSUR_LTV$HAS_CHILDREN),FUN = length)
 
-    aggregate(CUST_INSUR_LTV$HOUSE_OWNERSHIP, by = list(HOUSE_OWNERSHIP = CUST_INSUR_LTV$HOUSE_OWNERSHIP), FUN = length)
+    aggregate(CIL$HOUSE_OWNERSHIP, by = list(HOUSE_OWNERSHIP = CUST_INSUR_LTV$HOUSE_OWNERSHIP), FUN = length)
 
-    aggregate(CUST_INSUR_LTV$BUY_INSURANCE, by = list(BUY_INSURANCE = CUST_INSUR_LTV$BUY_INSURANCE), FUN = length)
+    aggregate(CIL$BUY_INSURANCE, by = list(BUY_INSURANCE = CUST_INSUR_LTV$BUY_INSURANCE), FUN = length)
     </copy>
     ```
 
@@ -529,7 +549,7 @@ row.names(CIL) <- CIL$CUST\_ID
 
     ```
     <copy>
-    cust_male_northeast <- (CUST_INSUR_LTV %>% filter(REGION == "NorthEast", na.rm = TRUE) %>% filter(SEX == "M"))
+    cust_male_northeast <- (CIL %>% filter(REGION == "NorthEast", na.rm = TRUE) %>% filter(SEX == "M"))
 
     aggregate(cust_male_northeast$BUY_INSURANCE, by = list(BUY_INSURANCE = cust_male_northeast$BUY_INSURANCE),FUN = length)
     </copy>
@@ -541,7 +561,7 @@ row.names(CIL) <- CIL$CUST\_ID
 
     ```
     <copy>
-    nrow(CUST_INSUR_LTV %>% filter(AGE < 1, na.rm = TRUE))
+    nrow(CIL %>% filter(AGE < 1, na.rm = TRUE))
     </copy>
     ```
 
@@ -549,7 +569,7 @@ row.names(CIL) <- CIL$CUST\_ID
 
     ```
     <copy>
-    nrow(CUST_INSUR_LTV %>% filter(LTV < 1, na.rm = TRUE))
+    nrow(CIL %>% filter(LTV < 1, na.rm = TRUE))
     </copy>
     ```
 
@@ -581,8 +601,12 @@ row.names(CIL) <- CIL$CUST\_ID
 
     ```
     <copy>
+    if (!require("janitor")) install.packages("janitor")
+    library(janitor)
     CXL <- ore.pull(CUST_INSUR_LTV)
     class(CXL)
+    nrow(CXL %>% get_dupes(CUST_ID))
+    ??get_dupes
     nrow(CXL %>% get_dupes(CUST_ID))
     remove(CXL)
     </copy>
@@ -685,7 +709,7 @@ row.names(CIL) <- CIL$CUST\_ID
 
     ore.save(ltvai, name = 'ltvai', overwrite = TRUE)
     ore.datastore()
-    <copy>
+    </copy>
     ```
 
     Attribute importance ranks attributes according to their significance in predicting a target. The ore.odmAI() function produces a ranking of attributes and their importance expressed as a fraction.
@@ -898,7 +922,7 @@ In this task, we are going to build a regression model to predict LTV.
 
     ![orefitglm](./images/orefitglm-5.png "Check Root Mean Squared Error - RMSE")
 
-    Recall that the average (mean) LTV as calculated previously was $22266.67. Thus a value of 48.46 is relatively low, suggesting a good model fit.
+    Recall that the average (mean) LTV as calculated previously was $22266.67. Thus a value of 57.44 is relatively low, suggesting a good model fit.
 
     Plot the predictions alongside actual LTV value.
 
@@ -1116,140 +1140,7 @@ In this task, we build a classification model for LTV\_BIN prediction and then e
     How does the confusion matrix compare with the one generated previously?
 
 
-## Task 7: Use Embedded R Functions to Leverage In-Database Parallel Processing
-
-Some of the most significant benefits of using OML4R can be derived from using Embedded R execution in your applications. Embedded R execution allows you to store and run R scripts in the database using R and SQL interfaces.
-
-1. Import libraries and connect to the database
-
-    ```
-    <copy>
-    library(ORE)
-    options(ore.warn.order=FALSE)
-
-    ore.connect(user="oml_user",
-    conn_string="MLPDB1",
-    host="rinst5d",
-    password="oml_user",
-    all=TRUE)
-
-    ore.is.connected()
-    </copy>
-    ```
-
-    Your output should look as follows:
-
-    ![embr](./images/embr-1.png "Import libraries")
-
-2. Select Algorithm and Build Machine Learning Model  
-
-    Let us first invoke a script with table as input and test using open source R test and the local R data frame.
-
-    ```
-    <copy>
-    cust_insur_ltv_loc <- ore.pull(CUST_INSUR_LTV)
-    class(cust_insur_ltv_loc)
-    </copy>
-    ```
-
-    ```
-    <copy>
-    glm.fit <- function(dat){
-                 glm(LTV ~ N_MORTGAGES + MORTGAGE_AMOUNT + N_OF_DEPENDENTS, data = dat)}
-
-    mod.loc <- glm.fit(cust_insur_ltv_loc)
-    mod.loc
-    class(mod.loc)
-    </copy>
-    ```
-
-    Your output should look as follows:
-
-    ![embr](./images/embr-2.png "Select Algorithm and Build Machine Learning Model")
-
-
-    Now, let us use ore.TableApply function with a database proxy table as input. This allows for in database processing and eliminates the need to "pull" data out.
-
-    ```
-    <copy>
-    glm.fit.oml4r <- ore.tableApply(CUST_INSUR_LTV, FUN=glm.fit)
-    glm.fit.oml4r
-    class(glm.fit.oml4r)
-    ore.pull(glm.fit.oml4r)
-    </copy>
-    ```
-
-    Your output should look as follows:
-
-    ![embr](./images/embr-3.png "Use ore.TableApply function")
-
-
-3. Save Model in Datastore and
-
-    Save model in data store.
-
-    ```
-    <copy>
-    ore.save(glm.fit.oml4r, name = "GLMFITOML4R")
-    ore.datastore()
-    </copy>
-    ```
-
-    Create function for generating predictions for a given dataset.
-
-    ```
-    <copy>
-    glm.pred <- function(dat, mod){
-                  return(data.frame(pred=predict(mod, newdata = dat), LTV=dat$LTV))}
-    </copy>
-    ```
-
-    Your output should look as follows:
-
-    ![embr](./images/embr-4.png "Create function for generating predictions for a given dataset")
-
-
-4. Score Data Using ore.rowApply
-
-    Let us first test locally, in open source R first.
-
-    ```
-    <copy>
-    scores.loc <- glm.pred(dat=cust_insur_ltv_loc, mod=mod.loc)
-    head(scores.loc)
-    class(scores.loc)
-    </copy>
-    ```
-
-    Your output should look as follows:
-
-    ![embr](./images/embr-5.png "Score Data Using ore.rowApply")
-
-
-    Now score data using OML4R with database data
-
-    ```
-    <copy>
-    scores.oml4r <- ore.rowApply(CUST_INSUR_LTV,
-                 FUN=glm.pred,
-                 mod=mod.loc,
-                 rows=200,
-                 ore.connect=TRUE,
-                 parallel=TRUE,
-                 FUN.VALUE=data.frame(pred=numeric(0),
-                                      LTV=numeric(0)))
-
-    class(scores.oml4r)
-    ore.pull(scores.oml4r)
-    </copy>
-    ```
-
-    Your output should look as follows:
-
-    ![embr](./images/embr-6.png "Score data using OML4R with database data")
-
-
-## Task 8: Conclusion
+## Task 7 Conclusion
 
 ### Conclusion
 
@@ -1257,9 +1148,9 @@ OML4R enables you to leverage the power of R, a leading statistical programming 
 
 ### Next Steps
 
-a) Sign-up: OCI Always Free Tier
+a) Sign-up:  Oracle Cloud Infrastructure trial account
 
-Consider signing-up for the Oracle Cloud Infrastructure Always Free Tier and use Oracle Machine Learning for R (as well as Oracle Machine Learning for Python and Oracle Machine Learning for SQL) for your development projects. Note that OML4R is currently not supported on Autonomous Database. However, you can use Oracle Database installed in a compute VM and OML4R.
+Consider signing-up for the Oracle Cloud Infrastructure and use Oracle Machine Learning for R (as well as Oracle Machine Learning for Python and Oracle Machine Learning for SQL) for your development projects. Note that OML4R is currently not supported on Autonomous Database. However, you can use Oracle Database installed in a compute VM and OML4R.
 
 b) Get Certified: Oracle Machine Learning with Oracle Autonomous Database Certification
 Consider taking the Oracle Machine Learning with Oracle Autonomous Database Certification offered by Oracle University.
@@ -1267,4 +1158,4 @@ Consider taking the Oracle Machine Learning with Oracle Autonomous Database Cert
 
 ## Acknowledgements
 * **Authors** - Ravi Sharma, Rajeev Rumale, Milton Wan
-* **Last Updated By/Date** -  Ravi Sharma, 02/3/2022
+* **Last Updated By/Date** -  Ravi Sharma, April 2022

@@ -14,12 +14,11 @@ Perform the following from both SQL command line and Oracle Enterprise Manager C
 - View and modify the initialization parameters.
 - Administer the Automatic Memory Management.
 
-### Prerequisites  
+### Prerequisites
 
-This lab assumes you have -
+This lab assumes you have
 - A Free Tier, Paid or LiveLabs Oracle Cloud account
-
-**Note:** If you have a **Free Trial** account, when your Free Trial expires your account will be converted to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available. [**Click here for the Free Tier FAQ page.**](https://www.oracle.com/cloud/free/faq.html)
+- Or an Oracle account to reserve the workshop on LiveLabs
 
 ## Appendix 1: Overview of Oracle Database Instance and Memory Management
 

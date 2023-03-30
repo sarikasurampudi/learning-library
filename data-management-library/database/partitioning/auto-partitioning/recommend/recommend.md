@@ -12,7 +12,7 @@ Estimated Time: 20mins
 ### Prerequisites
 This lab assumes you have completed the following labs:
 
-- Provision an ADB instance (19c, Always Free)
+- Provision an ADB instance (19c)
 - Create non-partitioned table
 - Validate the table
 

@@ -17,15 +17,15 @@ In this lab, you will:
 ### Prerequisites
 
 * This workshop assumes that you have reservation of this workshop on LiveLabs. Once your environment is ready, Click on *Launch Workshop*.
-        ![](images/1.png " ")
+        ![Launch Workshop](images/launchworkshop.png " ")
 * On this page, you will find your *Tenancy name*, *Region*, *User name* and *Compartment*. We need this information as we proceed further in this workshop. Click on *Copy Password*  and then click *Launch Console*.
-        ![](images/2.png " ")
+        ![Launch Console](images/launchconsole.png " ")
 
 * Enter the copied password here and click *Sign In*.
-        ![](images/3.png " ")
+        ![Sign In](images/signin.png " ")
 
 * Enter the copied password and new password here. Click on *Save New Password*.
-        ![](images/4.png " ")
+        ![Change Password](images/changepassword.png " ")
 
 
 ## Task 1: Configure `kubectl` (Kubernetes Cluster CLI)
@@ -38,23 +38,23 @@ We will use `kubectl` to manage the cluster remotely using the Cloud Shell. It n
 
 1. In the Console, select the *Hamburger Menu -> Developer Services -> Kubernetes Clusters (OKE)* as shown.
 
-    ![Hamburger Menu](../setup-oke-ocishell/images/1.png " ")
+    ![Hamburger Menu](../setup-oke-ocishell/images/hamburgermenu.png " ")
 
 2. Select the compartment, which is assinged to you. Then click on the *cluster1* cluster.
 
 3. Click *Access Cluster* on your cluster detail page.
 
-    ![Access Cluster](../setup-oke-ocishell/images/8.png " ")
+    ![Access Cluster](../setup-oke-ocishell/images/accesscluster.png " ")
 
     > A dialog is displayed from which you can open the Cloud Shell and contains the customized OCI command that you need to run, to create a Kubernetes configuration file.
 
 4. Leave the default *Cloud Shell Access* and first select the *Copy* link to copy the `oci ce...` command to the Cloud Shell.
 
-    ![Copy kubectl Config](../setup-oke-ocishell/images/9.png " ")
+    ![Copy kubectl Config](../setup-oke-ocishell/images/copyconfig.png " ")
 
 5. Now, click *Launch Cloud Shell* to open the built in console. Then close the configuration dialog before you paste the command into the *Cloud Shell*.
 
-    ![Launch Cloud Shell](../setup-oke-ocishell/images/10.png " ")
+    ![Launch Cloud Shell](../setup-oke-ocishell/images/launchcloudshell.png " ")
 
 6. Copy the command from the clipboard (Ctrl+V or right click and copy) into the Cloud Shell and run the command.
 
@@ -64,7 +64,7 @@ We will use `kubectl` to manage the cluster remotely using the Cloud Shell. It n
     oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.phx.aaaaaaaaaezwen..................zjwgm2tqnjvgc2dey3emnsd --file $HOME/.kube/config --region us-phoenix-1 --token-version 2.0.0
     ```
 
-    ![kubectl config](../setup-oke-ocishell/images/11.png " ")
+    ![kubectl config](../setup-oke-ocishell/images/kubeconfig.png " ")
 
 7. Now check that `kubectl` is working, for example, using the `get node` command. you may need to run this command several times until you see the output similar to following.
 
@@ -84,7 +84,7 @@ We will use `kubectl` to manage the cluster remotely using the Cloud Shell. It n
 
 8. You can minimize and restore the terminal size at any time using the controls at the top right corner of the Cloud Shell.
 
-    ![cloud shell](../setup-oke-ocishell/images/13.png " ")
+    ![cloud shell](../setup-oke-ocishell/images/cloudshell.png " ")
 
 Leave this *Cloud Shell* open; we will use it for further labs.
 
@@ -92,4 +92,4 @@ Leave this *Cloud Shell* open; we will use it for further labs.
 
 * **Author** -  Ankit Pandey
 * **Contributors** - Maciej Gruszka, Peter Nagy
-* **Last Updated By/Date** - Kamryn Vinson, January 2022
+* **Last Updated By/Date** - Ankit Pandey, April 2022

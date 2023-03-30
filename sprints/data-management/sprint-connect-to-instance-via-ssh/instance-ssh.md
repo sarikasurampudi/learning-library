@@ -1,4 +1,4 @@
-# How do I connect to the instance via SSH?
+# How do I connect to a compute instance via SSH?
 
 Duration: 5 minutes
 

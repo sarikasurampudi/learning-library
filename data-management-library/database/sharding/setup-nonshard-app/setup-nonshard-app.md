@@ -1161,9 +1161,9 @@ In this step, you will export the demo application data and copy the dmp file to
 
     
 
-You may now [proceed to the next lab](#next).
+You may now proceed to the next lab..
 
 ## Acknowledgements
 * **Author** - Minqiao Wang, DB Product Management, Dec 2020 
-* **Last Updated By/Date** - Minqiao Wang, Jun 2021
+* **Last Updated By/Date** - Andres Quintana, April 2022
 

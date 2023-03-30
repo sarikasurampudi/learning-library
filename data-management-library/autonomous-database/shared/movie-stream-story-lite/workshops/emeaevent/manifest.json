@@ -9,7 +9,7 @@
         },
         {
           "title": "Get started",
-          "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
+          "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login-livelabs2.md"
         },
         {
           "title": "Lab 1: Provision an ADB instance",
@@ -26,22 +26,21 @@
 
         },
         {
-            "title": "Lab 4: Working with JSON data",
-            "filename": "../../working-with-semi-structured-data/working-with-semi-structured-data.md"
-
-        },
-        {
-            "title": "Lab 5: Use OML to predict customer churn",
-            "type": "freetier",
-            "filename": "../../predict-churn/predict-churn.md"
-        },
-        {
-            "title": "Bonus Lab 6: Find the closest pizza shops with Oracle Spatial",
+            "title": "Lab 4: Find the closest pizza shops with Oracle Spatial",
             "filename": "../../apply-spatial/apply-spatial.md"
         },
         {
-            "title": "Bonus Lab 7: Use Graph analytics for product recommendations",
+            "title": "Lab 5: Use Graph analytics for product recommendations",
             "filename": "../../apply-graph/apply-graph.md"
+        },
+        {
+          "title": "Bonus Lab 6: Working with JSON data",
+          "filename": "../../working-with-semi-structured-data/working-with-semi-structured-data.md"
+        },
+        {
+          "title": "Bonus Lab 7: Use OML to predict customer churn",
+          "type": "freetier",
+          "filename": "../../predict-churn/predict-churn.md"
         },
         {
           "title": "Need Help?",

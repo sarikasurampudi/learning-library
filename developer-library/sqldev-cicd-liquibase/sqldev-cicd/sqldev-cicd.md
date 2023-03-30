@@ -776,7 +776,7 @@ In this lab, you will:
 1. On Oracle Cloud Console, click on main menu ≡, then **Autonomous Transaction Processing** under Oracle Database. **Create Autonomous Database**.
 
     - Select a compartment: [Your Compartment]
-    - Display name: [Your Initials]-Dev02 (e.g. VLT-Dev02)
+    - Display name: [Your Initials]Dev02 (e.g. VLTDev02)
     - Database name: [Your Initials]Dev02 (e.g. VLTDev02)
     - Choose a workload type: Transaction Processing
     - Choose a deployment type: Shared Infrastructure
@@ -998,8 +998,8 @@ In this lab, you will:
 15. Open `hr-ATPdev01_ATPdev02.xml` in SQL Developer using Files dialog. This changelog is empty because there are no object differences between ATPdev01 and ATPdev02 development environments.
 
 16. Clean up OCI environment by terminating Autonomous Database resources:
-    * ATPdev01 database **[Your Initials]-Dev01**
-    * ATPdev02 database **[Your Initials]-Dev02**
+    * ATPdev01 database **[Your Initials]Dev01**
+    * ATPdev02 database **[Your Initials]Dev02**
 
 
 ## Acknowledgements

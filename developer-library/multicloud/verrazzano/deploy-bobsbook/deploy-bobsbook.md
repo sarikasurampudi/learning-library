@@ -1,10 +1,10 @@
-# Deploy the Bobbys-Books Application Which is Based on WebLogic, Coherence and Helidon
+# Deploy Bobby's Books sample application
 
 ## Introductions
 
 ### About Bobby's Books Application
 
-![Bobby' Books Application](images/1.png " ")
+![Bobby' Books Application](images/bobbyoverview.png " ")
 
 [Bobby’s Books](https://verrazzano.io/docs/samples/bobs-books/) consists of three main parts:
 
@@ -158,6 +158,8 @@ To explore traits, we can examine the fields of an ingress trait:
 
 This lab walks you through the process of deploying the Bobby's Books sample application.
 
+Estimated time: 10 minutes
+
 ### Objectives
 
 In this lab, you will:
@@ -186,35 +188,35 @@ For the deployment of the *Bobby's Books* sample application, we will use the ex
 
 1. Click the link for the Oracle Container Registry [https://container-registry.oracle.com/](https://container-registry.oracle.com/) and sign in. For this, you need an Oracle Account.
 
-    ![Sign In](images/2.png " ")
+    ![Sign In](images/registrysignin.png " ")
 
 2. Enter your *Oracle Account Credentials* in the Username and Password fields, and then click *Sign In*. We will later use these credentials to create secret in Kubernetes.
 
-    ![Oracle SSO](images/3.png " ")
+    ![Oracle SSO](images/oraclesso.png " ")
 
 3. On the Home Page, select *Verrazzano*.
 
-    ![Oracle SSO](images/4.png " ")
+    ![Registry Homepage](images/registryhomepage.png " ")
 
 4. For example-bobbys-coherence, example-bobbys-front-end, example-bobs-books-order-manager, and example-roberts-coherence repository , select *English* as the language, then click *Continue*.
 
-    ![Continue](images/5.png " ")
+    ![Continue](images/continue.png " ")
 
 5. Click *Accept* to accept the license agreement.
 
-    ![Accept Agreement](images/6.png " ")
+    ![Accept Agreement](images/acceptagreement.png " ")
 
 6. Verify that you accepted license agreement for the repositories related to Verrazzano as shown in the following image.
 
-    ![Verify License Agreement](images/28.png " ")
+    ![Verify License Agreement](images/verifyaggrement.png " ")
 
 7. In the Home page of Oracle Container Registry, Search for *weblogic*
    
-    ![Search WebLogic](images/31.png " ")
+    ![Search WebLogic](images/searchweblogic.png " ")
 
 8. Click *weblogic* as shown and accept the license as you did for Verrazzano imagaes.
 
-    ![Accept License Agreement](images/32.png " ")
+    ![click weblogic](images/acceptagreement.png " ")
     
 ## Task 2: Deploy the Bobby's Books application
 
@@ -224,23 +226,21 @@ We need to download the source code, where we have configuration files, `bobs-bo
 
     ```bash
     <copy>
-    curl -LSs  https://raw.githubusercontent.com/verrazzano/verrazzano/v1.1.0/examples/bobs-books/bobs-books-app.yaml >~/bobs-books-app.yaml
-    curl -LSs https://raw.githubusercontent.com/verrazzano/verrazzano/v1.1.0/examples/bobs-books/bobs-books-comp.yaml >~/bobs-books-comp.yaml
+    curl -LSs  https://raw.githubusercontent.com/verrazzano/verrazzano/v1.2.1/examples/bobs-books/bobs-books-app.yaml >~/bobs-books-app.yaml
+    curl -LSs https://raw.githubusercontent.com/verrazzano/verrazzano/v1.2.1/examples/bobs-books/bobs-books-comp.yaml >~/bobs-books-comp.yaml
     cd ~
     </copy>
     ```
 
 2. We will keep all Kubernetes artifacts in the separate namespace. Create a namespace for the Bob's Books example application. Namespaces are a way to organize clusters into virtual sub-clusters. We can have any number of namespaces within a cluster, each logically separated from others but with the ability to communicate with each other.
 Also we need to make Verrazzano aware that we store in that namespace Verrazzano artifacts. So we need to add a a label identifying the bobs-books namespace as managed by Verrazzano. Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to users. Here, for the bobs-book namespace, we are attaching a label to it, which marks this namespace as managed by Verrazzano. The *istio-injection=enabled*, enables an Istio "sidecar", and as such, helps establish an Istio proxy. With an Istio proxy, we can access other Istio services like an Istio gateway and such. To add the label to the bobs-books namespace with the previously mentioned attributes, copy the following command and run it in the *Cloud Shell*
-
     ```bash
     <copy>
     kubectl create namespace bobs-books
     kubectl label namespace bobs-books verrazzano-managed=true istio-injection=enabled
     </copy>
     ```
-
-    ![Verrazzano Home Folder](images/9.png " ")
+    ![Create Namespace](images/createnamespace.png " ")
 
 3. Copy the following command to download the script. This script authenticate the user for Oracle Container Registry. If authentication is successful, then it creates the docker registry secret. The Docker registry  is a way to store and version images, like GitHub for normal code but for containers (which Kubernetes can pull). Here, we will create a docker-registry secret to enable pulling the Bobby's Books example image from the Oracle Container Registry. Click *Copy* on the following command, and paste it in any text editor of your choice and replace username and password with the email ID and password respectively which you used in Task 1, for accepting the license agreement for downloading images from the Oracle Container Registry. Then, in the Cloud Shell, paste the modified command as shown:
 
@@ -248,19 +248,19 @@ Also we need to make Verrazzano aware that we store in that namespace Verrazzano
     <copy>
     curl -LSs https://raw.githubusercontent.com/oracle/learning-library/master/developer-library/multicloud/verrazzano/deploy-bobsbook/create_secret.sh >~/create_secret.sh
     chmod 777 create_secret.sh
-    ./create_secret.sh username password    
+    ./create_secret.sh username 'password'    
     </copy>
     ```
-
-    ![Oracle Account](images/11.png " ")
+    ![Create Secret](images/createsecret.png " ")
+    > Please enter the password in single quotes.
+   
 
 4. We need to create several Kubernetes secrets with credentials.  In the Bobby's Books application, we have two WebLogic domains *bobby-front-end* and *bobs-bookstore*. The credentials for the WebLogic domain are kept in a Kubernetes Secret where the name of the secret is specified using *webLogicCredentialsSecret* in the WebLogic Domain resource. Also, the domain credentials secret must be created in the namespace where the domain will be running. We need to create the secrets called *bobbys-front-end-weblogic-credentials* and *bobs-bookstore-weblogic-credentials* used by WebLogic Server domains, with a user name value of `weblogic` and a password which is randomly generated in the bobs-books namespace. Our Bobby's Books application uses a *mysql* database. So, we create a new secret called  *mysql-credentials*, with a user name value of `weblogic`, a password which is randomly generated,  and  JDBC URL, *jdbc:mysql://mysql.bobs-books.svc.cluster.local:3306/books* in the bobs-books namespace. We will use this values in the JDBC connection string in WebLogic DataSource object.
 Please copy and paste the block of commands into the *Cloud Shell*.
-
     ```bash
     <copy>
     export WLS_USERNAME=weblogic
-    export WLS_PASSWORD=$((< /dev/urandom tr -dc 'A-Za-z0-9!"#$%&'\''*+,-./:;<=>?@\^_`|~' | head -c10);(date +%S))
+    export WLS_PASSWORD=$((< /dev/urandom tr -dc 'A-Za-z0-9"'\''/<=>?\^_`|~' | head -c10);(date +%S))
     echo $WLS_PASSWORD
     kubectl create secret generic bobbys-front-end-weblogic-credentials --from-literal=password=$WLS_PASSWORD --from-literal=username=$WLS_USERNAME -n bobs-books
     kubectl create secret generic bobs-bookstore-weblogic-credentials --from-literal=password=$WLS_PASSWORD --from-literal=username=$WLS_USERNAME -n bobs-books
@@ -269,28 +269,47 @@ Please copy and paste the block of commands into the *Cloud Shell*.
         --from-literal=password=$WLS_PASSWORD \
         --from-literal=url=jdbc:mysql://mysql.bobs-books.svc.cluster.local:3306/books \
         -n bobs-books
-    cd ~ 
+    cd ~
     </copy>
     ```
-
-    ![mysql](images/12.png " ")
+    ![Create Resource](images/createresource.png " ")
 
 5. We have a Kuberneter cluster, <if type="freetier">*cluster1*</if><if type="livelabs">*verrazzano*</if>, with three nodes. Now, we want to deploy Bobby's Books containerized application on <if type="freetier">*cluster1*</if><if type="livelabs">*verrazzano*</if>. For this, we need a Kubernetes deployment configuration. This deployment instructs the Kubernetes to create and update instances for the Bobby's Books application. Here, we have the `bobs-books-comp.yaml` file, which instructs Kubernetes to deploy the Bobby's Books application. Copy and paste the following two commands as shown. The `bobs-books-comp.yaml` file contains definitions of various OAM components, where, an OAM component is a Kubernetes Custom Resource describing an application’s general composition and environment requirements. To learn more about the `bobs-books-comp.yaml` file, review Verrazzano Components in the Introduction section of this Lab 3.
 
     ```bash
-    <copy>kubectl apply -f ~/bobs-books-comp.yaml</copy>
+    <copy>kubectl apply -f ~/bobs-books-comp.yaml -n bobs-books</copy>
     ```
 
-    ![app](images/20.png " ")
+    The output should be similar to the following:
+
+    ```bash
+    $ kubectl apply -f ~/bobs-books-comp.yaml -n bobs-books
+    component.core.oam.dev/robert-coh created
+    component.core.oam.dev/robert-helidon created
+    component.core.oam.dev/bobby-coh created
+    component.core.oam.dev/bobby-helidon created
+    component.core.oam.dev/bobby-wls created
+    component.core.oam.dev/bobs-mysql-configmap created
+    component.core.oam.dev/bobs-mysql-service created
+    component.core.oam.dev/bobs-mysql-deployment created
+    component.core.oam.dev/bobs-orders-configmap created
+    component.core.oam.dev/bobs-orders-wls created
+    $
+    ```
 
 6. The `bobs-books-app.yaml` file is a Verrazzano application configuration file, which provides environment specific customizations. To learn more about `bobs-books-app.yaml` file, review Verrazzano Application Configuration in the Introduction section of this Lab 3.
 
     ```bash
-    <copy>kubectl apply -f ~/bobs-books-app.yaml</copy>
+    <copy>kubectl apply -f ~/bobs-books-app.yaml -n bobs-books</copy>
     ```
 
-    ![app](images/21.png " ")
+    The output should be similar to the following:
 
+    ```bash
+    $ kubectl apply -f ~/bobs-books-app.yaml -n bobs-books
+    applicationconfiguration.core.oam.dev/bobs-books created
+    $
+    ```
 7. Wait for all of the pods in the Bobby’s Books example application to be in the *Running* state. You may need to repeat this command several times before it is successful. The WebLogic Server and Coherence pods may take a while to be created and Ready. This *kubectl* command will wait for all the pods to be in the *Running* state within the bobs-books namespace. It takes around 4-5 minutes. If you are waiting for more then 5 minutes, then you can re-run the command again.
 
     ```bash
@@ -325,7 +344,13 @@ Verify that the application configuration, domains, Coherence resources, and ing
     <copy>kubectl get ApplicationConfiguration -n bobs-books</copy>
     ```
 
-    ![Application Configuration](images/24.png " ")
+    The output should be similar to the following:
+    ```bash
+    $ kubectl get ApplicationConfiguration -n bobs-books
+      NAME         AGE
+      bobs-books   72m
+    $
+    ```
 
 2. To verify that both WebLogic domains are created within the bobs-books namespace successfully.
 
@@ -333,7 +358,14 @@ Verify that the application configuration, domains, Coherence resources, and ing
     <copy>kubectl get Domain -n bobs-books</copy>
     ```
 
-    ![WebLogic Domain](images/25.png " ")
+    The output should be similar to the following:
+    ```bash
+    $ kubectl get Domain -n bobs-books
+      NAME               AGE
+      bobbys-front-end   73m
+      bobs-orders-wls    73m
+    $
+    ```
 
 3. To verify that both Coherence clusters are created within the bobs-books namespace successfully.
 
@@ -341,7 +373,14 @@ Verify that the application configuration, domains, Coherence resources, and ing
     <copy>kubectl get Coherence -n bobs-books</copy>
     ```
 
-    ![Coherence](images/29.png " ")
+    The output should be similar to the following:
+    ```bash
+    $ kubectl get Coherence -n bobs-books
+      NAME                CLUSTER             ROLE                REPLICAS   READY   PHASE
+      bobbys-coherence    bobbys-coherence    bobbys-coherence    1          1       Ready
+      roberts-coherence   roberts-coherence   roberts-coherence   2          2       Ready
+    $
+    ```
 
 4. To get the IngressTrait for the Bobby's Book application, run the following command in the *Cloud Shell*.
 
@@ -349,32 +388,40 @@ Verify that the application configuration, domains, Coherence resources, and ing
     <copy>kubectl get IngressTrait -n bobs-books</copy>
     ```
 
-    ![Ingress](images/26.png " ")
+    The output should be similar to the following:
+    ```bash
+    $ kubectl get IngressTrait -n bobs-books
+      NAME                               AGE
+      bobby-wls-trait-79b67d9d88         76m
+      bobs-orders-wls-trait-57b4d8cb4b   76m
+      robert-helidon-trait-54d7bcd54b    76m
+    $
+    ```
 
 5. Verify that the service pods are successfully created and transition to the *Running* state. Note that this may take a few minutes and that you may see some of the services terminate and restart. Finally, you will observe all the pods associated with the bobs-books namespace are in the *Running* Status. Please copy the pods details for the *bobbys-helidon-stock-application*.
 
-```bash
-<copy>kubectl get pods -n bobs-books</copy>
-```
+    ```bash
+    <copy>kubectl get pods -n bobs-books</copy>
+    ```
 
-```bash
-$ kubectl get pods -n bobs-books
-NAME                                            READY    STATUS    RESTARTS   AGE
-bobbys-coherence-0                               2/2     Running   0          7m51s
-bobbys-front-end-adminserver                     4/4     Running   0          5m28s
-bobbys-front-end-managed-server1                 4/4     Running   0          4m30s
-bobbys-helidon-stock-application-5f74cbc-cw4x4   2/2     Running   0          7m54s
-bobs-bookstore-adminserver                       4/4     Running   0          4m31s
-bobs-bookstore-managed-server1                   4/4     Running   0          3m41s
-mysql-6bc8f9f785-n4qjh                           2/2     Running   0          5m52s
-robert-helidon-65b8874988-7x5vj                  2/2     Running   0          7m53s
-robert-helidon-65b8874988-vnntp                  2/2     Running   0          7m54s
-roberts-coherence-0                              2/2     Running   0          7m52s
-roberts-coherence-1                              2/2     Running   0          7m51s
-$
-```
+    ```bash
+    $ kubectl get pods -n bobs-books
+    NAME                                            READY    STATUS    RESTARTS   AGE
+    bobbys-coherence-0                               2/2     Running   0          7m51s
+    bobbys-front-end-adminserver                     4/4     Running   0          5m28s
+    bobbys-front-end-managed-server1                 4/4     Running   0          4m30s
+    bobbys-helidon-stock-application-5f74cbc-cw4x4   2/2     Running   0          7m54s
+    bobs-bookstore-adminserver                       4/4     Running   0          4m31s
+    bobs-bookstore-managed-server1                   4/4     Running   0          3m41s
+    mysql-6bc8f9f785-n4qjh                           2/2     Running   0          5m52s
+    robert-helidon-65b8874988-7x5vj                  2/2     Running   0          7m53s
+    robert-helidon-65b8874988-vnntp                  2/2     Running   0          7m54s
+    roberts-coherence-0                              2/2     Running   0          7m52s
+    roberts-coherence-1                              2/2     Running   0          7m51s
+    $
+    ```
 
-> Note the pod name for **bobbys-helidon-stock-application**. When we redeploy this component, you will notice that this pod will go into a *Terminating* status and new pod will start and come in the *Running* state in Lab 7.
+    > Note the pod name for **bobbys-helidon-stock-application**. When we redeploy this component, you will notice that this pod will go into a *Terminating* status and new pod will start and come in the *Running* state in Lab 7.
 
 Leave the *Cloud Shell* open; we will use it for the next labs as well.
 
@@ -382,4 +429,4 @@ Leave the *Cloud Shell* open; we will use it for the next labs as well.
 
 * **Author** -  Ankit Pandey
 * **Contributors** - Maciej Gruszka, Peter Nagy
-* **Last Updated By/Date** - Kamryn Vinson, January 2022
+* **Last Updated By/Date** - Ankit Pandey, April 2022

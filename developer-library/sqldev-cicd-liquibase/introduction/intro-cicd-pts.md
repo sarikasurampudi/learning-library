@@ -19,7 +19,7 @@ In this lab, you will:
 * GitHub account
 * Strong experience with SQLcl (or any SQL command line interface like SQL*Plus), and/or SQL Developer
 
-## Task 1: Verify Virtual Cloud Network (VCN)
+## Task 1: Verify Virtual Cloud Network (VCN)
 
 1. Login to Oracle cloud console using the Workshop Details received:
 
@@ -136,7 +136,7 @@ On the Instance Details page, copy Public IP Address in your notes.
 5. Click **Create Autonomous Database**. Wait for Lifecycle State to become Available.
 
 
-## Task 5: Connect to your Autonomous Database
+## Task 5: Connect to your Autonomous Database
 
 1. Click **DB Connection**, and download Instance Wallet using **Download Wallet** button.
 
@@ -197,7 +197,7 @@ On the Instance Details page, copy Public IP Address in your notes.
     ````
 
 
-## Task 6: Install HR Sample Schema
+## Task 6: Install HR Sample Schema
 
 For this simple CICD example, we will capture database changes from the HR sample schema.
 
@@ -266,7 +266,7 @@ For this simple CICD example, we will capture database changes from the HR sampl
     ````
 
 
-## Task 7: Connect to your ATP using SQL Developer
+## Task 7: Connect to your ATP using SQL Developer
 
 1. Create a new connection in SQL Developer to Dev01 ATP. You can find SQL Developer on the Compute Node under Applications > Programming main menu.
 
@@ -297,7 +297,7 @@ For this simple CICD example, we will capture database changes from the HR sampl
 6. If files are modified outside SQL Developer, you need to click the `database` folder and **Refresh** icon ![](./images/refresh.jpg "") to show those changes.
 
 
-## Task 8: Update Git Client
+## Task 8: Update Git Client
 
 GitHub uses Git version control systems (VCS) to handle the collaboration workflow. This allows developers to create a local copy of the project, makes changes, and merge them back into the central repository.
 
@@ -388,7 +388,7 @@ GitHub uses Git version control systems (VCS) to handle the collaboration workfl
     ````
 
 
-## Task 9: Install Liquibase
+## Task 9: Install Liquibase
 
 1. Access the website, and find the URL for the latest stable Liquibase release for Linux x64. 
 

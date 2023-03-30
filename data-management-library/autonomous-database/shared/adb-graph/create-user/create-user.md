@@ -46,29 +46,29 @@ Learn how to
 
 4. Enter the required details, i.e. user name and password. Turn on the **Graph Enable** and **Web Access** radio buttons. And select a quota, e.g. **UMLIMITED**,  to allocate on the `DATA` tablespace.   
 
-   Note: The password should meet the following requirements:
+   	Note: The password should meet the following requirements:
 
-   - The password must be between 12 and 30 characters long and must include at least one uppercase letter, one lowercase letter, and one numeric character.
-   - The password cannot contain the username.
-   - The password cannot contain the double quote (“) character.
-   - The password must be different from the last 4 passwords used for this user.
-   - The password must not be the same password that is set less than 24 hours ago.
-   
-   ![ALT text is not available for this image](images/db-actions-create-graph-user.png " ")
+	- The password must be between 12 and 30 characters long and must include at least one uppercase letter, one lowercase letter, and one numeric character.
+	- The password cannot contain the username.
+	- The password cannot contain the double quote (“) character.
+	- The password must be different from the last 4 passwords used for this user.
+	- The password must not be the same password that is set less than 24 hours ago.
+	
+	![ALT text is not available for this image](images/db-actions-create-graph-user.png " ")
 
-   **Note: Please do not Graph Enable the ADMIN user and do not login to Graph Studio as the ADMIN user. The ADMIN user has additional privileges by default. Create and use an account with only the necessary privileges for with with graph data and analytics.**
+	**Note: Please do not Graph Enable the ADMIN user and do not login to Graph Studio as the ADMIN user. The ADMIN user has additional privileges by default. Create and use an account with only the necessary privileges for with with graph data and analytics.**
 
-   Click the **Create User** button at the bottom of the panel to create the user with the specified credentials.
+	Click the **Create User** button at the bottom of the panel to create the user with the specified credentials.
 
-   The newly created user will now be listed.
+	The newly created user will now be listed.
 
-   ![ALT text is not available for this image](./images/db-actions-user-created.png " ")   
+	![ALT text is not available for this image](./images/db-actions-user-created.png " ")   
 
-   **Note:** *The UI steps above can be instead done by executing the following sql commands listed below when logged in as ADMIN. So Step 5 below is not necessary. It shows an alternate way of creating and enabling GRAPHUSER.*
-   
-1. Allocate a desired table space quota to the newly created user. Open the SQL page and issue the alter command.  
+	**Note:** *The UI steps above can be instead done by executing the following sql commands listed below when logged in as ADMIN. So Step 5 below is not necessary. It shows an alternate way of creating and enabling GRAPHUSER.*
 
-   For example, 
+5. Allocate a desired table space quota to the newly created user. Open the SQL page and issue the alter command.
+
+   For example,
    `ALTER USER GRAPHUSER QUOTA UNLIMITED ON DATA;`   
    will allocate a quota the user `GRAPHUSER` in the tablespace named `DATA`.  
    Copy and paste the following command into the SQL worksheet.  
@@ -97,7 +97,7 @@ Learn how to
 
    ![ALT text is not available for this image](./images/user-altered.png " ") 
  
- 1. You can similarly use SQL statements to verify that GRAPHUSER has been set up correctly.  
+ 6. You can similarly use SQL statements to verify that GRAPHUSER has been set up correctly.  
     
     You must be logged into Data Actions SQL as `ADMIN` then enter the following SQL statements and execute them. 
      

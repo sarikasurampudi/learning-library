@@ -162,7 +162,7 @@ This lab assumes that you have:
     ```
     $ <copy>mkdir -p ~/labs/19cnf</copy>
     $ <copy>cd ~/labs/19cnf</copy>
-    $ <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/oEnGreIEZra0-AyqOwJaNWdTnuclhymdqZwu4dxFIHyXKXRQrdalUkMZVJ9KvR_g/n/c4u04/b/II-19c/o/19c-new-features-lab-files.zip</copy>
+    $ <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/VEKec7t0mGwBkJX92Jn0nMptuXIlEpJ5XJA-A6C9PymRgY2LhKbjWqHeB5rVBbaV/n/c4u04/b/livelabsfiles/o/data-management-library-files/19cnf-lab-files.zip</copy>
     $ <copy>mv 19c-new-features-lab-files.zip ./19cnf-lab-files.zip</copy>
     $ <copy>unzip -q 19cnf-lab-files.zip</copy>
     $ <copy>chmod -R +x ~/labs/19cnf</copy>
@@ -193,5 +193,5 @@ To restore one or more of your lab files on your `workshop-installed` compute in
 
 ## Acknowledgements
 
-- **Author**- Jody Glover, Principal User Assistance Developer, Database Development
+- **Author**- Matthew McDaniel, Austin Specialist Hub
 - **Last Updated By/Date** - Matthew McDaniel, Austin Specialist Hub, December 13 2021

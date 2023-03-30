@@ -4,7 +4,7 @@
 
 The labs in this workshop walk you through all the steps to access the Data Lake using Autonomous Database (ADB) and Data Catalog. You will learn how to Synchronize ADB and Data Catalog so that you can query Oracle Object Storage buckets from ADB.
 
-Estimated Time: 2.5 hours
+Estimated Time: 3 hours
 
 ### What is Data Catalog?
 Oracle Cloud Infrastructure Data Catalog is a fully managed, self-service data discovery and governance solution for your enterprise data. With Data Catalog, you get a single collaborative environment to manage technical, business, and operational metadata. You can collect, organize, find, access, understand, enrich, and activate this metadata.

@@ -12,7 +12,7 @@ Oracle Database property graph supports and consists of graph storage, indexing,
 
 Watch a short video that explains key features in Oracle Graph:
 
-[](youtube:-DYVgYJPbQA)
+[youtube](youtube:-DYVgYJPbQA)
 
 ### Objectives
 

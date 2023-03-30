@@ -2,7 +2,7 @@
 ![INTRO](./images/00-mds-image.png " ") 
 
 
-## About this Workshop
+### About this Workshop
 
 WordPress is a versatile content management system (CMS) and a powerful website builder. MySQL Database Service(MDS) is a fully managed Oracle Cloud Infrastructure (OCI) native service. Together they create a resilient hosting infrastructure for your web application. Use this workshop as a starting point and have a complete installation is built on Oracle Linux and Oracle MySQL Database Service. 
 

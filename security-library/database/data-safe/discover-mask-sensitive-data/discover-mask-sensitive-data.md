@@ -101,9 +101,7 @@ In Data Discovery, you can select the sensitive types that you want to discover 
 
     The **Overview** page for the Oracle Data Safe service is displayed.
 
-3. Click **Security Center**, and then click **Data Discovery**.
-
-    ![Data Discovery option in Security Center](images/data-discovery-security-center.png "Data Discovery option in Security Center")
+3. On the left under **Security Center**, and click **Data Discovery**.
 
 4. From the **Compartment** drop-down list, select your compartment.
 
@@ -206,23 +204,19 @@ Data Masking can generate a masking policy for your target database based on you
 
 1. In the breadcrumb at the top of the page, click **Data Safe**.
 
-2. On the left under **Data Safe**, click **Security Center**.
+2. On the left under **Security Center**, click **Data Masking**.
 
-3. Click **Data Masking**.
-
-    ![Data Masking in Security Center](images/data-masking-security-center.png "Data Masking in Security Center")
-
-4. Under **Related Resources**, click **Masking Policies**.
+3. Under **Related Resources**, click **Masking Policies**.
 
     The **Masking Policies** page is displayed and shows that there is no masking policy available for your target database.
 
     ![Masking Policies page](images/no-masking-policies-available.png "Masking Policies page")
 
-5. Click **Create Masking Policy**.
+4. Click **Create Masking Policy**.
 
     The **Create Masking Policy** panel is displayed.
 
-6. Configure the masking policy as follows, and then click **Create Masking Policy**.
+5. Configure the masking policy as follows, and then click **Create Masking Policy**.
 
     *Important! Please do not close the panel. It closes automatically after all operations are completed. If you close the panel before the operations are finished, the operation to add columns to the masking policy is not initiated.*
 
@@ -236,14 +230,14 @@ Data Masking can generate a masking policy for your target database based on you
 
     The **Masking Policy Details** page is displayed.
 
-7. Review the masking policy.
+6. Review the masking policy.
 
     - On the **Masking Policy Information** tab, you can view the masking policy name (and edit it), the Oracle Cloud Identifier (OCID) for the masking policy, a link to the work request for the masking policy, the compartment in which the masking policy is stored, the target database and sensitive data model to which the masking policy is associated, and the date/time in which the masking policy was created and last updated.
     - The **Masking Columns** table lists all the sensitive columns and their masking formats. If needed, you can select a different masking format for any sensitive column. You can click the pencil icon next to a masking format to edit it.
 
     ![Masking Policy Details page for Mask SDM1](images/masking-policy-details-page-mask-sdm1.png "Masking Policy Details page for Mask SDM1")
 
-8. Under **Resources**, click **Masking Columns Needing Attention**.
+7. Under **Resources**, click **Masking Columns Needing Attention**.
 
     The **Masking Columns Needing Attention** section is displayed at the bottom of the page. This section informs you of sensitive columns that do not have a masking format. The screenshot below shows an example where there are no sensitive columns without a masking format.
 
@@ -339,4 +333,4 @@ After you create a masking policy, you can run a data masking job against your t
 
 ## Acknowledgements
 * **Author** - Jody Glover, Consulting User Assistance Developer, Database Development
-* **Last Updated By/Date** - Jody Glover, February 26, 2022
+* **Last Updated By/Date** - Jody Glover, April 14, 2022

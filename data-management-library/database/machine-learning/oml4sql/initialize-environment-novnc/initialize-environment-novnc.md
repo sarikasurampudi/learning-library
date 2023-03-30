@@ -1,7 +1,7 @@
 # Initialize environment
 
 ## Introduction
-This lab will show you how launch Jupyter Notebooks in your NoVNC instance.
+This lab will show you how to launch Jupyter Notebooks in your NoVNC instance.
 
 *Estimated Time*: 30 minutes
 
@@ -32,7 +32,7 @@ This lab assumes you have:
 
     > **Important** Leave the terminal window open as closing this would close the Jupyter notebooks, you can leave the terminal open in background and switch to browser by clicking on browser.
 
-2. A new browser window would open with Jupyter notebook session. Notice there are two notebooks already present, for ease of use the notebooks are already prepared with all the steps we need for this labs.      
+2. A new browser window would open with Jupyter notebook session. Notice there are two notebooks already present, for ease of use the notebooks are already prepared with all the steps we need for the labs.      
 
     ![](images/oml4py-jupyter-notebooks-view.png " ")
 

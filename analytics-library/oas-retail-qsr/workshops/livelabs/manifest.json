@@ -1,6 +1,6 @@
 {
   "workshoptitle": "Oracle Analytics Server - Retail",
-  "help": "livelabs-help-license_us@oracle.com",
+  "help": "livelabs-help-analytics_us@oracle.com",
   "tutorials": [
     {
       "title": "Introduction",
@@ -10,42 +10,38 @@
     {
       "title": "Lab 1: Environment Setup",
       "description": "Verify Setup of compute instance",
-      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/verify-compute/verify-compute-novnc.md"
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/verify-compute/verify-compute-ssh-and-novnc.md"
     },
     {
-      "title": "Lab 2: Initialize Environment",
+      "title": "Lab 2: Initialize environment",
       "description": "Initialize Environment Lab",
       "filename": "../../initialize-environment/initialize-environment.md",
       "type": "external"
     },
     {
-      "title": "Lab 4: Main Dashboard",
-      "description": "Main Dashboard",
-      "filename": "../../main-dashboard/main-dashboard.md",
-      "type": "external"
+      "title": "Lab 3: Create main dashboard",
+      "description": "Create Main Dashboard",
+      "filename": "../../create-main-dashboard/create-main-dashboard.md"
     },
     {
-      "title": "Lab 5: Channel Sales",
+      "title": "Lab 4: Analyze channel sales",
       "description": "Channel Sales",
-      "filename": "../../channel-sales/channel-sales.md",
-      "type": "external"
+      "filename": "../../channel-sales/channel-sales.md"
     },
     {
-      "title": "Lab 6: On Time Delivery",
-      "description": "On Time Delivery",
-      "filename": "../../on-time-delivery/on-time-delivery.md",
-      "type": "external"
-    },
-    {
-      "title": "Lab 7: HR Analysis",
+      "title": "Lab 5: Uncover HR trends",
       "description": "HR Analysis",
-      "filename": "../../hr-analysis/hr-analysis.md",
-      "type": "external"
+      "filename": "../../hr-analysis/hr-analysis.md"
+    },
+    {
+      "title": "Lab 6: Predict on time delivery",
+      "description": "On Time Delivery",
+      "filename": "../../on-time-delivery/on-time-delivery.md"
     },
     {
       "title": "Need Help?",
       "description": "Solutions to Common Problems and Directions for Receiving Live Help",
-      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-freetier.md"
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-livelabs.md"
     }
   ]
 }

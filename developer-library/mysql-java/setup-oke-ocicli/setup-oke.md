@@ -4,7 +4,7 @@
 
 This lab walks you through the steps how to create managed Kubernetes environment on Oracle Cloud Infrastructure.
 
-Estimated Lab Time: 25 minutes
+Estimated Time: 25 minutes
 
 ### About Product/Technology
 

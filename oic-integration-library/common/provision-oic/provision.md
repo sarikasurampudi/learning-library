@@ -1,5 +1,7 @@
 # Provision Oracle Integration
 
+> **Note:** This step is required **only** if have have not yet provisioned an Oracle Integration instance.
+
 ## Introduction
 
 This lab walks you through the process of provisioning an instance of Oracle Integration, assuming you don't already have one available to you. If you do, you can skip this lab and move on to the next one.
@@ -9,12 +11,12 @@ Estimated Time: 10 minutes
 ### Objectives
 
 In this lab, you will:
-* Provision Integration Instance.
+* Provision Integration Instance
 
 ### Prerequisites
 
 This lab assumes you have:
-* An Oracle account.
+* This lab requires completion of the Get Started section in the Contents menu on the left.
 
 ### Background
 

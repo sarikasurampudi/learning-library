@@ -1,8 +1,10 @@
-# Install Verrazzano on a Kubernetes Cluster in the Oracle Cloud Infrastructure (OCI)
+# Install Verrazzano
 
 ## Introduction
 
 This lab walks you through the steps to install Verrazzano on a Kubernetes cluster in the Oracle Cloud Infrastructure.
+
+Estimated Time: 20 minutes
 
 ### About Product/Technology
 
@@ -83,42 +85,42 @@ Before installing Verrazzano, we need to install the Verrazzano Platform Operato
 
 1. Copy the following command and paste it in the *Cloud Shell* to run it.
 
-  ```bash
-  <copy>kubectl apply -f https://github.com/verrazzano/verrazzano/releases/download/v1.2.0/operator.yaml</copy>
-  ```
-    The output should be similar to the following:
-  ```bash
-  $ kubectl apply -f https://github.com/verrazzano/verrazzano/releases/download/v1.2.0/operator.yaml
-  customresourcedefinition.apiextensions.k8s.io/verrazzanomanagedclusters.clusters.verrazzano.io created
-  customresourcedefinition.apiextensions.k8s.io/verrazzanos.install.verrazzano.io created
-  namespace/verrazzano-install created
-  serviceaccount/verrazzano-platform-operator created
-  clusterrole.rbac.authorization.k8s.io/verrazzano-managed-cluster created
-  clusterrolebinding.rbac.authorization.k8s.io/verrazzano-platform-operator created
-  service/verrazzano-platform-operator created
-  deployment.apps/verrazzano-platform-operator created
-  validatingwebhookconfiguration.admissionregistration.k8s.io/verrazzano-platform-operator created
-  $
-  ```
+    ```bash
+    <copy>kubectl apply -f https://github.com/verrazzano/verrazzano/releases/download/v1.2.0/operator.yaml</copy>
+    ```
+      The output should be similar to the following:
+    ```bash
+    $ kubectl apply -f https://github.com/verrazzano/verrazzano/releases/download/v1.2.0/operator.yaml
+    customresourcedefinition.apiextensions.k8s.io/verrazzanomanagedclusters.clusters.verrazzano.io created
+    customresourcedefinition.apiextensions.k8s.io/verrazzanos.install.verrazzano.io created
+    namespace/verrazzano-install created
+    serviceaccount/verrazzano-platform-operator created
+    clusterrole.rbac.authorization.k8s.io/verrazzano-managed-cluster created
+    clusterrolebinding.rbac.authorization.k8s.io/verrazzano-platform-operator created
+    service/verrazzano-platform-operator created
+    deployment.apps/verrazzano-platform-operator created
+    validatingwebhookconfiguration.admissionregistration.k8s.io/verrazzano-platform-operator created
+    $
+    ```
 
-  > This `operator.yaml` file contains information about the operator and the service accounts and custom resource definitions. By running this *kubectl apply* command, we are specifying whatever is in the `operator.yaml` file.
-  > All deployments in Kubernetes happen in a namespace. When we deploy the Verrazzano Platform Operator, it happens in the namespace called "verrazzano-install".
+    > This `operator.yaml` file contains information about the operator and the service accounts and custom resource definitions. By running this *kubectl apply* command, we are specifying whatever is in the `operator.yaml` file.
+    > All deployments in Kubernetes happen in a namespace. When we deploy the Verrazzano Platform Operator, it happens in the namespace called "verrazzano-install".
 
 2. To find out the deployment status for the Verrazzano Platform Operator, copy the following command and paste it in the *Cloud Shell*.
 
-```bash
-<copy>kubectl -n verrazzano-install rollout status deployment/verrazzano-platform-operator</copy>
-```
+    ```bash
+    <copy>kubectl -n verrazzano-install rollout status deployment/verrazzano-platform-operator</copy>
+    ```
 
-  The output should be similar to the following:
+    The output should be similar to the following:
 
-```bash
-$ kubectl -n verrazzano-install rollout status deployment/verrazzano-platform-operator
-  deployment "verrazzano-platform-operator" successfully rolled out
-$
-```
+    ```bash
+    $ kubectl -n verrazzano-install rollout status deployment/verrazzano-platform-operator
+      deployment "verrazzano-platform-operator" successfully rolled out
+    $
+    ```
 
-  > Confirm that the operator pod associated with the Verrazzano Platform Operator is correctly defined and running. A Pod is a unit which runs containers / images and Pods belong to nodes.
+    > Confirm that the operator pod associated with the Verrazzano Platform Operator is correctly defined and running. A Pod is a unit which runs containers / images and Pods belong to nodes.
 
 3. To find out the pod status, copy and paste the following command in the *Cloud Shell*.
 
@@ -140,8 +142,8 @@ An installation profile is a well-known configuration of Verrazzano settings tha
 
 Verrazzano supports the following installation profiles: development (`dev`), production (`prod`), and managed cluster (`managed-cluster`).
 
-* The production profile, which is the default, provides a 3-node Elasticsearch and persistent storage for the Verrazzano Monitoring Instance (VMI).
-* The development profile provides a single node Elasticsearch and no persistent storage for the VMI.
+* The production profile, which is the default, provides a 3-node Opensearch and persistent storage for the Verrazzano Monitoring Instance (VMI).
+* The development profile provides a single node Opensearch and no persistent storage for the VMI.
 * The managed-cluster profile installs only managed cluster components of Verrazzano. To take full advantage of multicluster features, the managed cluster should be registered with an admin cluster.
 
 To change profiles in any of the following commands, set the *VZ_PROFILE* environment variable to the name of the profile you want to install.
@@ -153,7 +155,7 @@ In this lab, we are going to install the *development profile of Verrazzano*, wh
 * It has a lightweight installation.
 * It is for evaluation purposes.
 * No persistence.
-* Single-node Elasticsearch cluster topology.
+* Single-node OpenSearch cluster topology.
 
 The following image describes the Verrazzano components that are installed with each profile.
 
@@ -195,44 +197,44 @@ According to our DNS choice, we can use nip.io (wildcard DNS) or [Oracle OCI DNS
 
 2. The Verrazzano operator launches a Kubernetes job to install Verrazzano. You can view the installation logs from that job with the following command:
 
-````bash
-<copy>kubectl logs -n verrazzano-install \
- -f $(kubectl get pod \
- -n verrazzano-install \
- -l app=verrazzano-platform-operator \
- -o jsonpath="{.items[0].metadata.name}") | grep '^{.*}$' \
- | jq -r '."@timestamp" as $timestamp | "\($timestamp) \(.level) \(.message)"'</copy>
-````
+    ````bash
+    <copy>kubectl logs -n verrazzano-install \
+    -f $(kubectl get pod \
+    -n verrazzano-install \
+    -l app=verrazzano-platform-operator \
+    -o jsonpath="{.items[0].metadata.name}") | grep '^{.*}$' \
+    | jq -r '."@timestamp" as $timestamp | "\($timestamp) \(.level) \(.message)"'</copy>
+    ````
 
-The output should be similar to the following:
-    
-````bash
-  $ kubectl logs -n verrazzano-install \
->     -f $(kubectl get pod \
->     -n verrazzano-install \
->     -l app=verrazzano-platform-operator \
->     -o jsonpath="{.items[0].metadata.name}") | grep '^{.*}$' \
->     | jq -r '."@timestamp" as $timestamp | "\($timestamp) \(.level) \(.message)"'
-      2022-03-15T12:24:11.756Z info Starting Verrazzano Platform Operator
-      2022-03-15T12:24:13.340Z info metrics server is starting to listen
-      2022-03-15T12:24:13.341Z info skip registering a mutating webhook, admission.Defaulter interface is not implemented
-      2022-03-15T12:24:13.341Z info Registering a validating webhook
-      2022-03-15T12:24:13.341Z info registering webhook
-      2022-03-15T12:24:13.341Z info skip registering a mutating webhook, admission.Defaulter interface is not implemented
-      2022-03-15T12:24:13.341Z info Registering a validating webhook
-      2022-03-15T12:24:13.341Z info registering webhook
-      2022-03-15T12:24:13.341Z info Starting controller-runtime manager
-      2022-03-15T12:24:13.342Z info starting metrics server
-      2022-03-15T12:24:13.342Z info starting webhook server
-      2022-03-15T12:24:13.342Z info Starting EventSource
-      2022-03-15T12:24:13.342Z info Starting EventSource
-      2022-03-15T12:24:13.342Z info Updated current TLS certificate
-      2022-03-15T12:24:13.343Z info Starting certificate watcher
-      2022-03-15T12:24:13.343Z info serving webhook server
-      2022-03-15T12:24:13.742Z info Starting Controller
-      2022-03-15T12:24:13.843Z info Starting workers
-    $
-````
+    The output should be similar to the following:
+        
+    ````bash
+      $ kubectl logs -n verrazzano-install \
+    >     -f $(kubectl get pod \
+    >     -n verrazzano-install \
+    >     -l app=verrazzano-platform-operator \
+    >     -o jsonpath="{.items[0].metadata.name}") | grep '^{.*}$' \
+    >     | jq -r '."@timestamp" as $timestamp | "\($timestamp) \(.level) \(.message)"'
+          2022-03-15T12:24:11.756Z info Starting Verrazzano Platform Operator
+          2022-03-15T12:24:13.340Z info metrics server is starting to listen
+          2022-03-15T12:24:13.341Z info skip registering a mutating webhook, admission.Defaulter interface is not implemented
+          2022-03-15T12:24:13.341Z info Registering a validating webhook
+          2022-03-15T12:24:13.341Z info registering webhook
+          2022-03-15T12:24:13.341Z info skip registering a mutating webhook, admission.Defaulter interface is not implemented
+          2022-03-15T12:24:13.341Z info Registering a validating webhook
+          2022-03-15T12:24:13.341Z info registering webhook
+          2022-03-15T12:24:13.341Z info Starting controller-runtime manager
+          2022-03-15T12:24:13.342Z info starting metrics server
+          2022-03-15T12:24:13.342Z info starting webhook server
+          2022-03-15T12:24:13.342Z info Starting EventSource
+          2022-03-15T12:24:13.342Z info Starting EventSource
+          2022-03-15T12:24:13.342Z info Updated current TLS certificate
+          2022-03-15T12:24:13.343Z info Starting certificate watcher
+          2022-03-15T12:24:13.343Z info serving webhook server
+          2022-03-15T12:24:13.742Z info Starting Controller
+          2022-03-15T12:24:13.843Z info Starting workers
+        $
+    ````
     
 
 3. Leave the *Cloud Shell* open and let the installation running. Please continue with the next lab.
@@ -241,4 +243,4 @@ The output should be similar to the following:
 
 * **Author** -  Ankit Pandey
 * **Contributors** - Maciej Gruszka, Peter Nagy
-* **Last Updated By/Date** - Ankit Pandey, March 2022
+* **Last Updated By/Date** - Ankit Pandey, April 2022

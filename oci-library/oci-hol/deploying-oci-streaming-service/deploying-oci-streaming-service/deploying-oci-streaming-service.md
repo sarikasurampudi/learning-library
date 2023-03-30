@@ -184,6 +184,6 @@ In this lab, we will create a compute instance, download a script to configure s
 - **Author** - Flavio Pereira, Larry Beausoleil
 - **Adapted by** -  Yaisah Granillo, Cloud Solution Engineer
 - **Contributors** - Kamryn Vinson, QA Engineer Lead Intern | Arabella Yao, Product Manager Intern, DB Product Management
-- **Last Updated By/Date** - Tom McGinn, August 2020
+- **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 - **Valid through** - August 2021
 

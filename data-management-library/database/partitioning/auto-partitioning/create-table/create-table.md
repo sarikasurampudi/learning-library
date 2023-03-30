@@ -4,7 +4,7 @@
 
 In this Lab, we create a 5GB non-partitioned table. A table must be at least 5GB in Always Free Autonomous Database environments or 64GB in non-free Autonomous Database (transaction processing or data warehousing) to be considered a candidate table for auto partitioning.
 
-**Note: To run this workshop as-is you need to ensure to run it on a 19c Always Free Autonomous Database.**
+**Note: To run this workshop as-is you need to ensure to run it on a 19c Autonomous Database.**
 
 ### Objectives
 - Create a sufficiently large nonpartitioned table with random data that will become your candidate table for auto partitioning.
@@ -12,7 +12,7 @@ In this Lab, we create a 5GB non-partitioned table. A table must be at least 5GB
 ### Prerequisites
 This lab assumes you have completed the following lab:
 
-- Provision an ADB Instance (19c, Always Free)
+- Provision an ADB Instance (19c)
 
 
 ## Task 1: Invoking Cloud Shell from the Oracle OCI 
@@ -34,12 +34,12 @@ During this part of the workshop we will use OCI Cloud Shell, a web browser-base
 
 	The name of your service is your database name with suffix "_high", "_medium", or "_low". You can get this information also from the DB Connections button on your **Autonomous Database Details** screen.
 	
-	```	
+	```
 	# go to home directory
 	cd
 	
 	# set the environment variable for your newly created autonomous database
-	db_ocid=<your copied ocid here>
+	db_ocid=<paste your copied ocid here>
 	 
 	# download wallet using OCI CLI 
 	oci db autonomous-database generate-wallet --autonomous-database-id $db_ocid --file wallet.zip --password welcome1

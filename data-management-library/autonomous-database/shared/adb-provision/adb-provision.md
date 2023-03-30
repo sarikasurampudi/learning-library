@@ -1,12 +1,3 @@
-/* DELETE THIS FILE IN THE NEXT RELEASE - PLEASE USE ADB-PROVISION-CONDITIONAL.MD FILE INSTEAD AND SPECIFY THE VERSION YOU WANT IN YOUR MANIFEST:
-{
-  "title": "Lab 1: Provision an ADB Instance",
-  "description": "Provisioning an Autonomous Database Instance",
-  "type": "freetier",
-  "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/data-management-library/autonomous-database/shared/adb-provision/adb-provision-conditional.md"
-},
-*/# Provision an Autonomous Database (ADW and ATP)
-
 ## Introduction
 
 This lab walks you through the steps to get started using the Oracle Autonomous Database (Autonomous Data Warehouse [ADW] and Autonomous Transaction Processing [ATP]) on Oracle Cloud. In this lab, you provision a new ADW instance.
@@ -50,7 +41,7 @@ To complete this lab, you need to have the following:
 
     ![Autonomous Databases console.](./images/no-adb-freetier.png " ")
 
-6. If you are using a Free Trial or Always Free account, and you want to use Always Free Resources, you need to be in a region where Always Free Resources are available. You can see your current default **region** in the top, right hand corner of the page.
+6. You can see your current default **region** in the top, right hand corner of the page.
 
     ![Select region on the far upper-right corner of the page.](./images/Region.png " ")
 
@@ -88,7 +79,6 @@ To complete this lab, you need to have the following:
 
 6. Configure the database:
 
-    - __Always Free__ - If your Cloud Account is an Always Free account, you can select this option to create an always free autonomous database. An always free database comes with 1 CPU and 20 GB of storage. For this lab, we recommend you leave Always Free unchecked.
     - __Choose database version__ - Select a database version from the available versions.
     - __OCPU count__ - Number of CPUs for your service. For this lab, specify __1 CPU__. If you choose an Always Free database, it comes with 1 CPU.
     - __Storage (TB)__ - Select your storage capacity in terabytes. For this lab, specify __1 TB__ of storage. Or, if you choose an Always Free database, it comes with 20 GB of storage.

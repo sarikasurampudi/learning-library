@@ -7,6 +7,7 @@ Harvesting is a process that extracts technical metadata from your data assets i
 Estimated Time: 30 minutes
 
 <!-- Comments -->
+<!-- liveLabs section starts on line 466 -->
 
 ### Objectives
 
@@ -493,7 +494,7 @@ If you already launched the workshop and logged in to the Console using the inst
 
     ![The Oracle Cloud Infrastructure Direct Sign-In section with the populated username and password is displayed. The Sign In button is highlighted.](./images/ll-signin.png " ")
 
-5. The **Change Password** dialog box is displayed. We recommend that you use your assigned password as the new password so that you can also copy that from the **Workshop Details** section when you need it. Enter your assigned password in the **Current Password**, **New Password**, and **Confirm New Password** fields, and then click **Save New Password**.
+5. The **Change Password** dialog box is displayed.   Enter your assigned password in the **Current Password**, **New Password**, and **Confirm New Password** fields, and then click **Save New Password**.
 
     ![The completed Change Password dialog box is displayed. The Save New Password button is highlighted.](./images/ll-change-password.png " ")
 
@@ -546,27 +547,29 @@ In this task, you create a new and empty business glossary in your Data Catalog 
 
    ![On the "Glossary: MovieStream Application" details page, the Import button is highlighted.](./images/click-import.png " ")
 
-7. Click **Import**. A **Note** message box is displayed indicating that some rich text formatting might be modified or lost on import. Click **Proceed**.
-
-8. In the **Open** dialog box for your local system, copy and enter the following URL that represents a glossary that was exported from a different Data Catalog instance in the **File name** text box. Make sure that the **Custom Files (.csv; .xlsx)** type is selected in the second drop-down field, and then click Open.
+7. Copy the following URL that represents a glossary that was exported from a different Data Catalog instance. You will import this glossary into your new glossary that you created.
 
     ```
     <copy>https://objectstorage.us-ashburn-1.oraclecloud.com/n/c4u04/b/moviestream_scripts/o/dcat/MovieStream%20ApplicationExport.xlsx</copy>
     ```
 
+8. Click **Import**. A **Note** message box is displayed indicating that some rich text formatting might be modified or lost on import. Click **Proceed**.
+
+9. In the **Open** dialog box for your local system, paste the URL that you copied in the **File name** text box. Make sure that the **Custom Files (.csv; .xlsx)** type is selcted in the second drop-down field, and then click **Open**.
+
     ![The populated File name text field and Open button are highlighted.](./images/specify-url.png " ")
 
-9. An import job is triggered and an "Initiated MovieStream Application import job" message is displayed. You can click the **View Job** link in the message to view the details of this job. When the job is completed successfully, the contents of the Excel file are imported into your glossary.
+10. An import job is triggered and an **Initiated MovieStream Application import job** message is displayed. You can click the **View Job** link in the message to view the details of this job. When the job is completed successfully, the contents of the Excel file are imported into your glossary.
 
     ![The Summary tab of the imported glossary displays the glossary details. In the Glossary Hierarchy pane on the left, the Refresh glossary link and MovieStream Application name link are highlighted.](./images/glossary-imported.png " ")
 
-10. The imported glossary is displayed in the **Glossary Hierarchy** pane on the left. You can also click **Expand all** to view all of the details. The children of the **MovieStream Application** glossary are displayed. If the glossary details are not displayed, click **Refresh glossary**.
+11. The imported glossary is displayed in the **Glossary Hierarchy** pane on the left. You can also click **Expand all** to view all of the details. The children of the **MovieStream Application** glossary are displayed. If the glossary details are not displayed, click **Refresh glossary**.
 
    ![In the Glossary Hierarchy pane, the Expand all and MovieStream Application name link are highlighted. The MovieStream Application is expanded to show some of its immediate children and descendants.](./images/expand-all.png " ")
 
     >**Note:** The categories and terms created within a glossary are displayed in the **Glossary Hierarchy** tree navigation list. Expand each category to view terms created within that category. The summary information changes as you click different nodes in the glossary tree. You can use Expand All or Collapse All to expand or collapse all the nodes available in the glossary respectively. You can also use the search bar to search for categories and terms. If the glossary children are not displayed, click **Refresh glossary**.
 
-11. Close the **Glossaries** and **MovieStream Application** tabs. The Data Catalog instance **Home** tab is re-displayed. The added glossary is reflected in the highlighted Glossary link.
+12. Close the **Glossaries** and **MovieStream Application** tabs. The Data Catalog instance **Home** tab is re-displayed. The added glossary is reflected in the highlighted Glossary link.
 
     ![The highlighted Glossary(1) link is highlighted.](./images/home-tab.png " ")
 
@@ -998,7 +1001,7 @@ In **Lab 3**, you will also provide a custom property override for the schema na
 
     ![The Buckets tab is highlighted.](./images/ll-data-lake-page.png " ")
 
-4. Click the **Buckets** tab. The three Oracle Object Storage buckets are displayed.
+4. Click the **Buckets** tab. The three Oracle Object Storage buckets are displayed, if not, click **Refresh**.
 
     ![The Buckets tab is selected and highlighted. The three buckets in the buckets list are highlighted.](./images/ll-buckets-tab-displayed.png " ")
 

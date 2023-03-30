@@ -12,14 +12,14 @@ Oracle SOA Suite provides easy-to-use, reusable, and unified application develop
 
 SOA Suite functional architecture
 
-  ![](./images/soa-architecture.png " ")
+  ![SOA Suite functional architecture](./images/soa-architecture.png " ")
 
 Critical business services, such as customer, financial, ordering information, and others that were previously accessible only in packaged application user interfaces can now be rapidly repurposed for digital-enabled channel such as: smart phone and tablets.
 
 *Estimated Lab Time*: 15 minutes
 
 ### Objectives
-- This lab shows JDeveloper12c as a development platform to construct integration service orchestration. 
+- This lab shows JDeveloper12c as a development platform to construct integration service orchestration.
 
 ### Prerequisites
 This lab assumes you have:
@@ -43,15 +43,15 @@ Now with access to your remote desktop session, Follow these steps to initialize
 
 1. JDeveloper 12c has been prelaunched to window on the right.
 
-  ![](./images/jdev-start.png " ")
+  ![Remote Desktop landing page](./images/jdev-start.png " ")
 
 2. From the application server tab, click on the `+` sign to list App Servers, the Right-Click on *IntegratedWebLogicServer* and select *Start Server Instance*.
 
-  ![](./images/jdev-start-server.png " ")
+  ![Start Weblogic Server Instance](./images/jdev-start-server.png " ")
 
 3. Once the Weblogic App Server start completed, the following would appear:
 
-  ![](./images/jdev-server-running.png " ")
+  ![Output Weblogic Running](./images/jdev-server-running.png " ")
 
 You may now proceed to the next lab.
 
@@ -93,5 +93,5 @@ At this point, you're ready to start building amazing enterprise-grade orchestra
 
 ## Acknowledgements
 * **Author** - Daniel Tarudji
-* **Contributors** - Meghana Banka, Tom McGinn, Kamryn Vinson, Rene Fontcha, Sahaana Manavalan 
-* **Last Updated By/Date** - Sahaana Manavalan, LiveLabs Developer, NA Technology, February 2022 
+* **Contributors** - Meghana Banka, Kamryn Vinson, Rene Fontcha, Sahaana Manavalan
+* **Last Updated By/Date** - Sahaana Manavalan, LiveLabs Developer, NA Technology, February 2022

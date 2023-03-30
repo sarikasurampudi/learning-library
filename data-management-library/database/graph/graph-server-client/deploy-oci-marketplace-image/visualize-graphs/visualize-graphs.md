@@ -8,7 +8,7 @@ Estimated time: 5 minutes
 
 The following video provides an overview of the Graph Visualization component (= GraphViz).
 
-[](youtube:zfefKdNfAY4)
+[youtube](youtube:zfefKdNfAY4)
 
 ### Objectives
 
@@ -27,15 +27,15 @@ Since the marketplace image is distributed with a self-signed SSL certificate, y
 
 If you use **Chrome**, type **thisisunsafe** in the warning window to move to the GraphViz screen.
 
-![](images/login-chrome.jpg)
+![login-chrome](images/login-chrome.jpg)
 
 Using **Firefox**, click **Advanced** and then **Accep the Risk and Continue**.
 
-![](images/login-firefox.jpg)
+![login-firefox](images/login-firefox.jpg)
 
 You should see a screen similar to the screenshot below. Enter the username (**customer_360**) and password, then click submit. **Graph Server** is the default in the Advanced Options, so you don't need to change it.
 
-![](images/login.jpg)
+![login](images/login.jpg)
 
 ## Task 2: Modify query
 
@@ -43,7 +43,7 @@ Modify the query to get the first 5 rows, i.e. change **LIMIT 100** to **LIMIT 5
 
 You should see a graph similar to the screenshot below.
 
-![](images/show-5-elements.jpg)
+![show-5-elements](images/show-5-elements.jpg)
 
 ## Task 3: Add highlights
 
@@ -51,11 +51,11 @@ Now let's add some labels and other visual context. These are known as highlight
 
 Click on the Load button under **Settings** (on the right side of the screen). Browse to the appropriate folder and choose the file and click Open to load that.
 
-![](images/GraphVizLoadHighlights.png)
+![highlights-1](images/highlights-1.png)
 
 The graph should now look like
 
-![](images/GraphVizWithHighlights.png)
+![highlights-2](images/highlights-2.png)
 
 ## Task 4: Pattern matching with PGQL
 
@@ -101,7 +101,7 @@ The graph should now look like
 
     The result should look as shown below. In the highlight settings, the accounts starting with **xxx-yyy-** are shown in red (= accounts of the bank), while **xxx-zzz-** are shown in orange (= accounts from another bank). 
 
-    ![](images/same-day-transfers.jpg)
+    ![same-day-transfers](images/same-day-transfers.jpg)
 
 4. The next query finds patterns of transfers to and from the same two accounts, i.e. from a1->a2 and back a2->a1.
 
@@ -118,7 +118,7 @@ The graph should now look like
 
     The result should look as shown below.
 
-    ![](images/cycle-2-hops.jpg)
+    ![cycle-2-hops](images/cycle-2-hops.jpg)
 
 6. Let's add one more account to that query to find a circular transfer pattern between 3 accounts.
 
@@ -136,11 +136,10 @@ The graph should now look like
 
     The result should look as shown below.
 
-    ![](images/cycle-3-hops.jpg)
+    ![cycle-3-hops](images/cycle-3-hops.jpg)
 
 ## Acknowledgements
 
 * **Author** - Jayant Sharma
 * **Contributors** - Arabella Yao, Jenny Tsai
-* **Last Updated By/Date** - Ryota Yamanaka, January 2022
-* **Lab Expiry Date** - October 31, 2022
+* **Last Updated By/Date** - Ryota Yamanaka, April 2022

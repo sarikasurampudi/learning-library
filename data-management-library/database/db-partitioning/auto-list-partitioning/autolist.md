@@ -120,7 +120,8 @@ This lab assumes you have completed the following lab:
 
       ![Image alt text](images/sales-auto-list-select-data-3.png "Auto List Partition")
 
-8. View data in SALES\_AUTO\_LIST table
+8. View data in SALES\_AUTO\_LIST table and note down a partition name.
+
 
       ```
          <copy>
@@ -130,7 +131,7 @@ This lab assumes you have completed the following lab:
 
       ![Image alt text](images/sales-auto-list-select-data-4.png "Auto List Partition")
 
-9. View data in SALES\_AUTO\_LIST table by partition name
+9. View data in SALES\_AUTO\_LIST table by partition name. Replace SYS\_P1775 in the below query with the partition name you noted earlier.
 
       ```
       <copy>
@@ -147,11 +148,13 @@ This lab assumes you have completed the following lab:
       ```
       <copy>
       rem drop everything 
-      drop table sales_interval_hash purge;
+      drop table sales_auto_list purge;
       </copy>
       ```
   
-You successfully made it to the end of module 'auto-list partitioning' Lab.  You may now [proceed to the next lab](#next).
+You successfully made it to the end of the 'auto-list partitioning' Lab.
+
+You may now *proceed to the next lab*.
 
 ## Learn More
 

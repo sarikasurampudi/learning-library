@@ -153,7 +153,7 @@ For IAM with Identity Domains, what was identified before as IAM users and group
      <copy>Allow group default/oci-group to manage all-resources in compartment Demo</copy>
      ```
 
-     Note: If you do not include the <identity_domain_name> before the <group_name>, then the policy statement is evaluated as though the group belongs to the default identity domain.
+     Note: If you do not include the *identity_domain_name* before the *group_name*, then the policy statement is evaluated as though the group belongs to the default identity domain.
 
    h) Click **Create**.
 

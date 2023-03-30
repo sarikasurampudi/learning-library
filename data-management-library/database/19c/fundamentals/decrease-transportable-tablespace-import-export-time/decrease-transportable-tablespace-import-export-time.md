@@ -473,7 +473,7 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
     SQL> <copy>EXIT</copy>
     ```
 
-6. Export the tablespace again with the `TTS_CLOSURE_CHECK` parameter set to `OFF`.
+6. Export the tablespace again with the `TTS_CLOSURE_CHECK` parameter set to `OFF`. Please note the use of `password`.
 
     ```
     $ <copy>expdp \"sys/password@PDB1 as sysdba\" \
@@ -516,7 +516,7 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
     $ <copy>cp /u01/app/oracle/oradata/CDB1/PDB1/test01.dbf  /u01/app/oracle/oradata/CDB1/PDB2</copy>
     ```
 
-2. Run Oracle Data Pump Import to import the `TEST` tablespace.
+2. Run Oracle Data Pump Import to import the `TEST` tablespace. Please note the use of `password`.
 
     ```
     $ <copy>impdp \'sys/password@PDB2 as sysdba\' \
@@ -588,5 +588,5 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
 ## Acknowledgements
 
 - **Author**: Dominique Jeunot's, Consulting User Assistance Developer
-- **Contributor** - Jody Glover, Principal User Assistance Developer
+- **Contributor** - Jody Glover, Consulting User Assistance Developer, Database Development
 - **Last Updated By**: Blake Hendricks, Solutions Engineer, September 22 2021

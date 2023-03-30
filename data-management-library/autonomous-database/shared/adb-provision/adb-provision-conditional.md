@@ -4,7 +4,7 @@
 
 This lab walks you through the steps to get started using the Oracle Autonomous Database (Autonomous Data Warehouse [ADW] and Autonomous Transaction Processing [ATP]) on Oracle Cloud. In this lab, you will provision a new ADW instance.
 
- **Note:** While this lab uses ADW, the steps are the same for creating an ATP database.
+>**Note:** While this lab uses ADW, the steps are the same for creating an ATP database.
 
 Estimated Time: 5 minutes
 
@@ -23,7 +23,7 @@ In this lab, you will:
 1. Log in to the Oracle Cloud.
 2. Once you log in, the cloud services dashboard shows all the services available to you. Click the navigation menu in the upper left to show top level navigation choices.
 
-    > **Note:** You can also directly access your Autonomous Data Warehouse or Autonomous Transaction Processing service in the __Quick Actions__ section of the dashboard.
+    > **Note:** You can also directly access your Autonomous Data Warehouse or Autonomous Transaction Processing service in the **Launch Resources** section of the dashboard.
 
     ![Oracle home page.](./images/navigation.png " ")
 
@@ -69,10 +69,10 @@ In this lab, you will:
 3. Specify basic information for the autonomous database:
 
     - __Compartment__ - Leave the default compartment.
-    - __Display Name__ - Enter a memorable name for the database for display purposes. For this lab, use __ADW\_Finance\_Mart__.
+    - __Display Name__ - Enter a memorable name for the database for display purposes. For example, use __ADW\_Finance\_Mart__.
     - __Database Name__ - Use letters and numbers only, starting with a letter. Maximum length is 14 characters. (Underscores not initially supported.)
-    <if type="livelabs">For this lab, use __ADWFINANCE__ and **append your user id**. For example, if your user id is **LL-185**, then enter __ADWFINANCE185__
-    </if><if type="freetier">For this lab, use __ADWFINANCE__.</if>
+    <if type="livelabs">For example, use __ADWFINANCE__ and **append your user id**. For example, if your user id is **LL-185**, then enter __ADWFINANCE185__
+    </if><if type="freetier">For example, use __ADWFINANCE__.</if>
 
     <if type="livelabs">
     ![Enter the required details.](./images/task2-3.png " ")
@@ -122,10 +122,10 @@ In this lab, you will:
     ![Enter password and confirm password.](./images/task2-7.png " ")
 
 8. Choose network access:
-    - For this lab, accept the default, "Secure access from everywhere."
-    - If you want to allow traffic only from the IP addresses and VCNs you specify - where access to the database from all public IPs or VCNs is blocked, select "Secure access from allowed IPs and VCNs only" in the Choose network access area.
-    - If you want to restrict access to a private endpoint within an OCI VCN, select "Private endpoint access only" in the Choose network access area.
-    - If the "Require mutual TLS (mTLS) authentication" option is selected, mTLS will be required to authenticate connections to your Autonomous Database. TLS connections allow you to connect to your Autonomous Database without a wallet, if you use a JDBC thin driver with JDK8 or above. See the [documentation for network options](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/support-tls-mtls-authentication.html#GUID-3F3F1FA4-DD7D-4211-A1D3-A74ED35C0AF5) for options to allow TLS, or to require only mutual TLS (mTLS) authentication.
+    - For this lab, accept the default, **Secure access from everywhere**.
+    - If you want to allow traffic only from the IP addresses and VCNs you specify - where access to the database from all public IPs or VCNs is blocked, select **Secure access from allowed IPs and VCNs only** in the Choose network access area.
+    - If you want to restrict access to a private endpoint within an OCI VCN, select **Private endpoint access only** in the Choose network access area.
+    - If the **Require mutual TLS (mTLS) authentication** option is selected, mTLS will be required to authenticate connections to your Autonomous Database. TLS connections allow you to connect to your Autonomous Database without a wallet, if you use a JDBC thin driver with JDK8 or above. See the [documentation for network options](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/support-tls-mtls-authentication.html#GUID-3F3F1FA4-DD7D-4211-A1D3-A74ED35C0AF5) for options to allow TLS, or to require only mutual TLS (mTLS) authentication.
 
     ![Choose the network access.](./images/task2-8.png " ")
 
@@ -146,7 +146,7 @@ In this lab, you will:
     ![](./images/task2-9.png " ")
 </if>
 
-10. For this lab, do not provide a contact email address. The "Contact Email" field allows you to list contacts to receive operational notices and announcements as well as unplanned maintenance notifications.
+10. For this lab, do not provide a contact email address. The **Contact Email** field allows you to list contacts to receive operational notices and announcements as well as unplanned maintenance notifications.
 
     ![Do not provide a contact email address.](images/contact-email-field.png)
 
@@ -159,7 +159,7 @@ In this lab, you will:
 
     ![Database instance homepage.](./images/task2-11.png " ")
 
-Please *proceed to the next lab*.
+You may now **proceed to the next lab**.
 
 ## Learn more
 
@@ -170,4 +170,4 @@ Go to [the documentation](https://docs.oracle.com/en/cloud/paas/autonomous-data-
 - **Author** - Nilay Panchal, Oracle Autonomous Database Product Management
 - **Adapted for Cloud by** - Richard Green, Principal Developer, Database User Assistance
 - **Contributors** - Oracle LiveLabs QA Team (Jeffrey Malcolm Jr, Intern | Arabella Yao, Product Manager Intern)
-- **Last Updated By/Date** - Richard Green, February 2022
+- **Last Updated By/Date** - Arabella Yao, March 2022

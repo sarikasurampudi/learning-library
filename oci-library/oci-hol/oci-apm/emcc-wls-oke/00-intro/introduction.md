@@ -14,6 +14,8 @@ For more information on the WebLogic Kubernetes Operator, refer to the **[WebLog
 
 Although OKE is used as the example in this workshop, the approach of using the Kubernetes load balancer service to monitor WebLogic Server with EM, could also be used in hosted solutions on other cloud platforms, such as the Azure Kubernetes Service (AKS).
 
+  [](youtube:YqNNU4NTwnw)
+  
   ![EMCC console Middleware Home Page monitoring WLS on Kubernetes  ](images/emcc.png " ")
 
 
@@ -35,6 +37,10 @@ Two types of use cases are considered.
 2. Use as reference documentation for an existing setup of WebLogic on Kubernetes. In this use case, you have a WebLogic domain deployed on a hosted Kubernetes service, and want to monitor it with EM. You can refer to the instructions in the workshop as needed, and learn about the general approach in order to use EM to monitor WebLogic Servers on Kubernetes.
 
 Estimated Workshop Time: 100 minutes
+
+
+
+
 
 ## Setup Details
 

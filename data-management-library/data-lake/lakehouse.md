@@ -31,7 +31,6 @@ You can just simply query the MOVIE GENRE table to view data, or create a view t
 
 ```
 <copy>
-CREATE or REPLACE VIEW MOVIE_VW as
 SELECT
    "genreid",name,country, count("custid")
 FROM
@@ -45,8 +44,83 @@ This query will demonstrate the combination for the customer, country and if the
 
 ![SQL](./images/SQL_output.png " ")
 
+## Task 2: View of the Oracle Data Lakehouse
 
-## Task 2: OCI Data Catalog - View of the Data Lake
+We have a database, csv and json files in our data lake but there can be all of the various data platforms and types of data stored in the data lake and even streamed. We don't always have to load data into a database to be able to use our data sets with other data sets and assets. There are simple queries to the object storage that will allow us to join the data together with our data warehouse in our data lakehouse. Here is just one example using the data that we have loaded in this short time.
+
+Navigate back to DBActions. Under Development, click on SQL. We are going to run a few queries here for analysis. At this point you can take the queries and information to analytics and reporting.
+
+Optionally you can also get the results using either external tables or Data Lake Accelerator. Here is an example to use an external table to access the CSV file in the object storage and join to the database tables.
+
+Create an external table to view the data transformation in the object storage files that were created as part of the data integration and data loader tasks. The file_uri_list can be pulled from the object storage, object details - However, you just need to replace the REPLACENAMESPACE with your namespace for your bucket.
+
+```
+<copy>
+BEGIN
+DBMS_CLOUD.CREATE_EXTERNAL_TABLE (
+table_name => 'json_cust_sales_ext',
+file_uri_list => 'https://objectstorage.us-ashburn-1.oraclecloud.com/n/REPLACENAMESPACE/b/dataflow-warehouse/o/customersales.json',
+column_list => 'doc varchar2(32000)',
+field_list => 'doc char(30000)',
+format => json_object('delimiter' value '\n')
+);
+END;
+</copy>
+```
+
+View the data in the external table.
+
+```
+<copy>
+select * from JSON_CUST_SALES_EXT
+</copy>
+```
+
+Join the data to the existing customer data:
+
+```
+<copy>
+select GENRE_ID,MOVIE_ID,CUSTSALES.CUST_ID,AGE,GENDER,STATE_PROVINCE
+from CUSTOMER_CONTACT, CUSTOMER_EXTENSION,
+(select CUST_ID,GENRE_ID,MOVIE_ID
+FROM JSON_MOVIE_DATA_EXT,
+JSON_TABLE("DOC", '$[*]' COLUMNS
+"CUST_ID" number path '$.CUST_ID',
+"GENRE_ID" number path '$.GENRE_ID',
+"MOVIE_ID" number path '$.MOVIE_ID')) CUSTSALES
+where CUSTOMER_EXTENSION.CUST_ID=CUSTSALES.CUST_ID and CUSTOMER_EXTENSION.CUST_ID=CUSTOMER_CONTACT.CUST_ID
+and COUNTRY_CODE='US'   
+</copy>    
+```
+
+If you want to also see the initial csv file in your object storage you can just create an external table on that as well.
+
+```
+<copy>
+BEGIN
+DBMS_CLOUD.CREATE_EXTERNAL_TABLE (
+table_name => 'csv_cust_sales_ext',
+file_uri_list => 'https://objectstorage.us-ashburn-1.oraclecloud.com/n/REPLACENAMESPACE/b/dataflow-warehouse/o/custsales_custsales-2020-01.csv',
+format => json_object('type' value 'csv','skipheaders' value '1'),
+column_list => 'DAY_ID NUMBER,
+GENRE_ID NUMBER,
+MOVIE_ID NUMBER,
+CUST_ID NUMBER,
+APP VARCHAR2(250),
+DEVICE VARCHAR2(250),
+OS VARCHAR2(250),
+PAYMENT_METHOD VARCHAR2(250),
+LIST_PRICE NUMBER,
+DISCOUNT_TYPE VARCHAR2(250),
+DISCOUNT_PERCENT NUMBER,
+ACTUAL_PRICE NUMBER'
+);
+END;
+</copy>    
+```
+
+
+## Task 3: OCI Data Catalog - View of the Data Lake
 
 You have updated data, added new tables and views into the database. Let's take another look at the OCI Data Catalog to see that it captured the changes and the new entities.
 
@@ -65,66 +139,6 @@ Now if you go back to the Home Tab from the Data Catalog, you will discover that
 Click on Entities just to verify that all of the tables and views are now here.
 
 ![Entities List](./images/final_catalog.png " ")
-
-## Task 3: View of the Oracle Data Lakehouse
-
-We have a database, csv and json files in our data lake but there can be all of the various data platforms and types of data stored in the data lake and even streamed. We don't always have to load data into a database to be able to use our data sets with other data sets and assets. There are simple queries to the object storage that will allow us to join the data together with our data warehouse in our data lakehouse. Here is just one example using the data that we have loaded in this short time.
-
-Navigate back to DBActions. Under Development, click on SQL. We are going to run a few queries here for analysis. At this point you can take the queries and information to analytics and reporting.
-
-Optionally you can also get the results using either external tables or Data Lake Accelerator. Here is an example to use an external table to access the CSV file in the object storage and join to the database tables.
-
-Create an external table to view the data transformation in the object storage files that were created as part of the data integration and data loader tasks. The file_uri_list can be pulled from the object storage, object details. 
-
-```
-<copy>
-BEGIN
-DBMS_CLOUD.CREATE_EXTERNAL_TABLE (
-table_name => 'customersales_ext2',
-file_uri_list => 'https://objectstorage.us-ashburn-1.oraclecloud.com/p/w2EI-pmpE8AccgP0U_fgQImDCFP6kDi-DfJlWuemCIAgcEUHShafHn2tgejRgUfl/n/c4u04/b/data_lakehouse/o/customersales_custsales-2020-02.csv',
- format => json_object('type' value 'csv', 'skipheaders' value '1',   'dateformat' value 'mm/dd/yy'),
-  column_list => 'DAY_ID DATE,
-  GENRE_ID NUMBER,
-  MOVIE_ID NUMBER,
-  CUST_ID NUMBER,
-APP VARCHAR2(100),
-DEVICE VARCHAR2(100),
-OD VARCHAR2(100),
-PAYMENT_METHOD VERCHAR2(100),
-LIST_PRICE number,
-DISCOUNT_TYPE VARCHAR2(100),
-DISCOUNT_PERCENT number,
-ACTUAL_PRICE number'
-);
-END;
-/
-</copy>
-```
-
-Join the data to the existing customer data:
-
-```
-<copy>
-SELECT
-    DAY_ID,
-    GENRE.NAME,
-    CUSTSALES.CUST_ID,
-    AGE,
-    GENDER, 
-    STATE_PROVINCE
-FROM
-    ADMIN.customersales_ext custsales, 
-    ADMIN.CUSTOMER_EXTENSION, 
-    ADMIN.CUSTOMER_CONTACT,
-    ADMIN.GENRE
-    where customer_extension.CUST_ID=custsales.cust_id
-    and customer_extension.CUST_ID=customer_contact.CUST_ID
-    and COUNTRY_CODE='US'
-    and genre.genre_id=custsales.genre_id;    
-</copy>    
-```
-
-
 
 
 

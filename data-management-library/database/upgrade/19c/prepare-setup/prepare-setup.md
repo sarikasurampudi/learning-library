@@ -15,7 +15,7 @@ Estimated Time: 15 minutes
 
 This lab assumes you have:
 
-- An Oracle Free Tier or Paid Cloud account
+- An Oracle Cloud account
 
 ## Task 1: Download Oracle Resource Manager (ORM) stack zip file
 

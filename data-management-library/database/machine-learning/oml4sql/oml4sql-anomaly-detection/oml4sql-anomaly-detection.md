@@ -39,9 +39,6 @@ In this lab, you will:
 * Access the Oracle database containing the customer insurance table and run the scripts to configure the user and prepare data. The virtual machine used for this lab is the same VM that was used in the OML4PY Workshop of the previous lab.
 * SSH private key with which you created your VM on OCI.
 
->**Note:** If you have a Free Trial account, when your Free Trial expires your account will be converted to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available. **[Click here for the Free Tier FAQ page.](https://www.oracle.com/cloud/free/faq.html)**
-
-
 
 ## Task 1: Business Understanding
 
@@ -70,22 +67,20 @@ To see the service name, open other Linux Terminal and execute lsnrctl status co
 
   ![view-SSH-Hosts](../oml4sql-anomaly-detection/images/view-ssh.png)
 
-3. Right clic on SSH Hots and then do clic in New SSH Host, write values in each field and then clic Ok. The public and private IP can be obtained from OCI, entering Compute/Instances and you will be able to see and copy this data.
+3. Right click on SSH Hosts and then click New SSH Host, write values in each field and then click Ok. The public and private IP can be obtained from OCI, entering Compute/Instances and you will be able to see and copy this data.
 
   ![ssh-remote-host](../oml4sql-anomaly-detection/images/ssh-remote-host.png)
 
-4. Right clic on the first oml4sql tab in SSH Hosts an clic connect, and then right clic in the submenu oml4sql tab an clic connect.
-Notice how the small padlock closes in both options, which represents that you are already remotely connected to your VM and you are ready to create a connection to your
-
-5. schema from SQL Developer.
+4. Right click on the first oml4sql tab in SSH Hosts an click connect, and then right click in the submenu oml4sql tab an click connect.
+Notice how the small padlock closes in both options, which represents that you are already remotely connected to your VM and you are ready to create a connection to your schema from SQL Developer.
 
   ![conection-ssh](../oml4sql-anomaly-detection/images/conection-ssh.png)
 
-6. Create SQL Developer new database connection with **SYS** user to your Oracle 21c Pluggable Database, and test connectivity with password: **MLlearnPTS#21_** and service name: mlpdb1.livelabs.oraclevcn.com
+5. Create SQL Developer new database connection with **SYS** user to your Oracle 21c Pluggable Database, and test connectivity with password: **MLlearnPTS#21_** and service name: mlpdb1.livelabs.oraclevcn.com
 
   ![database-connection](../oml4sql-anomaly-detection/images/database-connection.png)
 
-7. Once the database connection is open and SQL Developer Worksheet is ready, execute this script to create the user oml4sqluser and grant privileges to work with OML4SQL API, and generate a copy of table CUST\_INSUR\_LTV.
+6. Once the database connection is open and SQL Developer Worksheet is ready, execute this script to create the user oml4sqluser and grant privileges to work with OML4SQL API, and generate a copy of table CUST\_INSUR\_LTV.
 
     ````
     <copy>
@@ -110,11 +105,11 @@ Notice how the small padlock closes in both options, which represents that you a
     </copy>
     ````
 
-8. Create SQL Developer new database connection with oml4sqluser user to your Oracle 21c Pluggable Database, and test connectivity with password: oml4sqluser.
+7. Create SQL Developer new database connection with oml4sqluser user to your Oracle 21c Pluggable Database, and test connectivity with password: oml4sqluser.
 
   ![oml4sql-user-connection](../oml4sql-anomaly-detection/images/oml4sql-user-connection.png)
 
-9. Copy and execute this script with oml4sqluser:
+8. Copy and execute this script with oml4sqluser:
 
     ````
     <copy>
@@ -152,9 +147,9 @@ Notice how the small padlock closes in both options, which represents that you a
     </copy>
     ````
 
-10. Check that there are no errors in the output of the script.
+9. Check that there are no errors in the output of the script.
 
-11. Review your settings table:
+10. Review your settings table:
 
     ![settings-table](../oml4sql-anomaly-detection/images/settings-table.png)
 
@@ -361,9 +356,4 @@ With this practice, we can conclude that the SVM algorithm is very useful to sol
 
 ## Acknowledgements
 * **Authors** - Adrian Castillo Mendoza, Milton Wan, Valentin Leonard Tabacaru, Rajeev Rumale.
-* **Last Updated By/Date** -  Adrian Castillo Mendoza, March 2022.
-
-## Need Help?
-Please submit feedback or ask for help using our [LiveLabs Support Forum](https://community.oracle.com/tech/developers/categories/livelabsdiscussions). Please click the **Log In** button and login using your Oracle Account. Click the **Ask A Question** button to the left to start a *New Discussion* or *Ask a Question*.  Please include your workshop name and lab name.  You can also include screenshots and attach files.  Engage directly with the author of the workshop.
-
-If you do not have an Oracle Account, click [here](https://profile.oracle.com/myprofile/account/create-account.jspx) to create one.
+* **Last Updated By/Date** -  Kamryn Vinson, April 2022.

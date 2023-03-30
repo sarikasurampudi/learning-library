@@ -163,7 +163,9 @@ This lab assumes you have completed the following lab:
     </copy>
     ```
 
-    You successfully made it to the end of lab 'multi-column list partitioning'. You may now [proceed to the next lab](#next). 
+You successfully made it to the end of this 'multi-column list partitioning' lab.
+
+You may now *proceed to the next lab*. 
 
 ## Learn More
  

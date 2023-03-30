@@ -105,7 +105,7 @@ An Oracle Cloud Infrastructure VM compute instance runs on the same hardware as 
     ![](images/ssh.png)
 
 <if type="freetier">    
-2. For this lab, we are going to install an Apache HTTP Webserver and try to connect to it over the public Internet. SSH into the Linux instance and run following commands:
+2. For this lab, we are going to install an Apache HTTP Webserver and try to connect to it over the public Internet. *Make sure you have SSH'ed into the Linux instance* and run following commands:
 
     >**Note:** Apache HTTP Server is an open-source web server developed by the Apache Software Foundation. The Apache server hosts web content, and responds to requests for this content from web browsers such as Chrome or Firefox.
 
@@ -172,23 +172,23 @@ An Oracle Cloud Infrastructure VM compute instance runs on the same hardware as 
 
 ## Troubleshooting
 
-If you are unable to see the webserver on your browser, possible scenarios include:
+1. If you are unable to see the webserver on your browser, possible scenarios include:
 
-- VCN Security Lists is blocking traffic, Check VCN Security List for ingress rule for port 80
-- Firewall on the linux instance is blocking traffic
+    - VCN Security Lists is blocking traffic, Check VCN Security List for ingress rule for port 80
+    - Firewall on the linux instance is blocking traffic
 
-    - `# sudo firewall-cmd --zone=public --list-services` (this should show http service as part of the public zone)
-    - `# sudo netstat -tulnp | grep httpd` (an httpd service should be listening on the port 80, if it’s a different port, open up that port on your VCN SL)
+        - `# sudo firewall-cmd --zone=public --list-services` (this should show http service as part of the public zone)
+        - `# sudo netstat -tulnp | grep httpd` (an httpd service should be listening on the port 80, if it’s a different port, open up that port on your VCN SL)
 
-- Your company VPN is blocking traffic
+    - Your company VPN is blocking traffic
+
+2. If you cannot successfully run the `sudo` commands, please make sure you have SSH'ed into your compute instance by following Task 2 -> Step 1.
 </if>
 
 You have completed this lab. You may now **proceed to the next lab**.
 
 ## Acknowledgements
 
-- **Author** - Rajeshwari Rai, Prasenjit Sarkar
-- **Adapted by** -  Tom McGinn, Database Product Management
+- **Author** - Rajeshwari Rai, Prasenjit Sarkar 
 - **Contributors** - Oracle LiveLabs QA Team (Kamryn Vinson, QA Intern, Arabella Yao, Product Manager, DB Product Management)
-- **Last Updated By/Date** - Arabella Yao, December 2021
-
+- **Last Updated By/Date** - Arabella Yao, March 2022

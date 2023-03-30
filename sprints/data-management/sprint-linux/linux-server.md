@@ -1,12 +1,12 @@
-# How do I connect to different Oracle Databases that are installed in a same Linux server?
+# How do I connect to a PDB from a CDB?
 
 Duration: 5 minutes
 
 ## Connect to different Oracle Databases
 
-If you use a oracle container database, you can login to the database using the steps that are below:
+If you use an Oracle container database, you can login to the database using the steps that are below:
 
-1. login to the database via sqlplus
+1. login to the database via SQL*Plus
 
     ```
     <copy> show pdbs; <copy/>

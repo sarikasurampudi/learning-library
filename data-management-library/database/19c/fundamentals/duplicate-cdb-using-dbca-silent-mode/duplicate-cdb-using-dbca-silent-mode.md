@@ -542,5 +542,5 @@ To restore your environment, delete DUPCDB1 and OMFCDB1 and disable `ARCHIVELOG`
 
 ## Acknowledgements
 - **Primary Author** - Dominique Jeunot's, Consulting User Assistance Developer
-- **Contributor** - Jody Glover, Principal User Assistance Developer
+- **Contributor** - Jody Glover, Consulting User Assistance Developer, Database Development
 - **Last Updated By** - Blake Hendricks, Solutions Engineer, September 21 2021

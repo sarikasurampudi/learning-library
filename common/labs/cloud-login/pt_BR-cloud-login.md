@@ -44,7 +44,7 @@ If you've signed out of the Oracle Cloud, use these steps to sign back in.
 You may now proceed to the next lab.
 
 ## Acknowledgements
-- **Created By/Date** - Tom McGinn, Database Innovations Architect, Database Product Management, March 2020
+- **Created By/Date** - Kay Malcolm, Database Product Management, March 2020
 - **Contributors** - John Peach, Kamryn Vinson, Rene Fontcha
 - **Last Updated By** - Rene Fontcha, February 2021
 

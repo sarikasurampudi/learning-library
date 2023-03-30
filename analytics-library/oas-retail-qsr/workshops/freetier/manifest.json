@@ -1,6 +1,6 @@
 {
   "workshoptitle": "Oracle Analytics Server - Retail",
-  "help": "livelabs-help-license_us@oracle.com",
+  "help": "livelabs-help-analytics_us@oracle.com",
   "tutorials": [
     {
       "title": "Introduction",
@@ -8,51 +8,47 @@
       "filename": "../../intro/intro.md"
     },
     {
-      "title": "Getting Started",
+      "title": "Get started",
       "description": "Login to Oracle Cloud",
-      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login.md"
     },
     {
-      "title": "Lab 1: Prepare Setup",
+      "title": "Lab 1: Prepare setup",
       "description": "How to download your ORM stack and update security rules for an existing VCN",
       "publisheddate": "09/28/2020",
       "filename": "../../prepare-setup/prepare-setup.md"
     },
     {
-      "title": "Lab 2: Environment Setup",
+      "title": "Lab 2: Environment setup",
       "description": "How to provision the workshop environment and connect to it",
       "publisheddate": "06/30/2020",
-      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/setup-compute-generic/setup-compute-novnc.md"
+      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/setup-compute-generic/setup-compute-novnc-ssh.md"
     },
     {
-      "title": "Lab 3: Initialize Environment",
+      "title": "Lab 3: Initialize environment",
       "description": "Initialize Environment Lab",
       "filename": "../../initialize-environment/initialize-environment.md",
       "type": "external"
     },
     {
-      "title": "Lab 4: Main Dashboard",
-      "description": "Main Dashboard",
-      "filename": "../../main-dashboard/main-dashboard.md",
-      "type": "external"
+      "title": "Lab 4: Create main dashboard",
+      "description": "Create Main Dashboard",
+      "filename": "../../create-main-dashboard/create-main-dashboard.md"
     },
     {
-      "title": "Lab 5: Channel Sales",
+      "title": "Lab 5: Analyze channel sales",
       "description": "Channel Sales",
-      "filename": "../../channel-sales/channel-sales.md",
-      "type": "external"
+      "filename": "../../channel-sales/channel-sales.md"
     },
     {
-      "title": "Lab 6: On Time Delivery",
-      "description": "On Time Delivery",
-      "filename": "../../on-time-delivery/on-time-delivery.md",
-      "type": "external"
-    },
-    {
-      "title": "Lab 7: HR Analysis",
+      "title": "Lab 6: Uncover HR trends",
       "description": "HR Analysis",
-      "filename": "../../hr-analysis/hr-analysis.md",
-      "type": "external"
+      "filename": "../../hr-analysis/hr-analysis.md"
+    },
+    {
+      "title": "Lab 7: Predict on time delivery",
+      "description": "On Time Delivery",
+      "filename": "../../on-time-delivery/on-time-delivery.md"
     },
     {
       "title": "Need Help?",

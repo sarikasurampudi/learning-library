@@ -23,6 +23,21 @@
             "filename": "./../../adb-cert/adb-cert.md"
         },
         {
+            "title": "Lab 3",
+            "description": "put description here",
+            "filename": "./../../adb-iam/adb-iam.md"
+        },
+        {
+            "title": "Lab 4: Using Autonomous Database Tools",
+            "description": "Using Autonomous Database Tools",
+            "filename": "./../../adb-tools/adb-tools.md"
+        },
+        {
+            "title": "Lab 5: Developing on Autonomous Database",
+            "description": "Learn to utilize JSON in Autonomous Database",
+            "filename": "./../../developing-on-adb/developing-on-adb.md"
+        },
+        {
             "title": "Need Help?",
             "description": "Solutions to Common Problems and Directions for Receiving Live Help",
             "filename":"https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-freetier.md"

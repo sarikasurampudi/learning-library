@@ -338,5 +338,5 @@ In this task, you use DBCA in silent mode to clone PDB1 on CDB2 as PDB2.
 ## Acknowledgements
 
 - **Author** - Dominique Jeunot, Consulting User Assistance Developer
-- **Contributor** - Jody Glover, Principal User Assistance Developer
+- **Contributor** - Jody Glover, Consulting User Assistance Developer, Database Development
 - **Last Updated By/Date** - Kherington Barley, Austin Specialist Hub, September 21 2021

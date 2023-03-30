@@ -154,7 +154,7 @@ To be able to access your compute instances, you need to configure egress and in
 
     You are automatically logged in to your compute instance and presented with a user-friendly desktop. If you don't wait, you may get a message stating that the proxy could not connect to the destination in time.
 
-    ![workshop-staged noVNC desktop](images/workshop-staged-noVNC-desktop.png "workshop-staged noVNC desktop")
+    ![workshop-staged noVNC desktop](images/workshop-staged-novnc-desktop.png "workshop-staged noVNC desktop")
 
 
 
@@ -225,7 +225,7 @@ To be able to access your compute instances, you need to configure egress and in
 
     You are automatically logged in to your compute instance and presented with a user-friendly desktop. If you don't wait, you may get a message stating that the proxy could not connect to the destination in time.
 
-    ![workshop-installed noVNC desktop](images/workshop-installed-noVNC-desktop.png "workshop-installed noVNC desktop")
+    ![workshop-installed noVNC desktop](images/workshop-installed-novnc-desktop.png "workshop-installed noVNC desktop")
 
 
 
@@ -237,5 +237,5 @@ To be able to access your compute instances, you need to configure egress and in
 
 ## Acknowledgements
 
-- **Author**- Jody Glover, Principal User Assistance Developer, Database Development
-- **Last Updated By/Date** - Jody Glover, Database team, September 21 2021
+- **Author**- Jody Glover, Consulting User Assistance Developer, Database Development
+- **Last Updated By/Date** - Jody Glover, Consulting User Assistance Developer, September 21 2021

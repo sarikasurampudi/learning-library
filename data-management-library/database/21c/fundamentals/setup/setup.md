@@ -15,7 +15,7 @@ In this lab, you will:
 
 ### Prerequisites
 
-* An Oracle Free Tier, Always Free, Paid or Cloud Account
+* An Oracle Account
 * Working knowledge of vi or nano
 * SSH Keys
 * Create a DBCS VM Database

@@ -37,15 +37,15 @@ The *Quick Create* feature uses the default settings to create a *quick cluster*
 
 1. In the Console, select the *Hamburger Menu -> Developer Services -> Kubernetes Clusters (OKE)* as shown.
 
-    ![Hamburger Menu](images/1.png)
+    ![Hamburger Menu](images/hamburgermenu.png)
 
 2. In the Cluster List page, select the Compartment of your choice, where you are allowed to create a cluster, and then click *Create Cluster*.
 
-    ![Select Compartment](images/2.png)
+    ![Select Compartment](images/selectcompartment.png)
 
 3. In the Create Cluster Solution dialog, select *Quick Create* and click *Launch Workflow*.
 
-    ![Launch Workflow](images/3.png)
+    ![Launch Workflow](images/launchworkflow.png)
 
     *Quick Create* will create a new cluster with the default settings, along with new network resources for the new cluster.
 
@@ -59,25 +59,25 @@ The *Quick Create* feature uses the default settings to create a *quick cluster*
     * **Shape**: The shape to use for each node in the node pool. The shape determines the number of CPUs and the amount of memory allocated to each node. The list shows only those shapes available in your tenancy that are supported by OKE. Select *VM.Standard2.1* (which is typically available in Oracle Free Tier Account).
     * **Number of nodes**: The number of worker nodes to create. Leave the default value, *3*.
 
-    ![Quick Cluster](images/4.png)
+    ![Quick Cluster](images/quickcluster.png)
 
 4. Click *Next* to review the details you entered for the new cluster.
 
-    ![Enter Data](images/5.png)
+    ![Enter Data](images/enterdata.png)
 
 5. On the *Review* page, click *Create Cluster* to create the new network resources and the new cluster.
 
-    ![Review Cluster](images/6.png)
+    ![Review Cluster](images/reviewcluster.png)
 
     > You see the network resources being created for you. Wait until the request to create the node pool is initiated and then click *Close*.
 
-    ![Network Resource](images/7.png)
+    ![Network Resource](images/networkresource.png)
 
     > Then, the new cluster is shown on the *Cluster Details* page. When the master nodes are created, the new cluster gains a status of *Active* (it takes about 7 minutes).Then, you may continue your labs.
 
-    ![cluster1](images/14.png)
+    ![cluster provision](images/clusterprovision.png)
 
-    ![cluster1](images/15.png)
+    ![cluster created](images/clustercreated.png)
 
 ## Task 2: Configure `kubectl` (Kubernetes Cluster CLI)
 
@@ -90,17 +90,17 @@ We will use `kubectl` to manage the cluster remotely using the Cloud Shell. It n
 
     > If you moved away from that page, then open the navigation menu and under *Developer Services*, select *Kubernetes Clusters (OKE)*. Select your cluster and go the detail page.
 
-    ![Access Cluster](images/8.png)
+    ![Access Cluster](images/accesscluster.png)
 
     > A dialog is displayed from which you can open the Cloud Shell and contains the customized OCI command that you need to run, to create a Kubernetes configuration file.
 
 2. Leave the default *Cloud Shell Access* and first select the *Copy* link to copy the `oci ce...` command to the Cloud Shell.
 
-    ![Copy kubectl Config](images/9.png)
+    ![Copy kubectl Config](images/copyconfig.png)
 
 3. Now, click *Launch Cloud Shell* to open the built in console. Then close the configuration dialog before you paste the command into the *Cloud Shell*.
 
-    ![Launch Cloud Shell](images/10.png)
+    ![Launch Cloud Shell](images/launchcloudshell.png)
 
 4. Copy the command from the clipboard (Ctrl+V or right click and copy) into the Cloud Shell and run the command.
 
@@ -110,7 +110,7 @@ We will use `kubectl` to manage the cluster remotely using the Cloud Shell. It n
     oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.phx.aaaaaaaaaezwen..................zjwgm2tqnjvgc2dey3emnsd --file $HOME/.kube/config --region us-phoenix-1 --token-version 2.0.0
     ```
 
-    ![kubectl config](images/11.png)
+    ![kubectl config](images/kubectlconfig.png)
 
 5. Now check that `kubectl` is working, for example, using the `get node` command. you may need to run this command several times until you see the output similar to following.
 
@@ -130,12 +130,11 @@ We will use `kubectl` to manage the cluster remotely using the Cloud Shell. It n
 
 6. You can minimize and restore the terminal size at any time using the controls at the top right corner of the Cloud Shell.
 
-    ![cloud shell](images/13.png)
+    ![cloud shell](images/cloudshell.png)
 
 Leave this *Cloud Shell* open; we will use it for further labs.
 
 ## Acknowledgements
-
 * **Author** -  Ankit Pandey
 * **Contributors** - Maciej Gruszka, Peter Nagy
-* **Last Updated By/Date** - Kamryn Vinson, January 2022
+* **Last Updated By/Date** - Ankit Pandey, April 2022

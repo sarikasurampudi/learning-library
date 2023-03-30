@@ -28,7 +28,7 @@ Estimated Time:  15 minutes
 
 ## Task 1: Add and start Java Participants (FlightJava, HotelJava, and CarJava)
        
-1. Notice [AQjmsSagaMessageListener.java](https://github.com/oracle/microservices-datadriven/blob/main/travelbooking/osaga-java-api/src/main/java/AQSaga/AQjmsSagaMessageListener.java)  interface and the implementation of it in 
+1. [Optional] Notice [AQjmsSagaMessageListener.java](https://github.com/oracle/microservices-datadriven/blob/main/travelbooking/osaga-java-api/src/main/java/AQSaga/AQjmsSagaMessageListener.java)  interface and the implementation of it in 
 [TravelParticipantApplication.java](https://github.com/oracle/microservices-datadriven/blob/main/travelbooking/travelparticipant-java/src/main/java/osaga/travelagency/TravelParticipantApplication.java) 
 
    ![Java Add Participant](./images/AQJmsSagaMessageListener.png " ")
@@ -76,7 +76,7 @@ If this is the first time you have started this participant type then select 'y'
    
 ## Task 2: Add and start Java TravelAgency Initiatory/Participant
 
-1.    Notice use of the OSaga API and the  [AQjmsSagaMessageListener.java](https://github.com/oracle/microservices-datadriven/blob/main/travelbooking/osaga-java-api/src/main/java/AQSaga/AQjmsSagaMessageListener.java) interface and implementation in 
+1.    [Optional] Notice use of the OSaga API and the  [AQjmsSagaMessageListener.java](https://github.com/oracle/microservices-datadriven/blob/main/travelbooking/osaga-java-api/src/main/java/AQSaga/AQjmsSagaMessageListener.java) interface and implementation in 
 [TravelAgencyApplication.java](https://github.com/oracle/microservices-datadriven/blob/main/travelbooking/travelagency-java/src/main/java/osaga/travelagency/TravelAgencyApplication.java)
 
 2.    Enter the Cloud Shell, and issue the following command to build the TravelAgency Java service.
@@ -111,7 +111,7 @@ If this is the first time you have started this participant type then select 'y'
    
       ![Java Add Participant](./images/beginandenroll.png " ")
    
-2.    Once you have selected, you will see the enroll call(s) beging made on the TravelAgency.
+2.    Once you have selected, you will see the enroll call(s) being made on the TravelAgency.
       
       ![Java Add Participant](./images/beginandenrollsuccessful.png " ")
  
@@ -126,7 +126,7 @@ If this is the first time you have started this participant type then select 'y'
       You will see the successful rollback call made on the saga.
       ![Java Add Participant](./images/abortsagasent.png " ")
  
-6.    You will then see the resultant afterRollback call made on the participant(s) MessageListener callback which results in the compensation of ticket/inventory level back to it's original value.
+6.    In the participant(s) log(s), you will then see the resultant afterRollback call made on the participant(s) MessageListener callback which results in the compensation of ticket/inventory level back to it's original value.
       ![Java Add Participant](./images/abortsagaonhoteljava.png " ")
 
 ## Task 4: Conduct saga commit test

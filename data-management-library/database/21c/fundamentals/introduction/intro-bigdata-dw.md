@@ -42,6 +42,6 @@ With 21c, customers can
 
 ## Acknowledgements
 * **Author** - Donna Keesling, Database UA Team
-* **Contributors** - Kay Malcolm, David Start, Kamryn Vinson, Anoosha Pilli, Tom McGinn, Database Product Management
-* **Last Updated By/Date** - Kay Malcolm, November 2020
+* **Contributors** - Kay Malcolm, David Start, Kamryn Vinson, Anoosha Pilli 
+* **Last Updated By/Date** - Madhusudhan Rao, Apr 2022
 

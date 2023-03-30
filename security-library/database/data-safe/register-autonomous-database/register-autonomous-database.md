@@ -137,15 +137,17 @@ As the `ADMIN` user on the ATP database, run the `load-data-safe-sample-data_adm
 
 ## Task 4: Access and review Security Center
 
-1. In the breadcrumb at the top of the page, click **Target Databases**.
+1. In the breadcrumb at the top of the page, click **Data Safe**.
 
-    The **Target Databases** page is displayed.
+    The **Overview** page is displayed.
 
-2. Under **Data Safe** on the left, click **Security Center** and review the dashboard. Scroll down to view all the charts. Make sure your compartment is selected under **List Scope**.
+2. Under **Security Center** on the left, click **Dashboard** and review the dashboard. Scroll down to view all the charts. Make sure your compartment is selected under **List Scope**.
 
-    - In Security Center, you can access all the Oracle Data Safe features, including the dashboard, Security Assessment, User Assessment, Data Discovery, Data Masking, Activity Auditing, Alerts, and Settings.
+    - In Security Center, you can access all the Oracle Data Safe features, including the dashboard, Security Assessment, User Assessment, Data Discovery, Data Masking, Activity Auditing, and Alerts.
     - When you register a target database, Oracle Data Safe automatically creates a security assessment and user assessment for you. Therefore, the **Security Assessment**, **User Assessment**, **Feature Usage**, and **Operations Summary** charts in the dashboard already have data.
     - During registration, Oracle Data Safe also discovers audit trails on your target database. That is why the **Audit Trails** chart in the dashboard shows one audit trail with the status **In Transition** for your Autonomous Database. Later you start this audit trail to collect audit data into Oracle Data Safe.
+
+    Top six charts of the dashboard:
 
     ![Initial Dashboard](images/dashboard-initial.png "Initial Dashboard")
 
@@ -163,4 +165,4 @@ As the `ADMIN` user on the ATP database, run the `load-data-safe-sample-data_adm
 ## Acknowledgements
 
 - **Author** - Jody Glover, Consulting User Assistance Developer, Database Development
-- **Last Updated By/Date** - Jody Glover, February 26, 2022
+- **Last Updated By/Date** - Jody Glover, April 14, 2022

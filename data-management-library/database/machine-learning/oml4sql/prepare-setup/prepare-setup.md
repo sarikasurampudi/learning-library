@@ -18,7 +18,7 @@ Watch the video below for a quick walk through of the lab.
 
 ### Prerequisites
 This lab assumes you have:
-- An Oracle Free Tier or Paid Cloud account
+- An Oracle Cloud account
 - Have sufficient quota for in your tenancy to create VM and VCN.
 
 ## Task 1: Download Oracle Resource Manager (ORM) stack zip file

@@ -216,7 +216,6 @@ We'll create a user, a group, and a security policy to understand the concept.
 
 ## Acknowledgements
 
-- **Author** - Rajeshwari Rai, Prasenjit Sarkar
-- **Adapted by** -  Tom McGinn, Database Product Management
+- **Author** - Rajeshwari Rai, Prasenjit Sarkar 
 - **Contributors** - Arabella Yao, Product Manager, Database Product Management
 - **Last Updated By/Date** - Arabella Yao, January 2022

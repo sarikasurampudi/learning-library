@@ -299,7 +299,7 @@ A baseline assessment shows you data for all your target databases in a selected
 
     ![Compare With Baseline option under Resources](images/sa-resources-compare-with-baseline-option.png "Compare With Baseline option under Resources")
 
-9. When the comparison operation is completed, review the Comparison report.
+9. When the comparison operation is completed, review the **Comparison** report.
 
     - Review the number of findings per risk category for each risk level. Categories include **User Accounts**, **Privileges and Roles**, **Authorization Control**, **Data Encryption**, **Fine-Grained Access Control**, **Auditing**, and **Database Configuration**.
     - You can identify where the changes have occurred on your target database by viewing cells that contain the word **Modified**. The number represents the total count of new, remediated, and modified risks on the target database.
@@ -310,7 +310,7 @@ A baseline assessment shows you data for all your target databases in a selected
 
 ## Task 7: View the dashboard for User Assessment
 
-1. Navigate to User Assessment. To do this, in the breadcrumb at the top of the page, click **Security Center**. On the left, click **User Assessment**.
+1. Navigate to **User Assessment**. To do this, in the breadcrumb at the top of the page, click **Security Center**. On the left, click **User Assessment**.
 
 2. Under **List Scope**, make sure your compartment is selected.
 
@@ -462,7 +462,7 @@ Let's find the actual latest assessment (not a saved copy of it) and refresh it.
 
 7. In the breadcrumb at the top of the page, click **User Assessment**. Under **Related Resources**, click **Assessment History**.
 
-8. Notice that there is an additional saved user assessment. None of the user assessments are called **Latest User Assessment**. At a glance, you can compare the number of critical risks, high risks, DBAs, DV Admins, and Audit Admins between the two user assessments.
+8. Notice that there is an additional saved user assessment. None of the user assessments is called **Latest User Assessment**. At a glance, you can compare the number of critical risks, high risks, DBAs, DV Admins, and Audit Admins between the two user assessments.
 
     ![User Assessment History page](images/user-assessment-history.png "User assessment History")
 
@@ -520,7 +520,7 @@ You can select a user assessment to compare with the latest user assessment. Wit
 
 4. From the **Select Assessment** drop-down list, select the earliest assessment for your target database. As soon as you select it, the comparison operation is started.
 
-5. Review the Comparison report. The report tells you that several new users are added to the database since the initial user assessment. Many are identified as a critical risk. At the bottom of the page, click the **Next to Page 2** button to view the entire report.
+5. Review the **Comparison** report. The report tells you that several new users are added to the database since the initial user assessment. Many are identified as a critical risk. At the bottom of the page, click the **Next to Page 2** button to view the entire report.
 
     ![User Assessment Comparison report](images/ua-comparison-report.png "User Assessment Comparison report")
 
@@ -541,4 +541,4 @@ You can select a user assessment to compare with the latest user assessment. Wit
 ## Acknowledgements
 
 * **Author** - Jody Glover, Consulting User Assistance Developer, Database Development
-* **Last Updated By/Date** - Jody Glover, February 26, 2022
+* **Last Updated By/Date** - Jody Glover, April 14, 2022

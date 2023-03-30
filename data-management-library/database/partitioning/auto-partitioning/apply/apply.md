@@ -12,7 +12,7 @@ Estimated Time: 10mins
 ### Prerequisites
 This lab assumes you have completed the following labs:
 
-- Provision an ADB instance (19c, Always Free)
+- Provision an ADB instance (19c)
 - Create non-partitioned table
 - Validate the table
 - Execute recommend task
@@ -46,7 +46,7 @@ The "ID" is a *recommendation ID*, and is used to identify which recommendation 
     ````
 
 
-A partitioned version of the table will be build on-line using an ALTER TABLE MODIFY PARTITION ONLINE command. Your original table will not be impacted or locked throughout this process. It will take approximately 10 minutes for a 5GB table in a 19c Always Free instance.
+A partitioned version of the table will be build on-line using an ALTER TABLE MODIFY PARTITION ONLINE command. Your original table will not be impacted or locked throughout this process. It will take approximately 10 minutes for a 5GB table in a 19c instance.
 
 ## Task 2: Confirm That Table is Partitioned
 

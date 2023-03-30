@@ -55,7 +55,7 @@ def oracle_datasource_example(spark):
     df.printSchema()
 
     print("Filtering recommendation.")
-    df.filter(df."recommended" == "Y")
+    df.filter(df.recommended == "Y")
 
     print("Writing to autonomous database.")
     df.write.format("oracle").mode("overwrite").option("dbtable",TARGET_TABLE).options(**properties).save()
@@ -89,7 +89,7 @@ Edit the replacewithXXXXX text with the correct information (paste with right cl
 
 ![Edited File](./images/editedfile.png " ")
 
-See the edited file for the two places there are edits. When finished editing press **esc** **:wq** to save the file and your changes.
+See the edited file above for the three areas to edit. When finished editing press **esc** **:wq** to save the file and your changes.
 
 Upload this edited file to your object storage using the command line in Cloud Shell after replacing REPLACEYOURNAMESPACE with your actual namespace name (Namespace name can be found in OCI tenancy:
 
@@ -113,10 +113,11 @@ For creating the application, you need to have the python code and we are provid
 
 ![Create Data Flow](./images/createsparkapp.png " ")
 
-For this example, choose python. Select Object Storage dataflow-warehouse, and then choose the file you just uploaded livelabs-df.py
+For this example,Than choose python. Select Object Storage dataflow-warehouse, and then choose the file you just uploaded livelabs-df.py
 
 ![Create Data Flow](./images/createappconfigure.png " ")
 
+The Application Log location is the dataflow-logs bucket that was created. Output logs and error messages will go into this bucket.
 Click on Show advanced options. And enter in the Spark configuration properties the key: spark.oracle.datasource.enabled and the value: true
 
 ![Advanced Options](./images/createappadvoptions.png " ")
@@ -167,17 +168,21 @@ Lets give this task the name of LoadCustomerCSV, and before we create we need to
 
 ![Create Load Data Task](./images/create-data-loader-task2.png " ")
 
-Now we have to just put in the Source, any transformations and Target for the load process. Click on Source and provide the data asset, dataflow_warehouse_bucket, and default connection, bucket would be the dataflow-warehouse, and finally the file type is CSV.
+Now we have to just put in the Source, any transformations and Target for the load process. Click on Source and provide the data asset, dataflow\_warehouse\_bucket, and default connection, bucket would be the dataflow-warehouse, and finally the file type is CSV.
 
 ![Create Load Data Source](./images/create-data-loader-task3.png " ")
 
-![Create Load Data Transformation](./images/create-data-loader-task5.png " ")
+![Create Select File](./images/create-data-loader-task5.png " ")
 
-![Create Load Data Source](./images/create-data-loader-task4.png " ")
+![Create Load Data Type of Source](./images/create-data-loader-task4.png " ")
 
 Now click on Configure Transformations, and here we are going to filter out, extract all of the APPs that are like chrome. This will then pull in just the data for those choices and if you wanted you can also exclude columns here.
 
-![Create Load Data Target](./images/create-data-loader-task6.png " ")
+![Create Extract Data](./images/create-data-loader-task6.png " ")
+
+Before you select Target to fill in the details about the file, you want to **check** Create new data entity. After this first time, the target is created and when scheduling you will just need to either choose insert or overwrite, but the box only needs to be checked the first time loading a new entity.
+
+![Create New Target](./images/create-data-loader-task7a.png " ")
 
 Finally, select Target and here we are going to put the file back into object storage so that we can use it in an analytics query as an external table. 
 
@@ -187,35 +192,29 @@ Create and close the data loader task. We will put it into an application to run
 
 ## Task 3: Create an application for automation
 
-Now you are going to navigate back to the data integration workspace, and click on Application. Click on create application.
+Now you are going to navigate back to the data integration workspace, and click on Application. Click on create application. Enter a name for the application, LAKEHOUSEAPP.
 
-![Create Application](./images/create_app.png " ")
+![Create Application](./images/create-app.png " ")
 
-Click on Save and Close. It is just a shell of an application where you can now publish tasks to be scheduled and run through the application.
+Click on Save and Close. It is just a shell of an application where you can now publish tasks to be scheduled and run through the application. Navigate to the Project_lakehouse, from the menu select Tasks. LoadCustomerCSV will be seen in the list and you will need to expand the three dot menu and add it to the application.
 
-![Create Application](./images/create_app.png " ")
+![Add Task to Application](./images/create-app2.png " ")
 
-## Task 4: Create and schedule OCI Data Flow apps for automation
+![Publish to application](./images/create-app3.png " ")
 
-Now you are going to navigate back to the project. Click on Task under Details and click on Create Task and choose Integration Task. This task is going to be included in the application.
+Select the application name, lakehouseapp:
 
-![Create Data Flow](./images/integrationtask_a.png " ")
+![Select Application and Publish](./images/create-app4.png " ")
 
-Under Data Flow, you are going to click Select and add the Data Flow that you just finished creating in the previous task. Then click Save and Close.
+## Task 4: Run and schedule apps for automation
 
-![Create Data Flow](./images/integrationtask.png " ")
+Now under the application select the menu at the end of the LoadCustomerCSV task. 
 
-Click on the menu for the task and select Publish to Application.
+![View Task Added](./images/create-app5.png " ")
 
-![Add Task](./images/add_task.png " ")
+Now select **Run** task. After this runs successfully, you can return here to schedule the task to run regularly.
 
-Choose the application that was just created in Task 2.
-
-![Add Task](./images/publish_to_app.png " ")
-
-After the task has been added you will see run task or schedule, and you can navigate to the application. For regular loads of this data and automation, you are going to want to schedule the job to run. Again, to see how this is working now, click on Run.
-
-![Run App](./images/run_app.png " ")
+![Run Task](./images/create-app6.png " ")
 
 You may now proceed to the next lab.
 

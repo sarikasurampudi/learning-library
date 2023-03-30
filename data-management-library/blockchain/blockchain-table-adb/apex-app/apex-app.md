@@ -23,7 +23,7 @@ In this lab, you will:
 
 This workshop assumes you have:
 
-* An Oracle Free Tier, Always Free, Paid or LiveLabs Cloud Account
+* LiveLabs Cloud Account
 * Successfully completed the previous labs
 
 ## Task 1: Create APEX Workspace
@@ -266,4 +266,4 @@ Now, we have the blockchain module, the handlers, and the templates defined. Let
 
 * **Author** - Mark Rakhmilevich, Anoosha Pilli
 * **Contributors** - Anoosha Pilli, Salim Hlayel, Brianna AmblerProduct Manager, Oracle Database
-* **Last Updated By/Date** - Anoosha Pilli, September 2021
+* **Last Updated By/Date** - Marion Smith, April 2022

@@ -53,8 +53,8 @@ In this workshop, you will learn how to create the following partitions.
 ### Prerequisites
 This lab assumes you have the following:
 
-* Access to Oracle Database Standard or Enterprise Edition or Autonomous Database.
-* You have access to Paid or Free Tier cloud tenancy. 
+* Access to Oracle Database Standard or Enterprise Edition or Autonomous Database on Oracle Cloud.
+* You have access to Oracle cloud tenancy.
 
 ## Learn More
 

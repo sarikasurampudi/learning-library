@@ -62,6 +62,8 @@ This lab assumes you have:
     ln -sf /root/bootstrap/firstboot.sh /var/lib/cloud/scripts/per-instance/firstboot.sh
     ln -sf /root/bootstrap/eachboot.sh /var/lib/cloud/scripts/per-boot/eachboot.sh
     rm -f /u01/app/osa/non-marketplace-init/system-configured
+    rm -rf /home/oracle/log/*
+    rm -rf /home/opc/log/*
     rm -f /var/log/audit/audit.log
     EOF
     chmod +x /tmp/cleanup.sh
@@ -90,14 +92,84 @@ Your instance at this point is ready for clean capture. Proceed to OCI console t
 
     ![](./images/create-image-2.png " ")
 
-5. After successful image creation, click on *"Create Instance"* to provision a test instance from the image
+5. Edit image details and select all shapes except *BM.Standard.A1.160* and *VM.Standard.A1.Flex*
 
-    ![](./images/create-test-instance.png " ")
+    ![](./images/create-image-3.png " ")
 
-6. After successful instance creation, logon to the host and validate
+## Task 3: Test Custom Image   
 
+1. Download the sample ORM stack zip archive
 
-You may now [proceed to the next lab](#next).
+    - [ll-orm-mkplc-freetier.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/59BZ9_9iIy7rAjk1GCea-ZsSWjJxf0zDK7xFctJmMnsoVXzHtnTuOQsGkNAaYx6Q/n/natdsecurity/b/misc/o/ll-orm-mkplc-freetier.zip)
+
+2. Unzip it locally on your computer to *ll-orm-mkplc-freetier*.
+3. Delete the downloaded file *ll-orm-mkplc-freetier.zip*.
+4. Copy the OCID of the new image
+
+    ![](./images/get-image-ocid.png " ")
+
+5. Navigate to *ll-orm-mkplc-freetier* and open the file *variables.tf*
+
+6. Search and replace the string below with the OCID of the newly created custom image copied above
+
+    ```
+    <copy>
+    replace-with-valid-image-OCID
+    </copy>
+    ```
+
+    ![](./images/update-image-ocid.png " ")
+
+7. Save *variables.tf*
+8. Repackage the entire content of *ll-orm-mkplc-freetier* as  *ll-orm-mkplc-freetier.zip*
+
+    ![](./images/zip-orm-stack.png " ")
+
+9. Using the new zip file above, navigate to "*Developer Services > Stacks*" and create a test instance with Oracle Resources Manager (ORM).
+
+    *Notes:* For more details on how to provision with ORM, refer to [setup-compute](https://oracle.github.io/learning-library/sample-livelabs-templates/sample-workshop-novnc/workshops/freetier/?lab=setup-compute-novnc-ssh) lab guide.
+
+10. After successful instance creation, get the remote desktop URL and logon to validate
+
+    ![](./images/get-remote-desktop-url.png " ")
+
+11. Launch a browser session and navigate to the copied URL to validate
+
+    ![](./images/remote-desktop-landing.png " ")
+
+    *Notes:* If the setup was successful you should see two sample Google-chrome browser windows preloaded.
+
+## Task 4: Share with LiveLabs Team   
+1. Export the custom image to an Object Storage Standard bucket (Do not an Archive bucket)
+
+    - Select *Export to an Object Storage bucket* unless you have a remote bucket URL with the right permissions to accept your export
+    - Update the image name field
+    - Set format to *Oracle Cloud Infrastructure file with QCOW2 image and OCI metadata (.oci)*
+    - Click *Export image*
+
+    ![](./images/export-image.png " ")
+
+2. Navigate to the bucket, select the exported object, and Create a pre-authenticated URL
+
+    - Set the expiration to a year ahead or at least 1 month ahead
+
+    ![](./images/create-pre-auth-url.png " ")
+
+3. Draft an email to *`livelabs-help-db_us@oracle.com`* and *`livelabs-help-license_us@oracle.com`* with the following content
+
+    - Pre-authenticated URL created and copied above
+    - **`desktop_guide_url`**: Link to github.io guide ending with "*../workshop/desktop*".
+      ```
+      e.g.
+      https://oracle.github.io/learning-library/enterprise-manageability-library/enterprise-manager/workshops/desktop/
+      ```
+    - **`desktop_app1_url`** (Optional): Link to any webapp that should be loaded on the desktop on noVNC boot.
+      ```
+      e.g. Enterprise Manager Console
+      https://emcc.livelabs.oraclevcn.com:7803/em
+      ```
+    - **`desktop_app2_url`** (Optional): Same as above a second webapp loaded on the second Google-Chrome browser tab
+
 
 ## Learn More
 * [Oracle Cloud Marketplace Partner Portal Documentation](https://docs.oracle.com/en/cloud/marketplace/partner-portal/index.html)
@@ -106,4 +178,4 @@ You may now [proceed to the next lab](#next).
 
 ## Acknowledgements
 * **Author** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, February 2021
-* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, December 2021
+* **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, April 2022

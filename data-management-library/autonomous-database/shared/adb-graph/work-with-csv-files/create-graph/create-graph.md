@@ -65,7 +65,7 @@ Learn how to
    >**Note: If you clicked on `Start Modeling` button instead then you'll see the screen shown in the next step.**
 
 2. Then select the `BANK_ACCOUNTS` and `BANK_TXNS` tables.   
-![ALT text is not available for this image](./images/select-tables.png " ")
+    ![ALT text is not available for this image](./images/select-tables.png " ")
 
 3. Move them to the right, that is, click the first icon on the shuttle control.   
 
@@ -82,12 +82,12 @@ Learn how to
 
 5.  Now let's change the default Vertex and Edge labels.  
 
-    Click the `BANK_ACCOUNTS` vertex table. Change the label to `ACCOUNTS`. Then click outside the input box to save the update.  
+    Click the `BANK_ACCOUNTS` vertex table. Change the Vertex Label to **ACCOUNTS**. Then click outside the input box on confirm label and save the update.  
 
     ![ALT text is not available for this image](images/edit-accounts-vertex-label.png " ")  
 
-    Click the `BANK_TXNS` edge table and change the label from `BANK_TXNS` to `TRANSFERS`.  
-    Then click outside the input box to save the update.  
+    Click the `BANK_TXNS` edge table and rename the Edge Label from `BANK_TXNS` to **TRANSFERS**.  
+    Then click outside the input box on confirm label and save the update.  
 
     ![ALT text is not available for this image](images/edit-edge-label.png " ")  
 
@@ -97,17 +97,16 @@ Learn how to
     In this instance we want to **confirm** that the direction is from `from_acct_id` to `to_acct_id`.  
 
     Note the `Source Vertex` and `Destination Vertex` information on the left.  
-    ![ALT text is not available for this image](./images/wrong-edge-direction.png " ")   
+ 
+    ![ALT text is not available for this image](images/wrong-edge-direction.png " ")  
 
     **Notice** that the direction is wrong. The Source Key is `to_acct_id` instead of what we want, which is `from_acct_id`.  
 
-    Click the swap edge icon on the right to swap the source and destination vertices and hence reverse the edge direction.
-
-   ![ALT text is not available for this image](images/wrong-edge-direction.png " " ) 
+    Click the swap edge icon on the right to swap the source and destination vertices and hence reverse the edge direction.  
 
    Note that the `Source Vertex` is now the correct one, i.e. the `FROM_ACCT_ID`.
 
-   ![ALT text is not available for this image](images/reverse-edge-result.png " " ) 
+   ![ALT text is not available for this image](images/reverse-edge-result.png " ") 
 
 
    
@@ -115,7 +114,7 @@ Learn how to
 7. Click the **Source** tab to verify that the edge direction, and hence the generated CREATE PROPERTY GRAPH statement, is correct.
 
 
-   ![ALT text is not available for this image](images/generated-cpg-statement.png " " )  
+   ![ALT text is not available for this image](images/generated-cpg-statement.png " ")  
   
 <!--- 
   **An alternate approach:** In the earlier Step 5 you could have just updated the CREATE PROPERTY GRAPH statement and saved the updates. That is, you could have just replaced the existing statement with the following one which specifies that the SOURCE KEY is  `from_acct_id`  and the DESTINATION KEY is `to_acct_id`.  
@@ -153,7 +152,7 @@ Learn how to
    That graph name is used throughout the next lab.  
    Do not enter a different name because then the queries and code snippets in the next lab will fail.  
    
-   Enter a model name (for example, `bank_graph_model`), and other optional information.  
+   Enter a model name (for example, `bank_graph_model`), and other optional information and then click Create.
    ![ALT text is not available for this image](./images/create-graph-dialog.png " ")
 
 9. Graph Studio modeler will now save the metadata and start a job to create the graph.  

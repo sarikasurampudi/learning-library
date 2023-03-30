@@ -18,9 +18,9 @@ For more information about Terraform and Resource Manager, please see the append
 
 ### Prerequisites
 This lab assumes you have:
-- An Oracle Free Tier or Paid Cloud account
+- An Oracle Cloud account
 - You have completed:
-    - Lab: Prepare Setup (*Free-tier* and *Paid Tenants* only)
+    - Lab: Prepare Setup 
 
 ## Task 1: Create Stack: Choose a Path
 Proceed to deploy your workshop environment using Oracle Resource Manager (ORM) stack

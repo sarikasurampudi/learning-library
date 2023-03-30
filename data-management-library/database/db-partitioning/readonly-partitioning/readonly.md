@@ -91,8 +91,7 @@ This lab assumes you have completed the following lab:
 
     ![Image alt text](images/ropt-table-select-3.png "Read only Partition")
 
-
-4. As partition level attribute, read-only can be used in conjunction with other partition maintenance operations.
+4. When you run this below query, you will receive the error - `ORA-14467: This option cannot be issued with the READ ONLY or READ WRITE clause`. As partition level attribute, read-only can be used in conjunction with other partition maintenance operations.
 
     ```
     <copy>
@@ -256,7 +255,9 @@ This lab assumes you have completed the following lab:
     </copy>
     ```
  
-You successfully made it to the end of lab 'read only partitions and sub partitions'.You may now [proceed to the next lab](#next).   
+You successfully made it to the end of this 'read only partitions and sub partitions' lab. 
+
+You may now *proceed to the next lab*.   
 
 ## Learn More
  

@@ -1,8 +1,10 @@
-# Install Verrazzano on a Kubernetes Cluster in the Oracle Cloud Infrastructure (OCI)
+# Install Verrazzano
 
 ## Introduction
 
 This lab walks you through the steps to install Verrazzano on a Kubernetes cluster in the Oracle Cloud Infrastructure.
+
+Estimated time: 20 minutes
 
 ### About Product/Technology
 
@@ -49,11 +51,11 @@ Before installing Verrazzano, we need to install the Verrazzano Platform Operato
 1. Copy the following command and paste it in the *Cloud Shell* to run it.
 
     ```bash
-    <copy>kubectl apply -f https://github.com/verrazzano/verrazzano/releases/download/v1.1.0/operator.yaml</copy>
+    <copy>kubectl apply -f https://github.com/verrazzano/verrazzano/releases/download/v1.2.1/operator.yaml</copy>
     ```
     The output should be similar to the following:
     ```bash
-    $ kubectl apply -f https://github.com/verrazzano/verrazzano/releases/download/v1.1.0/operator.yaml
+    $ kubectl apply -f https://github.com/verrazzano/verrazzano/releases/download/v1.2.1/operator.yaml
     customresourcedefinition.apiextensions.k8s.io/verrazzanomanagedclusters.clusters.verrazzano.io created
     customresourcedefinition.apiextensions.k8s.io/verrazzanos.install.verrazzano.io created
     namespace/verrazzano-install created
@@ -105,9 +107,8 @@ An installation profile is a well-known configuration of Verrazzano settings tha
 
 Verrazzano supports the following installation profiles: development (`dev`), production (`prod`), and managed cluster (`managed-cluster`).
 
-* The production profile, which is the default, provides a 3-node Elasticsearch and persistent storage for the Verrazzano Monitoring Instance (VMI).
-* The development profile provides a single node Elasticsearch and no persistent storage for the VMI.
-* The managed-cluster profile installs only managed cluster components of Verrazzano. To take full advantage of multicluster features, the managed cluster should be registered with an admin cluster.
+The following image describes the Verrazzano installation profiles.
+![Install Profile](images/installprofile.png)
 
 To change profiles in any of the following commands, set the *VZ_PROFILE* environment variable to the name of the profile you want to install.
 
@@ -115,14 +116,17 @@ For a complete description of Verrazzano configuration options, see the [Verrazz
 
 In this lab, we are going to install the *development profile of Verrazzano*, which has the following characteristics:
 
+* Wildcard (nip.io) DNS
+* Self-signed certificates
+* Shared observability stack used by the system components and all applications
+* Ephemeral storage for the observability stack (if the pods are restarted, you lose all of your logs and metrics)
 * It has a lightweight installation.
 * It is for evaluation purposes.
-* No persistence.
-* Single-node Elasticsearch cluster topology.
+* Single-node Opensearch cluster topology.
 
 The following image describes the Verrazzano components that are installed with each profile.
 
-![Verrazzano Profile](images/4.png " ")
+![Verrazzano Profile](images/verrazzanoprofile.png " ")
 
 According to our DNS choice, we can use nip.io (wildcard DNS) or [Oracle OCI DNS](https://docs.cloud.oracle.com/en-us/iaas/Content/DNS/Concepts/dnszonemanagement.htm). In this lab, we are going to install using nip.io (wildcard DNS).
 
@@ -184,33 +188,33 @@ Verrazzano installs multiple objects in multiple namespaces. Verrazzano componen
 
 1. Please verify that all the pods associated with the multiple objects have a *Running* status. You will have 16 pods in the *Running* state.
 
-```bash
-<copy>kubectl get pods -n verrazzano-system</copy>
-```
+    ```bash
+    <copy>kubectl get pods -n verrazzano-system</copy>
+    ```
 
-The output should be similar to the following:
+    The output should be similar to the following:
 
-```bash
-kubectl get pods -n verrazzano-system
-NAME                                           READY STATUS    RESTARTS   AGE
-coherence-operator-dcfb446df-5dckp             1/1   Running   1          8m57s
-fluentd-cgrg5                                  2/2   Running   1          6m22s
-fluentd-jztnn                                  2/2   Running   1          6m22s
-fluentd-n4s95                                  2/2   Running   1          6m22s
-oam-kubernetes-runtime-549db9798b-grxj4        1/1   Running   0          8m50s
-verrazzano-application-operator-54668f668-bng5 1/1   Running   0          8m9s
-verrazzano-authproxy-86fb64c9f-4mffq           2/2   Running   0          6m22s
-verrazzano-console-6c8d4875cf-r6bsv            2/2   Running   0          6m22s
-verrazzano-monitoring-operator-787bfc7f86-p6qb 1/1   Running   0          6m22s
-verrazzano-operator-6cc79dfdcc-6l9lt           1/1   Running   0          6m22s
-vmi-system-es-master-0                         2/2   Running   0          4m37s
-vmi-system-grafana-666f6854b4-xrmwf            2/2   Running   0          4m37s
-vmi-system-kiali-5949966fb8-gczd5              2/2   Running   0          6m17s
-vmi-system-kibana-95d8c5d96-9qr9j              2/2   Running   0          4m37s
-vmi-system-prometheus-0-74478c9d44-gk85g       3/3   Running   0          3m6s
-weblogic-operator-5df5f94bd7-tkg74             2/2   Running   0          8m17s
-$
-```
+    ```bash
+    kubectl get pods -n verrazzano-system
+    NAME                                           READY STATUS    RESTARTS   AGE
+    coherence-operator-dcfb446df-5dckp             1/1   Running   1          8m57s
+    fluentd-cgrg5                                  2/2   Running   1          6m22s
+    fluentd-jztnn                                  2/2   Running   1          6m22s
+    fluentd-n4s95                                  2/2   Running   1          6m22s
+    oam-kubernetes-runtime-549db9798b-grxj4        1/1   Running   0          8m50s
+    verrazzano-application-operator-54668f668-bng5 1/1   Running   0          8m9s
+    verrazzano-authproxy-86fb64c9f-4mffq           2/2   Running   0          6m22s
+    verrazzano-console-6c8d4875cf-r6bsv            2/2   Running   0          6m22s
+    verrazzano-monitoring-operator-787bfc7f86-p6qb 1/1   Running   0          6m22s
+    verrazzano-operator-6cc79dfdcc-6l9lt           1/1   Running   0          6m22s
+    vmi-system-es-master-0                         2/2   Running   0          4m37s
+    vmi-system-grafana-666f6854b4-xrmwf            2/2   Running   0          4m37s
+    vmi-system-kiali-5949966fb8-gczd5              2/2   Running   0          6m17s
+    vmi-system-kibana-95d8c5d96-9qr9j              2/2   Running   0          4m37s
+    vmi-system-prometheus-0-74478c9d44-gk85g       3/3   Running   0          3m6s
+    weblogic-operator-5df5f94bd7-tkg74             2/2   Running   0          8m17s
+    $
+    ```
 
 Leave the *Cloud Shell* open; we need it for Lab 3.
 
@@ -218,4 +222,4 @@ Leave the *Cloud Shell* open; we need it for Lab 3.
 
 * **Author** -  Ankit Pandey
 * **Contributors** - Maciej Gruszka, Peter Nagy
-* **Last Updated By/Date** - Kamryn Vinson, January 2022
+* **Last Updated By/Date** - Ankit Pandey, May 2022

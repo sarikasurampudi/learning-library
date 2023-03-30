@@ -112,7 +112,7 @@ This lab assumes you have completed the following lab:
         </copy>
      ```
 
-4. The highlighted rows and columns are system generated Partitions and Sub Partitions
+4. The highlighted rows and columns are system generated Partitions and Sub Partitions. Note down a partition name.
 
     ![Image alt text](images/sales-interval-hash-data.png "Display the sales_interval_hash Data")
 
@@ -134,7 +134,7 @@ This lab assumes you have completed the following lab:
 
     ![Image alt text](images/partition-before-2016.png "Display partition before 2016 sales_interval_hash Data")
 
-7. View data in sales\_interval\_hash table by system-generated partition. In the below example, SYS_P1754 is system generated partition name.  
+7. View data in sales\_interval\_hash table by system-generated partition. In the below example, SYS_P1754 is system generated partition name. Replace SYS\_P1754 in the below query with the partition name you noted earlier.
 
       ```
         <copy> 
@@ -155,7 +155,9 @@ This lab assumes you have completed the following lab:
       </copy>
       ``` 
  
-You successfully made it to the end this lab Hash partitioning. You may now [proceed to the next lab](#next).  
+You successfully made it to the end of this Hash partitioning lab.
+
+You may now *proceed to the next lab*.  
 
 ## Learn More
 

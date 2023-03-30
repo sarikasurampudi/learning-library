@@ -189,6 +189,5 @@ To use PuTTYgen to convert a key into .ppk format, complete the following steps:
 4. Go to **File**, and then click **Save private key** to save the key in .ppk format.
 
 ## Acknowledgements
-* **Author** - Rene Fontcha, LiveLabs Platform Lead, NA Technology
-* **Contributors** - LiveLabs Team, Tom McGinn
+* **Author** - Rene Fontcha, LiveLabs Platform Lead, NA Technology 
 * **Last Updated By/Date** - Rene Fontcha, LiveLabs Platform Lead, NA Technology, June 2021

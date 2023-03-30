@@ -12,7 +12,7 @@ Estimated Time: 25mins
 ### Prerequisites
 This lab assumes you have completed the following labs:
 
-- Provision an ADB Instance (19c, Always Free)
+- Provision an ADB Instance (19c)
 - Create Non-partitioned Table
 
 ## Task 1: Validate your newly created nonpartitioned Table as Candidate for Auto Partitioning  

@@ -4,7 +4,7 @@
 
 In this lab, you will build and deploy the pre-built Helidon Java backend Docker image to OKE, then configure the API Gateway.
 
-Estimated time: 25 minutes
+Estimated time: 15 minutes
 
 Watch the video below for a quick walk through of the lab.
 
@@ -70,7 +70,7 @@ This will allow the appropriate object storage bucket to access your application
 3. Check your container registry in your compartment
     - Go to the Console, click the hamburger menu in the top-left corner and open
     **Developer Services > Container Registry**.
-   
+
     ![](images/container-registry.png)
 
 ## **Task 2**: Deploy on Kubernetes and Check the Status
@@ -79,12 +79,12 @@ This will allow the appropriate object storage bucket to access your application
 
     ```
     <copy>
-    cd $MTDRWORKSHOP_LOCATION/backend 
+    cd $MTDRWORKSHOP_LOCATION/backend
     ./deploy.sh
     </copy>
     ```
 
-   If everything runs correctly the script will output something like this. 
+   If everything runs correctly the script will output something like this.
 
     ![](images/deploy-output.png)
 

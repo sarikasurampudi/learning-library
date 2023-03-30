@@ -44,9 +44,11 @@ This lab assumes you have:
 
 ## Task 1: Review the global settings for Oracle Data Safe
 
-1. In Security Center, click **Settings**.
+1. Access the home page for Oracle Data Safe. The home page is named **Overview**.
 
-2. Review the global settings.
+2. Under **Data Safe**, click **Settings**.
+
+3. Review the global settings.
 
     - Each regional Oracle Data Safe service has global settings for paid usage, online retention period, and archive retention period.
     - Global settings are applied to all target databases unless their audit profiles override them.
@@ -57,17 +59,19 @@ This lab assumes you have:
 
 ## Task 2: Review the audit profile for your target database
 
-1. On the left, click **Activity Auditing**.
+1. In the breadcrumb, click **Data Safe**.
 
-2. Under **Related Resources**, click **Audit Profiles**.
+2. Under **Security Center** on the left, click **Activity Auditing**.
 
-3. From the **Compartment** drop-down list under **List Scope**, make sure your compartment is selected.
+3. Under **Related Resources**, click **Audit Profiles**.
 
-4. On the right, review the audit profile information about your target database, and then click your target database name to view more detail.
+4. From the **Compartment** drop-down list under **List Scope**, make sure your compartment is selected.
+
+5. On the right, review the audit profile information about your target database, and then click your target database name to view more detail.
 
     ![Audit Profiles page](images/audit-profiles-page.png "Audit Profiles page")
 
-5. Review the details in the audit profile.
+6. Review the details in the audit profile.
 
     - There are default settings for paid usage, online retention period, and offline retention period.
     - All initial audit profile settings are inherited from the global settings for Oracle Data Safe, but you can modify them here as needed.
@@ -319,7 +323,7 @@ This lab assumes you have:
 
 ## Task 10: Create a custom audit report
 
-1. At the top of the All Activity report, add the following two filters. To add a filter, click **+ Another Filter**. When you are done setting the filter parameters, click **Apply**.
+1. At the top of the **All Activity** report, add the following two filters. To add a filter, click **+ Another Filter**. When you are done setting the filter parameters, click **Apply**.
 
     - **Target = your-target-database-name**
     - **Object Owner = HCM1**
@@ -340,7 +344,7 @@ This lab assumes you have:
 
     - If you need to modify your custom report, you can click **Save Report** to save the changes.
 
-6. To view your custom report in the future, under **Related Resources**, click **Audit Reports**. Click the **Custom Reports** tab, and then click the name of your custom audit report.
+6. To view your custom report in the future, under **Related Resources** for **Activity Auditing**, click **Audit Reports**. Click the **Custom Reports** tab, and then click the name of your custom audit report.
 
 
 ## Task 11: Generate and download a custom audit report as a PDF
@@ -380,4 +384,4 @@ This lab assumes you have:
 ## Acknowledgements
 
 * **Author** - Jody Glover, Consulting User Assistance Developer, Database Development
-* **Last Updated By/Date** - Jody Glover, February 26, 2022
+* **Last Updated By/Date** - Jody Glover, April 14, 2022

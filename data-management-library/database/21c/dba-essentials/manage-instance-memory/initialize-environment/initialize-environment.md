@@ -139,19 +139,20 @@ This lab assumes you have -
 
 ### **Update the Named Credentials with the new SSH Key**
 
-4. From the EM Console as *SYSMAN*, navigate to ***Setup menu*** > ***Security*** > ***Named Credential*** and Select ROOT credential;
+4. From the EM Console as *SYSMAN*, navigate to ***Setup menu*** > ***Security*** > ***Named Credential*** and Select **ROOT** credential. Click **Edit**.
+    ![Update Named Credentials](images/update-ssh-creds-1.png " ")
 
-5. Click Edit. Replace the existing entry with the *SSH Private Key* you copied to *"/tmp"*. Keep the General section unchanged and update the *Credential Properties* as followed:
+
+5. Keep the General section unchanged and update the *Credential Properties* as followed:
 
     - User name: *oracle*
     - Delete any content from *SSH Public Key* Textbox
-    - Click *Browse* to select the *Private Key*
+    - Click *Browse* to select the *Public Key* id_rsa.pub. If you cannot see the **.ssh** directory, you can click **.livelabs** and then go to **oracle** to access the **.ssh** folder.
 
-    ![Update Named Credentials](images/update-ssh-creds-1.png " ")
-
-6. On the file browser, navigate to *+Other Locations* > *tmp* and select the file *rsa_priv*
+6. For the *SSH Private Key*, on the file browser, navigate to *+Other Locations* > *tmp* and select the file *rsa_priv*.
 
     ![Edit Credentials Properties](images/update-ssh-creds-2.png " ")
+
 
 7. Click *Test and Save*
 

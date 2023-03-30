@@ -179,5 +179,5 @@ To use PuTTYgen to convert a key into .ppk format, complete the following steps:
 
 ## Acknowledgements
 * **Author** - Rene Fontcha, LiveLabs Platform Lead, NA Technology
-* **Contributors** - LiveLabs Team, Tom McGinn
+* **Contributors** - LiveLabs Team 
 * **Last Updated By/Date** - LiveLabs Team, May 2021

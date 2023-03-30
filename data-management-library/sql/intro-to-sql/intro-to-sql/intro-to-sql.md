@@ -2,7 +2,6 @@
 
 ## Introduction
 
-
 This lab provides an introduction to the Structured Query Language (SQL). You will learn how to create tables with primary keys, columns, constraints, indexes, and foreign keys by running these basic commands in your provisioned Oracle Autonomous Database instance SQL Worksheet.
 
 Estimated Time: 20 minutes

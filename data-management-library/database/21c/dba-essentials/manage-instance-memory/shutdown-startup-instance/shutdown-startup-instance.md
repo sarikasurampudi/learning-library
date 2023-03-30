@@ -38,7 +38,7 @@ To shut down and start the Database Instance using SQL commands, you must set th
 3.  Run the command `oraenv` to set the environment variables.  
 
     ```
-    $ <copy>./oraenv</copy>
+    $ <copy>. oraenv</copy>
     ```
 
 4.  Enter Oracle SID `orcl`.  
@@ -89,7 +89,7 @@ After setting the environment as instructed in *Task 1* of this lab, you can shu
     OPEN
     ```
 
-3.  Close the Oracle Database and shut down the instance in *IMMEDIATE* mode from the SQL prompt.  
+3.  Close the Oracle Database and shut down the instance in *IMMEDIATE* mode from the SQL prompt.
 
     ```
     SQL> <copy>shutdown immediate</copy>
@@ -110,11 +110,11 @@ After setting the environment as instructed in *Task 1* of this lab, you can shu
     SQL> <copy>select status from v$instance;</copy>
     ```
     ```
-    ERROR:  
-    ORA-03114: not connected to ORACLE
+    ERROR:
+    ORA-01034: ORACLE not available
     ```
 
-    The output confirms that Oracle Database is in closed state.   
+    The output confirms that Oracle Database is in closed state. 
 
     You have now shut down the Database Instance. 
 

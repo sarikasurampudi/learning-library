@@ -14,9 +14,9 @@ Estimated Time: 10 Minutes.
 
 This lab assumes you have:
 
-- A Free Tier, Paid or LiveLabs Oracle Cloud account
+- An Oracle Cloud account
 - You have completed:
-    - Lab: Prepare Setup (*Free-tier* and *Paid Tenants* only)
+    - Lab: Prepare Setup 
     - Lab: Environment Setup
 
 ## Task 1: Validate that required processes are up and running

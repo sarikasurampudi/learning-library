@@ -30,7 +30,7 @@ In this lab, you will:
     ````
     <copy>
     ls ~/Downloads/
-    sudo unzip Downloads/sqlcl-[latest-version].zip -d /opt/oracle/
+    sudo unzip ~/Downloads/sqlcl-latest.zip -d /opt/oracle/
     ln -s /opt/oracle/sqlcl/bin/sql /home/oracle/.local/bin/sql
     </copy>
     ````
@@ -47,7 +47,7 @@ In this lab, you will:
     
     ````
     <copy>
-    set cloudconfig /home/oracle/Wallet_[Your Initials]Dev01.zip
+    set cloudconfig /home/oracle/Downloads/Wallet_[Your Initials]Dev01.zip
     </copy>
     ````
 
@@ -884,7 +884,7 @@ In this lab, you will:
 
 2. On Oracle Cloud Console, click on main menu ≡, then **Autonomous Transaction Processing** under Oracle Database. **Create Autonomous Database**.
     - Select a compartment: [Your Compartment]
-    - Display name: [Your Initials]-Dev02 (e.g. VLT-Dev02)
+    - Display name: [Your Initials]Dev02 (e.g. VLTDev02)
     - Database name: [Your Initials]Dev02 (e.g. VLTDev02)
     - Choose a workload type: Transaction Processing
     - Choose a deployment type: Shared Infrastructure
@@ -1103,8 +1103,8 @@ In this lab, you will:
     ````
 
 20. Clean up OCI environment by terminating all resources:
-    * ATPdev01 database **[Your Initials]-Dev01**
-    * ATPdev02 database **[Your Initials]-Dev02**
+    * ATPdev01 database **[Your Initials]Dev01**
+    * ATPdev02 database **[Your Initials]Dev02**
     * Compute instance **[Your Initials]-ClientVM**
     * VCN **[Your Initials]-VCN**
 

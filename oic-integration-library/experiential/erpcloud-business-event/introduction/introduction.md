@@ -40,6 +40,8 @@ This lab assumes you have the following:
 - Oracle ERP Cloud access
 
 
+You may now **proceed to the next lab**.
+
 ## Want to Learn More?
 * [Getting Started with OCI Application Integration](https://docs.oracle.com/en/cloud/paas/integration-cloud)
 * [Using the Oracle ERP Cloud Adapter with OCI Application Integration](https://docs.oracle.com/en/cloud/paas/integration-cloud/erp-adapter)

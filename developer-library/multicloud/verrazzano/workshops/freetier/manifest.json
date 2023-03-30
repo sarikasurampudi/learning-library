@@ -33,17 +33,17 @@
             "filename": "../../access-application/access-application.md"
         },
 		{
-            "title": "Lab 5: Modifying the Application component and Creation of new image",
+            "title": "Lab 5: Modify the Bobby's Book Application and Create a New Application Component Image",
             "type": "freetier",
             "filename": "../../modify-helidonstock/modify-helidonstock.md"
         },
 		{
-            "title": "Lab 6: Pushing new component image in Oracle Cloud Container Registry",
+            "title": "Lab 6: Push the Docker Image for bobbys-helidon-stock-application to the Oracle Cloud Container Registry",
             "type": "freetier",
             "filename": "../../pushing-new-image/pushing-new-image.md"
         },
 		{
-            "title": "Lab 7: Modifying Application Configuration file to Re-deploy modified component",
+            "title": "Lab 7: Modify the Bobby's Books Configuration YAML File",
             "type": "freetier",
             "filename": "../../modify-yaml-config/modify-yaml-config.md"
         },

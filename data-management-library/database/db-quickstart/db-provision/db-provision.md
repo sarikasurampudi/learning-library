@@ -29,7 +29,7 @@ Estimated Lab Time: 10 minutes
 
     ![](./images/Picture100-36.png " ")
 
-3. The following steps apply similarly to either Autonomous Data Warehouse or Autonomous Transaction Processing. This lab shows provisioning of an Autonomous Data Warehouse database, so click **Autonomous Data Warehouse**.
+3. The following steps apply similarly to either Autonomous Data Warehouse or Autonomous Transaction Processing. This lab shows provisioning of an Autonomous Data Warehouse database, so click **Oracle Database** -> **Autonomous Data Warehouse**.
 
     ![](https://raw.githubusercontent.com/oracle/learning-library/master/common/images/console/database-adw.png " ")
 
@@ -41,10 +41,6 @@ Estimated Lab Time: 10 minutes
 
     ![](./images/Compartment.png " ")
 
-6. If you are using a Free Trial or Always Free account, and you want to use Always Free Resources, you need to be in a region where Always Free Resources are available. You can see your current default **region** in the top, right hand corner of the page.
-
-    ![](./images/Region.png " ")
-
 ## Task 2: Creating the Autonomous Database Instance
 
 1. Click **Create Autonomous Database** to start the instance creation process.
@@ -55,10 +51,10 @@ Estimated Lab Time: 10 minutes
 3. Provide basic information for the autonomous database:
 
     - __Choose a compartment__ - Select a compartment for the database from the drop-down list.
-    - __Display Name__ - Enter a memorable name for the database for display purposes. For this lab, use __ADW Finance Mart__.
+    - __Display Name__ - Enter a memorable name for the database for display purposes. For this lab, use __ADW-Finance-Mart__.
     - __Database Name__ - Use letters and numbers only, starting with a letter. Maximum length is 14 characters. (Underscores not initially supported.) For this lab, use __ADWFINANCE__.
 
-    ![](./images/Picture100-26.png " ")
+    ![](./images/compartment-name.png " ")
 
 4. Choose a workload type. Select the workload type for your database from the choices:
 
@@ -72,20 +68,17 @@ Estimated Lab Time: 10 minutes
     - __Shared Infrastructure__ - For this lab, choose __Shared Infrastructure__ as the deployment type.
     - __Dedicated Infrastructure__ - Alternately, you could have chosen Dedicated Infrastructure as the workload type.
 
-    ![](./images/Picture100-26_deployment_type.png " ")
+    ![](./images/deployment-type.png " ")
 
 6. Configure the database:
 
-    - __Always Free__ - For this lab, you can select this option to create an always free autonomous database, or not select this option and create a database using your paid subscription. An always free database comes with 1 CPU and 20 GB of storage.
     - __Choose database version__ - Select a database version from the available versions.
-    - __OCPU count__ - Number of CPUs for your service. For this lab, specify __1 CPU__. If you choose an always free database, it comes with 1 CPU.
-    - __Storage (TB)__ - Select your storage capacity in terabytes. For this lab, specify __1 TB__ of storage. Or, if you choose an always free database, it comes with 20 GB of storage.
-    - __Auto Scaling__ - For this lab, keep auto scaling enabled, to allow the system to automatically use up to three times more CPU and IO resources to meet workload demand.
+    - __OCPU count__ - Number of CPUs for your service. For this lab, specify __1 CPU__. 
+    - __Storage (TB)__ - Select your storage capacity in terabytes. For this lab, specify __1 TB__ of storage.
+    - __OCPU Auto Scaling__ - For this lab, keep auto scaling enabled, to allow the system to automatically use up to three times more CPU and IO resources to meet workload demand.
     - __New Database Preview__ - If a checkbox is available to preview a new database version, do __not__ select it.
 
-    *Note: You cannot scale up/down an Always Free autonomous database.*
-
-    ![](./images/Picture100-26c.png " ")
+    ![](./images/configure-db.png " ")
 
 7. Create administrator credentials:
 
@@ -133,4 +126,4 @@ Click [here](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-clo
 ## Acknowledgements
 
 - **Author** - Richard Green, Principal Developer, Database User Assistance
-- **Last Updated By/Date** - Richard Green, February 2022
+- **Last Updated By/Date** - Kamryn Vinson, April 2022

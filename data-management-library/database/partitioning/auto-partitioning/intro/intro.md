@@ -14,7 +14,7 @@ Automatic partitioning chooses from the following partition methods:
 - LIST AUTOMATIC: This partitioning method applies to distinct partition key values.
 - HASH: Applies partitioning on the partition key's hash values.
 
-The workshop is designed to be used in a 19c Always Free Autonomous Database (ADB) instance where a table needs to be larger than 5 GBytes to be considered for auto partitioning. In non-free ADB services, tables must be at least 64GB. This workshop will not work in a 21c Always Free Autonomous Database as of today.
+The workshop is designed to be used in a 19c Autonomous Database (ADB) instance where a table needs to be larger than 5 GBytes to be considered for auto partitioning. In non-free ADB services, tables must be at least 64GB. This workshop will not work in a 21c Always Free Autonomous Database as of today.
 
 Estimated time for the entire workshop: 100 minutes
 

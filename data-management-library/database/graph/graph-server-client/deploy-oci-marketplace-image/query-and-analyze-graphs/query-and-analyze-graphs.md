@@ -4,11 +4,11 @@
 
 This example shows how integrating multiple datasets and using a graph facilitate additional analytics and can lead to new insights. We will use three small datasets for illustrative purposes. The first contains accounts and account  owners. The second is purchases by the people who own those accounts. The third is transactions between these accounts.
 
-The combined dataset is then used to perform the following common graph query and analyses: pattern matching, detection of cycles, finding important nodes, community detection, and recommendation.
+The combined dataset is then used to perform the following common graph query and analyses: pattern matching, detection of cycles, finding important nodes, community detection.
 
 The following ER diagram depicts the relationships between the datasets.
 
-![](images/er-diagram.jpg)
+![er-diagram](images/er-diagram.jpg)
 
 Estimated Lab Time: 10 minutes
 
@@ -90,7 +90,7 @@ graph.query_pgql("""
 
 This result will be visualized in the next section:
 
-![](images/detection.jpg)
+![detection](images/detection.jpg)
 
 The second query just adds one more transfer to the pattern (list) and could be expressed as:
 
@@ -118,7 +118,7 @@ graph.query_pgql("""
 
 This result will be visualized in the next section:
 
-![](images/detection2.jpg)
+![detection2](images/detection2.jpg)
 
 ## Task 4: Influential Accounts
 
@@ -271,7 +271,7 @@ Let's find which subsets of accounts form communities. That is, there are more t
     +-------------+
     ```
 
-    ![](images/community.jpg)
+    ![community](images/community.jpg)
 
     In this case, account **xxx-yyy-201** (John's account), **xxx-yyy-202**, **xxx-yyy-203**, and **xxx-yyy-204** form one partition, account **xxx-zzz-211** is a parition, and account **xxx-zzz-212** is a partition, by the SCC Kosaraju algorithm.
 
@@ -281,4 +281,4 @@ You may now proceed to the next Lab.
 
 * **Author** - Jayant Sharma
 * **Contributors** - Arabella Yao, Jenny Tsai
-* **Last Updated By/Date** - Ryota Yamanaka, January 2022
+* **Last Updated By/Date** - Ryota Yamanaka, April 2022

@@ -13,35 +13,41 @@
           "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login-livelabs2.md"
         },
         {
-            "title": "Lab 1: Range Partitioning",
+          "title": "Lab 1: Connect to you Autonomous Database",
+          "description": "Connect to you Autonomous Database",
+          "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/sqldevweb-login/sqldevweb-login.md",
+          "type" : "livelabs"
+        },
+        {
+            "title": "Lab 2: Range Partitioning",
             "filename": "../../range-partitioning/range.md"
         },
         {
-            "title": "Lab 2: Interval Partitioning",
+            "title": "Lab 3: Interval Partitioning",
             "filename": "../../interval-partitioning/interval.md"
         },
         {
-            "title": "Lab 3: List Partitioning",
+            "title": "Lab 4: List Partitioning",
             "filename": "../../list-partitioning/list.md"
         },
         {
-            "title": "Lab 4: Hash Partitioning",
+            "title": "Lab 5: Hash Partitioning",
             "filename": "../../hash-partitioning/hash.md"
         },
         {
-            "title": "Lab 5: Auto List Partitioning",
+            "title": "Lab 6: Auto List Partitioning",
             "filename": "../../auto-list-partitioning/autolist.md"
         }, 
         {
-            "title": "Lab 6: Read Only Partitions",
+            "title": "Lab 7: Read Only Partitions",
             "filename": "../../readonly-partitioning/readonly.md"
         }, 
         {
-            "title": "Lab 7: Multi Column List Partitioning",
+            "title": "Lab 8: Multi Column List Partitioning",
             "filename": "../../multi-list-partitioning/multilist.md"
         }, 
         {
-            "title": "Lab 8: Convert Non Partitioned Table into Partitioned Table",
+            "title": "Lab 9: Convert Non Partitioned Table into Partitioned Table",
             "filename": "../../convert-table-partitioning/convert.md"
         }, 
         {

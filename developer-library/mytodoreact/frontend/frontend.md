@@ -4,7 +4,7 @@
 
 In this lab you will deploy a pre-built ReactJS application locally then build it for production and host it on Oracle Cloud Infrastucture.
 
-Estimated time: 15 minutes
+Estimated time: 10 minutes
 
 Watch the video below for a quick walk through of the lab.
 

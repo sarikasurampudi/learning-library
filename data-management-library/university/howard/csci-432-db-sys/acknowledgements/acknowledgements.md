@@ -1,5 +1,7 @@
 # Acknowledgements
 
-* **Author** - Marion Smith, Technical Program Manager
-* **Contributors** -  Eugenio Galiano, Kay Malcolm, Paige Hanssen, Beda Hammerschmidt, Patrick Wheeler, and Jayant  Mahto 
-* **Last Updated By/Date** - Marion Smith, February 2022
+* **Author** - Marion Smith, Technical Program Manager, Eugenio Contributor
+
+* **Contributors** -  Eugenio Galiano, Kay Malcolm, Paige Hanssen, Beda Hammerschmidt, Patrick Wheeler, Jayant  Mahto, Russ Lowenthal, Marcos Arancibia Coddou, Jayant Sharma, David Lapp
+* **Last Updated By/Date** - Marion Smith, April 2022
+

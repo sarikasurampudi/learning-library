@@ -8,7 +8,7 @@ This workshop will help you understand the technical capabilities of Advanced Qu
 
 ### About Product/Technology
 
-PL/SQL, Java, and (in the near future) Python AQ/ TEQ Workflow examples will be demonstrated.
+PL/SQL, Java, and Python AQ/ TEQ Workflow examples will be demonstrated.
 
 ### Objectives
 
